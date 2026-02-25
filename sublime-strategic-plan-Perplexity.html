@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sublime Laser – 3‑Year Strategic Plan</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-alt: #0b1020;
+      --card: #111827;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56,189,248,0.15);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1f2933;
+      --danger: #f97373;
+      --success: #4ade80;
+      --warn: #facc15;
+      --font: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font);
+      background: radial-gradient(circle at top, #111827 0, #020617 55%, #000 100%);
+      color: var(--text);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    main {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+    }
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+    header h1 {
+      font-size: clamp(1.6rem, 2.4vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+    header p {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 0.2rem 0.7rem;
+      border: 1px solid rgba(148,163,184,0.45);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      gap: 0.35rem;
+    }
+    .tag-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 8px rgba(56,189,248,0.8);
+    }
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+    .pill {
+      font-size: 0.7rem;
+      padding: 0.15rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.35);
+      color: var(--muted);
+      background: rgba(15,23,42,0.75);
+    }
+
+    /* Layout */
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.2fr);
+      gap: 1.5rem;
+    }
+    @media (max-width: 960px) {
+      .layout { grid-template-columns: 1fr; }
+    }
+
+    /* Cards */
+    .card {
+      background: radial-gradient(circle at top left, rgba(56,189,248,0.12), transparent 55%),
+                  radial-gradient(circle at bottom right, rgba(94,234,212,0.08), transparent 55%),
+                  var(--card);
+      border-radius: 0.9rem;
+      padding: 1.1rem 1.15rem 1.15rem;
+      border: 1px solid rgba(15,23,42,0.9);
+      box-shadow: 0 22px 45px rgba(15,23,42,0.85);
+      position: relative;
+      overflow: hidden;
+    }
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      border: 1px solid transparent;
+      background: linear-gradient(135deg, rgba(56,189,248,0.75), transparent 35%, transparent 65%, rgba(94,234,212,0.7)) border-box;
+      -webkit-mask: linear-gradient(#000 0 0) padding-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      opacity: 0.2;
+      pointer-events: none;
+    }
+    .card h2 {
+      font-size: 1.02rem;
+      margin-bottom: 0.55rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #e5e7eb;
+    }
+    .card small {
+      font-size: 0.73rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+    .section {
+      margin-top: 0.4rem;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+    .section + .section {
+      margin-top: 0.7rem;
+      padding-top: 0.5rem;
+      border-top: 1px dashed rgba(148,163,184,0.3);
+    }
+    p { margin-bottom: 0.35rem; }
+
+    ul, ol {
+      margin: 0.2rem 0 0.35rem 1.05rem;
+      padding-left: 0.15rem;
+    }
+    li { margin-bottom: 0.18rem; }
+
+    .highlight {
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .muted { color: var(--muted); }
+
+    /* Two-column inside sections */
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0,1.2fr) minmax(0,1.7fr);
+      gap: 0.75rem;
+    }
+    @media (max-width: 720px) {
+      .two-col { grid-template-columns: 1fr; }
+    }
+
+    /* Table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.4rem;
+      font-size: 0.82rem;
+    }
+    th, td {
+      border: 1px solid rgba(55,65,81,0.9);
+      padding: 0.35rem 0.4rem;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: rgba(15,23,42,0.95);
+      font-weight: 600;
+      color: #e5e7eb;
+    }
+    tr:nth-child(even) td {
+      background: rgba(15,23,42,0.85);
+    }
+    tr:nth-child(odd) td {
+      background: rgba(15,23,42,0.4);
+    }
+
+    .badge {
+      display: inline-flex;
+      padding: 0.1rem 0.45rem;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      border: 1px solid rgba(148,163,184,0.45);
+      color: var(--muted);
+      background: rgba(15,23,42,0.8);
+    }
+
+    /* Timeline & OKRs */
+    .timeline-row {
+      display: grid;
+      grid-template-columns: minmax(0,1.1fr) minmax(0,2fr);
+      gap: 0.6rem;
+      margin-top: 0.35rem;
+    }
+    .year-label {
+      font-weight: 600;
+      color: var(--accent);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+    }
+    .pill-metric {
+      display: inline-flex;
+      padding: 0.12rem 0.5rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      border: 1px solid rgba(148,163,184,0.45);
+      color: var(--muted);
+      margin-right: 0.25rem;
+      margin-bottom: 0.25rem;
+    }
+
+    /* Tags in right column */
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3,minmax(0,1fr));
+      gap: 0.5rem;
+      margin-top: 0.6rem;
+    }
+    @media (max-width: 960px) {
+      .stat-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+    }
+    @media (max-width: 600px) {
+      .stat-grid { grid-template-columns: minmax(0,1fr); }
+    }
+    .stat-card {
+      border-radius: 0.75rem;
+      border: 1px solid rgba(31,41,55,0.95);
+      background: radial-gradient(circle at top, rgba(56,189,248,0.12), transparent 60%),
+                  rgba(15,23,42,0.98);
+      padding: 0.55rem 0.6rem;
+      font-size: 0.78rem;
+    }
+    .stat-label {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.68rem;
+      color: var(--muted);
+      margin-bottom: 0.2rem;
+    }
+    .stat-value {
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: #e5e7eb;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      margin-top: 0.25rem;
+    }
+    .chip {
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.4);
+      padding: 0.08rem 0.4rem;
+      font-size: 0.7rem;
+      color: var(--muted);
+      background: rgba(15,23,42,0.9);
+    }
+
+    .alert {
+      border-radius: 0.6rem;
+      padding: 0.4rem 0.55rem;
+      font-size: 0.8rem;
+      margin-top: 0.35rem;
+      border: 1px solid rgba(248,250,252,0.04);
+      background: linear-gradient(135deg, rgba(248,250,252,0.02), rgba(15,23,42,0.98));
+    }
+    .alert.warn { border-color: rgba(250,204,21,0.4); }
+    .alert.danger { border-color: rgba(248,113,113,0.5); }
+    .alert.success { border-color: rgba(52,211,153,0.5); }
+
+    code {
+      font-family: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+      font-size: 0.8rem;
+      padding: 0.08rem 0.25rem;
+      border-radius: 0.35rem;
+      background: rgba(15,23,42,0.9);
+      color: #e5e7eb;
+      border: 1px solid rgba(31,41,55,0.9);
+    }
+
+    footer {
+      margin-top: 2.4rem;
+      padding-top: 0.9rem;
+      border-top: 1px solid rgba(15,23,42,0.9);
+      font-size: 0.75rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <div>
+      <div class="tag">
+        <span class="tag-dot"></span>
+        Sublime Laser – Strategic Plan 2026–2028
+      </div>
+      <h1>Three‑Year Strategy for a Femtosecond‑Focused MedTech Job Shop</h1>
+      <p>
+        Concise business, market and competitor analysis plus a 3‑year growth plan that adds innovative, adjacent revenue streams while strengthening the existing ISO&nbsp;13485 laser tube‑machining core.[file:1]
+      </p>
+      <div class="pill-row">
+        <span class="pill">Scope: Strategy &amp; Innovation</span>
+        <span class="pill">Location: Salt Lake City, UT[file:1]</span>
+        <span class="pill">Focus: Neuro / Cardio / Peripheral devices[file:1]</span>
+      </div>
+    </div>
+    <div>
+      <div class="badge">Use this as a living strategic blueprint; sections are modular and can be copy‑pasted into slides or planning docs.</div>
+      <div style="margin-top:0.4rem;font-size:0.78rem;" class="muted">
+        Owner assumptions: small, specialist laser‑machining shop, strong founder‑led engineering DNA, ISO&nbsp;13485 certified, primary value is fast‑turn, tight‑tolerance tubular components in nitinol, stainless and precious metals for medical OEM R&amp;D and early production.[file:1]
+      </div>
+    </div>
+  </header>
+
+  <section class="layout">
+    <!-- LEFT PANEL: ANALYSIS & STRATEGY -->
+    <div>
+
+      <!-- 1. BUSINESS & MARKET SNAPSHOT -->
+      <article class="card">
+        <h2>1. Business &amp; Market Snapshot</h2>
+        <small>Where Sublime Laser plays today</small>
+
+        <div class="section two-col">
+          <div>
+            <p><span class="highlight">Business model.</span> Sublime Laser is a precision laser micromachining job shop focused on tubular medical components, offering R&amp;D projects, design services, “laser and engineer for a day” rental, and small‑batch manufacturing.[file:1]</p>
+            <p><span class="highlight">Technical edge.</span> Femtosecond and ultrafast fiber lasers enable micron‑scale features with minimal heat‑affected zone, ideal for neurovascular, cardiovascular and peripheral vascular devices in nitinol, stainless and other biocompatible alloys.[file:1]</p>
+            <p><span class="highlight">Value proposition.</span> Convenience and very fast turnaround (“parts in days, not weeks”), tight tolerances, and deep experience with device R&amp;D teams who need quick iterations from concept to production.[file:1]</p>
+          </div>
+          <div>
+            <p><span class="highlight">Target customers.</span></p>
+            <ul>
+              <li>Med‑device OEMs (large &amp; mid‑tier) needing neuro / cardio / peripheral vascular implants and delivery systems.[file:1][web:8][web:11]</li>
+              <li>Start‑ups and R&amp;D groups needing small quantities and design‑for‑manufacturing help.[file:1][web:11]</li>
+              <li>Local/regional firms without in‑house femtosecond capability.[web:9][web:10]</li>
+            </ul>
+            <p><span class="highlight">Market context.</span> Implantable and minimally‑invasive devices are trending to smaller diameters, more complex geometries and multi‑material designs, which favors ultrafast laser tube cutting over mechanical or longer‑pulse laser processes.[web:8][web:11]</p>
+          </div>
+        </div>
+
+        <div class="section">
+          <p><span class="highlight">Key strengths.</span></p>
+          <ul>
+            <li>ISO&nbsp;13485 quality system, a prerequisite for many implantable component suppliers.[file:1][web:11]</li>
+            <li>Combination of femtosecond and ultrafast fiber systems covering diameters roughly 0.008–0.500&nbsp;inch and long tube lengths up to ~120&nbsp;inches.[file:1]</li>
+            <li>Service bundle that includes design support and on‑site “rent a laser” days, which differentiates from pure commodity cutting shops.[file:1]</li>
+            <li>Location in Salt Lake City, a growing med‑tech and life‑science hub with access to Western U.S. OEMs.[file:1][web:9]</li>
+          </ul>
+          <p><span class="highlight">Key weaknesses / risks.</span></p>
+          <ul>
+            <li>Brand awareness is limited relative to large laser job shops and integrated medical contract manufacturers that also offer laser cutting.[web:8][web:9][web:10]</li>
+            <li>Business appears heavily R&amp;D and prototype oriented; recurring production volume and long‑term supply agreements are not clearly emphasized.[file:1]</li>
+            <li>Service set is focused on machining; limited visible investment in digital integration (CAD/API quoting), data services, or process IP monetization versus larger peers.[web:8][web:11]</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- 2. COMPETITIVE LANDSCAPE -->
+      <article class="card">
+        <h2>2. Competitive Landscape</h2>
+        <small>How Sublime compares to peers</small>
+
+        <div class="section">
+          <p>The competitive set includes specialized laser micromachining job shops, integrated medical contract manufacturers with laser cutting capabilities, and general laser machining firms that increasingly adopt femtosecond systems.[web:8][web:9][web:10][web:11]</p>
+        </div>
+
+        <div class="section">
+          <p><span class="highlight">Representative competitors.</span></p>
+          <ul>
+            <li><strong>Dedicated laser micromachining job shops</strong> (for example, femtosecond micromachining providers and medical tube‑cutting specialists) that offer similar materials and tolerances and market to med‑device R&amp;D and production.[web:10][web:11]</li>
+            <li><strong>Integrated med‑device CMOs</strong> offering laser cutting, welding and downstream processes (forming, electropolishing, assembly), plus full regulatory and validation support.[web:8]</li>
+            <li><strong>General industrial laser shops</strong> adding limited medical work, competing on price and capacity rather than deep clinical‑application expertise.[web:7][web:9]</li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <p><span class="highlight">Positioning vs. competitors.</span></p>
+          <table>
+            <thead>
+            <tr>
+              <th>Factor</th>
+              <th>Sublime Laser</th>
+              <th>Specialist tube‑cutting shops</th>
+              <th>Integrated med‑device CMOs</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>Core focus</td>
+              <td>Laser‑machined tubular medical components with femtosecond + ultrafast fiber capability.[file:1]</td>
+              <td>Laser tube cutting, some femtosecond, often broader materials and device types.[web:10][web:11]</td>
+              <td>Full device manufacturing including laser cutting and welding, molding, assembly, packaging.[web:8]</td>
+            </tr>
+            <tr>
+              <td>Quality &amp; regulatory</td>
+              <td>ISO&nbsp;13485 certified quality system.[file:1]</td>
+              <td>Frequently ISO&nbsp;13485 with process validation; maturity varies.[web:11]</td>
+              <td>ISO&nbsp;13485 with extensive validation, regulatory and design history file support.[web:8]</td>
+            </tr>
+            <tr>
+              <td>Speed &amp; flexibility</td>
+              <td>Emphasis on very fast turnaround, prototyping, and small batches.[file:1]</td>
+              <td>Fast for standard work; complex custom jobs may have longer queues.[web:11]</td>
+              <td>Slower for small R&amp;D work but strong for stable production programs.[web:8]</td>
+            </tr>
+            <tr>
+              <td>Service breadth</td>
+              <td>R&amp;D machining, design services, on‑site laser &amp; engineer for a day, part manufacturing.[file:1]</td>
+              <td>Primarily machining; some offer limited engineering support and basic finishing.[web:11]</td>
+              <td>End‑to‑end services from concept through sterile packaged device.[web:8]</td>
+            </tr>
+            <tr>
+              <td>Innovation angle</td>
+              <td>Application‑focused blogs explaining femtosecond and ultrafast fiber lasers, but no visible platform or data products.[file:1]</td>
+              <td>Highlight process IP and advanced tooling; some invest in automation.[web:10][web:11]</td>
+              <td>Invest in automation, digital quality, and co‑development with OEMs.[web:8]</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section">
+          <p><span class="highlight">Implications for strategy.</span></p>
+          <ul>
+            <li>Lean into being the most <span class="highlight">responsive and application‑savvy femtosecond partner</span> for neuro / cardio / peripheral implants rather than trying to mimic full CMOs.[file:1][web:8]</li>
+            <li>Expand wallet‑share with existing OEMs by adding adjacent, high‑margin services (design, data, process development) that large CMOs struggle to deliver quickly.[web:8][web:11]</li>
+            <li>Differentiate on a “lab‑like” collaborative experience (on‑site laser days, engineering pods) instead of pure price or generic capacity.[file:1][web:10]</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- 3. STRATEGIC NORTH STAR & YEARLY THEMES -->
+      <article class="card">
+        <h2>3. North Star &amp; 3‑Year Themes</h2>
+        <small>What Sublime should become by end of 2028</small>
+
+        <div class="section">
+          <p><span class="highlight">North Star.</span> Become the go‑to ultrafast laser partner for complex tubular neurovascular, cardiovascular and peripheral devices in North America, known for “days‑not‑weeks” iteration, co‑development expertise, and data‑driven process IP.[file:1][web:8][web:11]</p>
+        </div>
+
+        <div class="section">
+          <p><span class="highlight">High‑level objectives by end of Year&nbsp;3.</span></p>
+          <ul>
+            <li>Double to triple annual revenue versus current baseline while keeping a high‑mix, low‑to‑mid volume project mix.[web:11]</li>
+            <li>Secure 3–5 multi‑year preferred‑supplier or framework agreements with strategic OEMs, including at least one flagship neurovascular program.[web:8][web:11]</li>
+            <li>Launch at least two new innovative revenue lines: a digital design/process‑IP platform and a structured innovation co‑development program (e.g., “Sublime Labs”).[file:1][web:10]</li>
+            <li>Institutionalize ISO&nbsp;13485‑aligned production, validation and documentation practices suitable for late‑stage clinical / early commercial volumes.[file:1][web:8]</li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <div class="timeline-row">
+            <div class="year-label">Year 1 – Foundation &amp; Focus</div>
+            <div>
+              <ul>
+                <li>Clarify positioning around fast‑turn ultrafast tube machining for neuro / cardio / peripheral devices.</li>
+                <li>Map top 20 customers and prospects; build account‑based plans for each.</li>
+                <li>Standardize “offer packages” (R&amp;D sprints, on‑site laser days, pilot‑to‑production bundles).</li>
+                <li>Begin instrumentation of processes to capture parameter and quality data for future digital services.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="timeline-row">
+            <div class="year-label">Year 2 – Scale &amp; Systematize</div>
+            <div>
+              <ul>
+                <li>Add capacity/shift or a second femtosecond system if utilization justifies; invest in fixturing and automation on bottleneck processes.[web:10][web:11]</li>
+                <li>Formalize “Sublime Labs” co‑development program and first digital tools (DFM templates, quoting aids, parameter libraries).</li>
+                <li>Win at least 1–2 longer‑term supply agreements and institutionalize production‑grade validation flows.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="timeline-row">
+            <div class="year-label">Year 3 – Innovate &amp; Differentiate</div>
+            <div>
+              <ul>
+                <li>Launch an early “Sublime OS” style digital portal for selected OEMs (design handoff, revision tracking, parameter snapshots, SPC views).</li>
+                <li>Expand into 1–2 adjacencies (e.g., laser welding for tubular assemblies, micro‑texturing, or integrated forming/finishing partnerships).[web:8]</li>
+                <li>Package process IP and design rules as premium retained services and subscription‑like offerings.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 4. STRATEGIC PILLARS & INITIATIVES -->
+      <article class="card">
+        <h2>4. Strategy Pillars &amp; Key Initiatives</h2>
+        <small>Concrete moves across 5 pillars</small>
+
+        <!-- Pillar 1 -->
+        <div class="section">
+          <p><span class="highlight">Pillar 1 – Deepen the medical niche.</span></p>
+          <ul>
+            <li>Concentrate marketing and BD on neurovascular, coronary/peripheral vascular and delivery systems where femtosecond cutting of nitinol and micro‑diameter tubes is most valuable.[file:1][web:8][web:11]</li>
+            <li>Create 3–5 flagship application notes (e.g., “Designing nitinol neurovascular implants for femtosecond machining”) showcasing tolerances, kerf widths, feature sizes and typical geometries.[file:1][web:10]</li>
+            <li>Develop standard DFM guidelines by device type in collaboration with anchor customers, and share them under NDA as a differentiating service.[web:8][web:11]</li>
+          </ul>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="section">
+          <p><span class="highlight">Pillar 2 – From job shop to co‑developer.</span></p>
+          <ul>
+            <li>Formalize “Sublime Labs”: structured R&amp;D sprints where OEM teams spend 1–3 days on‑site using the “laser and engineer for a day” model with standard pricing, IP terms and outcome templates.[file:1]</li>
+            <li>Offer tiered engagement: (a) quick‑turn prototype packs, (b) design‑plus‑prototype packs, (c) co‑development sprints with pre‑defined milestones and fees.</li>
+            <li>Integrate simple collaboration tools (shared secure folders, weekly experimental summaries, parametric run logs) to make Sublime feel like an extension of the customer’s internal team.[web:8][web:11]</li>
+          </ul>
+          <div class="alert success">
+            Use testimonials around fast R&amp;D (“we rented a laser and tech for a day and saved weeks”) prominently to sell co‑development packages.[file:1]
+          </div>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="section">
+          <p><span class="highlight">Pillar 3 – Build data &amp; digital products.</span></p>
+          <ul>
+            <li>Instrument lasers and inspection to capture parameter sets (pulse width, energy, speed), geometry and quality outcomes, tagged by material and device type.[web:10][web:11]</li>
+            <li>Create an internal “recipe library” mapping parameter windows to typical feature sizes and tube diameters; use it to accelerate quoting and process development.[file:1][web:10]</li>
+            <li>By Year&nbsp;3, expose curated subsets through a secure portal: design rule‑of‑thumb calculators, tolerancing guides, and parameter envelopes, offered to key customers as a premium feature.</li>
+          </ul>
+          <div class="alert warn">
+            Carefully manage IP and confidentiality; keep process data anonymized and customer‑specific recipes behind NDAs and role‑based access.
+          </div>
+        </div>
+
+        <!-- Pillar 4 -->
+        <div class="section">
+          <p><span class="highlight">Pillar 4 – Production‑ready operations.</span></p>
+          <ul>
+            <li>Expand ISO&nbsp;13485 processes into more robust production controls: more formal process validations, PFMEAs, capability studies and documented change control.[file:1][web:8]</li>
+            <li>Standardize fixtures, handling and cleaning for key device families to reduce variation and setup time.[web:8][web:11]</li>
+            <li>Implement basic digital QMS/ERP modules suitable for a small shop (lot traceability, electronic travelers, nonconformance and CAPA tracking).</li>
+          </ul>
+          <div class="alert success">
+            Leverage the existing terms and conditions and warranty language as a starting point for more structured quality agreements with strategic OEMs.[file:1]
+          </div>
+        </div>
+
+        <!-- Pillar 5 -->
+        <div class="section">
+          <p><span class="highlight">Pillar 5 – Innovative adjacencies.</span></p>
+          <ul>
+            <li>Add selective downstream capabilities in‑house (or via tight partnerships): basic laser welding of tubular assemblies, micro‑texturing, or precision cut‑and‑weld subassemblies.[web:8]</li>
+            <li>Explore non‑implant applications that need similar precision (e.g., micro‑catheters, neuromodulation leads, drug‑delivery tubes) without diluting the medical focus.[web:8][web:11]</li>
+            <li>Pilot collaborative development with universities or start‑ups in Salt Lake City, positioning Sublime as the go‑to laser partner in regional innovation projects.[file:1][web:9]</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- 5. 3-YEAR ROADMAP & OKRS -->
+      <article class="card">
+        <h2>5. Three‑Year Roadmap &amp; OKRs</h2>
+        <small>Sequenced execution plan</small>
+
+        <div class="section">
+          <p><span class="highlight">Year 1 – Focus &amp; set the stage.</span></p>
+          <ul>
+            <li><strong>O1: Clarify niche and offers.</strong> Publish updated positioning, website content and one‑page collateral clearly targeting neuro / cardio / peripheral devices and highlighting femtosecond and ultrafast capabilities.[file:1][web:8][web:11]</li>
+            <li><strong>O2: Build key‑account motions.</strong> Identify top 20 OEM/early‑stage targets; assign an executive sponsor and simple account plan for each (targets, contacts, current/desired revenue).</li>
+            <li><strong>O3: Start data capture.</strong> For all new programs, log core process parameters and corresponding inspection results in a structured format.</li>
+          </ul>
+          <div>
+            <span class="pill-metric">KR: ≥ 10% revenue from structured “Sublime Labs” / design services by year‑end.</span>
+            <span class="pill-metric">KR: ≥ 3 repeat customers using on‑site laser days.</span>
+          </div>
+        </div>
+
+        <div class="section">
+          <p><span class="highlight">Year 2 – Scale offerings and capacity.</span></p>
+          <ul>
+            <li><strong>O4: Launch Sublime Labs 1.0.</strong> Package on‑site laser days into 2–3 standard sprint formats with clear deliverables and pricing.</li>
+            <li><strong>O5: Add capacity where justified.</strong> If utilization exceeds predefined thresholds, add a shift or a second femtosecond system and supporting inspection/fixturing.[web:10]</li>
+            <li><strong>O6: Secure first framework agreements.</strong> Convert at least two high‑value customers to multi‑year preferred‑supplier or volume agreements.</li>
+          </ul>
+          <div>
+            <span class="pill-metric">KR: ≥ 40% of revenue from repeat customers.</span>
+            <span class="pill-metric">KR: ≥ 20% of revenue from value‑added services (design, Labs, data access).</span>
+            <span class="pill-metric">KR: 1–2 signed multi‑year agreements.</span>
+          </div>
+        </div>
+
+        <div class="section">
+          <p><span class="highlight">Year 3 – Differentiate through platforms.</span></p>
+          <ul>
+            <li><strong>O7: Launch digital portal.</strong> Offer a secure portal for 3–5 strategic customers with design handoff, revision history, and parameter snapshots, enriched by the internal recipe library.[web:10][web:11]</li>
+            <li><strong>O8: Package process IP.</strong> Define subscription‑like offerings (e.g., quarterly process review, design rule updates, parameter access) as a premium add‑on.</li>
+            <li><strong>O9: Expand adjacencies.</strong> Add at least one adjacent capability (e.g., laser welding for tube‑based assemblies) and win 1–2 customers using combined services.[web:8]</li>
+          </ul>
+          <div>
+            <span class="pill-metric">KR: ≥ 25% of revenue from services beyond pure cutting.</span>
+            <span class="pill-metric">KR: ≥ 3 flagship OEM accounts with multi‑year programs.</span>
+          </div>
+        </div>
+
+        <div class="section">
+          <p><span class="highlight">Key enablers across all years.</span></p>
+          <ul>
+            <li>Maintain and extend ISO&nbsp;13485 discipline as the backbone of credibility with med‑device customers.[file:1][web:8][web:11]</li>
+            <li>Document process knowledge so it scales beyond individual engineers.</li>
+            <li>Develop at least 1–2 rising technical leaders who can own pillars (Labs, digital, production) as the business grows.</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+
+    <!-- RIGHT PANEL: METRICS, RISKS, INNOVATION -->
+    <div>
+      <!-- QUICK METRICS / KPIs -->
+      <article class="card">
+        <h2>6. Metrics &amp; Governance</h2>
+        <small>How to know the plan is working</small>
+
+        <div class="section">
+          <div class="stat-grid">
+            <div class="stat-card">
+              <div class="stat-label">Customer mix target</div>
+              <div class="stat-value">Top 10 accounts &gt; 70% rev</div>
+              <div class="chip-row">
+                <span class="chip">But no single &gt; 20%</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Project profile</div>
+              <div class="stat-value">50–70% R&amp;D / pilot</div>
+              <div class="chip-row">
+                <span class="chip">30–50% recurring prod.</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Service mix</div>
+              <div class="stat-value">≥ 25% value‑add</div>
+              <div class="chip-row">
+                <span class="chip">Design</span>
+                <span class="chip">Labs</span>
+                <span class="chip">Data</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top:0.6rem;">
+            <p><span class="highlight">Core KPIs.</span></p>
+            <ul>
+              <li>Quote‑to‑order conversion rate, by segment and service type.</li>
+              <li>Average lead time for standard R&amp;D jobs vs. contracted framework work.[file:1][web:11]</li>
+              <li>On‑time delivery and first‑pass yield, especially on validated processes.[web:8][web:11]</li>
+              <li>Utilization of femtosecond vs. fiber systems and laser‑for‑a‑day slots.[file:1][web:10]</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="section">
+          <p><span class="highlight">Governance cadence.</span></p>
+          <ul>
+            <li>Monthly: operational review (utilization, lead times, quality events, lessons learned from Labs projects).</li>
+            <li>Quarterly: strategic review against the roadmap, including innovation pipeline and key‑account health.</li>
+            <li>Annually: refresh 3‑year plan; commit only to initiatives with clear owners and metrics.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- RISKS -->
+      <article class="card">
+        <h2>7. Risks &amp; Mitigations</h2>
+        <small>Managing downside while stretching into innovation</small>
+
+        <div class="section">
+          <p><span class="highlight">Risk 1 – Over‑reliance on a few OEMs.</span></p>
+          <p class="muted">Winning large framework agreements can create concentration risk if a single program dominates revenue.[web:8][web:11]</p>
+          <div class="alert warn">
+            Mitigation: Set explicit caps on revenue share per account, maintain a healthy portfolio of start‑ups and mid‑tier OEMs, and keep cross‑segment applications (e.g., neuromodulation, drug delivery) in play.[web:8][web:11]
+          </div>
+        </div>
+
+        <div class="section">
+          <p><span class="highlight">Risk 2 – Capital intensity and utilization.</span></p>
+          <p class="muted">Femtosecond systems and precision inspection equipment are capital‑intensive; growth plans that assume high utilization may be stressed by cyclic demand.[web:10][web:11]</p>
+          <div class="alert warn">
+            Mitigation: Use clear utilization and backlog triggers before buying major assets, consider leasing or partnering for overflow, and prioritize fixturing and process optimization before capacity expansion.[web:10]
+          </div>
+        </div>
+
+        <div class="section">
+          <p><span class="highlight">Risk 3 – IP and confidentiality.</span></p>
+          <p class="muted">Turning process data and design rules into products raises IP and confidentiality concerns with OEM customers.[web:8][web:11]</p>
+          <div class="alert danger">
+            Mitigation: Use strong NDAs, clear IP carve‑outs for generic know‑how vs. program‑specific recipes, and role‑based portal access; involve legal early when defining Labs and portal terms.
+          </div>
+        </div>
+
+        <div class="section">
+          <p><span class="highlight">Risk 4 – Cultural shift to services and platforms.</span></p>
+          <p class="muted">Moving from “cut parts to print” to “co‑develop and share know‑how” can challenge existing ways of working.</p>
+          <div class="alert success">
+            Mitigation: Start small with 2–3 pilot customers; celebrate wins from Labs sprints and digital tools; train engineers in customer communication and structured experimentation.
+          </div>
+        </div>
+      </article>
+
+      <!-- INNOVATION VECTOR DETAILS -->
+      <article class="card">
+        <h2>8. Innovation Vectors &amp; Experiments</h2>
+        <small>Stretch initiatives beyond the core</small>
+
+        <div class="section">
+          <p><span class="highlight">Vector A – “Sublime Labs” co‑development.</span></p>
+          <ul>
+            <li>Structure Labs as 1–3 day intensive sprints with predefined goals (e.g., “achieve functional prototype with X features” or “map parametric window for a new material”).[file:1]</li>
+            <li>Deliver a short report with design recommendations, parameter ranges and risk/feasibility commentary at the end of each sprint.</li>
+            <li>Experiment with package pricing (flat fee vs. reduced fee plus commitment to follow‑on machining volume).</li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <p><span class="highlight">Vector B – “Sublime OS” design &amp; process portal.</span></p>
+          <ul>
+            <li>Phase 1: internal tool aggregating recipes, DFM guidelines and inspection results, searchable by device type and material.[web:10][web:11]</li>
+            <li>Phase 2: restricted customer portal for design upload, feedback on manufacturability, and simple quoting with typical lead times.</li>
+            <li>Phase 3: deeper integration (APIs, CAD plugins) for chosen strategic partners.</li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <p><span class="highlight">Vector C – Adjacent processes for tubular assemblies.</span></p>
+          <ul>
+            <li>Laser welding of cut tubes to other components (e.g., hypotubes to wires or hubs), coordinated with partners for any downstream surface treatment.[web:8]</li>
+            <li>Micro‑texturing or drilling features relevant for drug delivery or anchoring implants.[web:8][web:11]</li>
+            <li>Inspection or metrology as a service (CT data interpretation, dimensional analysis, validation protocol drafting).</li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <p><span class="highlight">Vector D – Ecosystem partnerships.</span></p>
+          <ul>
+            <li>University labs and med‑tech incubators in the Salt Lake region for early‑stage device research that needs fast, precise machining support.[file:1][web:9]</li>
+            <li>Complementary process vendors (e.g., electropolishing, coating, assembly) to offer “virtual full‑stack” services without heavy capex.[web:8]</li>
+            <li>Selective co‑marketing with material suppliers (e.g., nitinol tube producers) whose customers need machining support.[web:11]</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- IMPLEMENTATION CHECKLIST -->
+      <article class="card">
+        <h2>9. 90‑Day Action Checklist</h2>
+        <small>Practical starting steps</small>
+
+        <div class="section">
+          <ul>
+            <li>Update website copy and collateral to sharpen the focus on neurovascular, cardiovascular and peripheral vascular tubular components and highlight ISO&nbsp;13485 plus ultrafast capabilities.[file:1][web:8][web:11]</li>
+            <li>Define 2–3 standard Sublime Labs packages and create draft MSAs, NDAs and IP terms.</li>
+            <li>Implement simple tracking for process parameters and inspection results on all new jobs.</li>
+            <li>Identify 5–7 key accounts to pilot Labs and, later, portal features.</li>
+            <li>Map potential adjacent services (welding, texturing, inspection) and shortlist 1–2 partner companies.</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <footer>
+    <div>Prepared for: Sublime Laser, Inc. – Strategic Planning Horizon 2026–2028.[file:1]</div>
+    <div>Sources: Sublime Laser website content and representative med‑device laser machining market references.[file:1][web:8][web:9][web:10][web:11]</div>
+  </footer>
+</main>
+</body>
+</html>

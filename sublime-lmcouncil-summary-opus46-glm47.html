@@ -1,0 +1,759 @@
+
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sublime Laser, Inc. — 3-Year Strategic Business Plan</title>
+    <style>
+        :root {
+            --primary: #0f2b46;
+            --primary-light: #1a3d5c;
+            --accent: #00b4d8;
+            --accent-dark: #0096b7;
+            --surface: #ffffff;
+            --surface-alt: #f4f7fa;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --info: #6366f1;
+            --radius: 12px;
+            --shadow: 0 1px 3px rgba(0,0,0,.08), 0 4px 16px rgba(0,0,0,.06);
+            --shadow-lg: 0 4px 24px rgba(0,0,0,.12);
+            --transition: .25s cubic-bezier(.4,0,.2,1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; font-size: 16px; }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            color: var(--text);
+            background: var(--surface-alt);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ───── TOP NAVIGATION ───── */
+        .top-bar {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            background: var(--primary);
+            color: #fff;
+            box-shadow: 0 2px 12px rgba(0,0,0,.25);
+        }
+        .top-bar-inner {
+            max-width: 1280px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 2rem; height: 64px;
+        }
+        .logo {
+            font-size: 1.25rem; font-weight: 700; letter-spacing: .5px;
+            display: flex; align-items: center; gap: .6rem;
+        }
+        .logo .dot { display: inline-block; width: 10px; height: 10px; background: var(--accent); border-radius: 50%; }
+
+        .nav-links { display: flex; gap: .25rem; list-style: none; }
+        .nav-links a {
+            color: rgba(255,255,255,.78); text-decoration: none;
+            font-size: .82rem; font-weight: 500; padding: .45rem .85rem;
+            border-radius: 6px; transition: var(--transition);
+        }
+        .nav-links a:hover, .nav-links a.active { color: #fff; background: rgba(255,255,255,.12); }
+
+        .hamburger { display: none; background: none; border: none; color: #fff; cursor: pointer; }
+        .hamburger svg { width: 26px; height: 26px; }
+
+        /* ───── HERO ───── */
+        .hero {
+            margin-top: 64px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 60%, #1e5078 100%);
+            color: #fff; padding: 5rem 2rem 4rem; text-align: center;
+            position: relative; overflow: hidden;
+        }
+        .hero::after {
+            content: ''; position: absolute; bottom: -60px; left: -10%; width: 120%; height: 120px;
+            background: var(--surface-alt); border-radius: 50%; pointer-events: none;
+        }
+        .hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; margin-bottom: .75rem; }
+        .hero .subtitle { font-size: clamp(.95rem, 2vw, 1.2rem); color: rgba(255,255,255,.8); max-width: 640px; margin: 0 auto; }
+        .badge-row { margin-top: 1.5rem; display: flex; gap: .75rem; justify-content: center; flex-wrap: wrap; }
+        .badge {
+            display: inline-flex; align-items: center; gap: .4rem;
+            background: rgba(255,255,255,.12); backdrop-filter: blur(6px);
+            padding: .4rem 1rem; border-radius: 100px;
+            font-size: .78rem; font-weight: 600; letter-spacing: .3px;
+        }
+        .badge .icon { font-size: 1rem; }
+
+        /* ───── LAYOUT ───── */
+        .container { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; }
+
+        section { padding: 4rem 0; position: relative; }
+        section:nth-child(even) { background: var(--surface); }
+
+        .section-label {
+            display: inline-flex; align-items: center; gap: .4rem;
+            font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;
+            color: var(--accent-dark); margin-bottom: .5rem;
+        }
+        .section-label .pip { width: 8px; height: 8px; border-radius: 2px; background: var(--accent); }
+
+        .section-title {
+            font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 800; color: var(--primary);
+            margin-bottom: .5rem;
+        }
+        .section-desc { color: var(--text-light); max-width: 680px; margin-bottom: 2.5rem; font-size: .97rem; }
+
+        /* ───── EXECUTIVE SUMMARY ───── */
+        .exec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        .exec-card {
+            background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+            padding: 2rem; box-shadow: var(--shadow);
+        }
+        .exec-card h3 { font-size: 1.05rem; color: var(--primary); margin-bottom: .75rem; display: flex; align-items: center; gap: .5rem; }
+        .exec-card p { font-size: .92rem; color: var(--text-light); }
+        .exec-full { grid-column: 1 / -1; }
+
+        /* ───── STRATEGIC THEMES ───── */
+        .theme-accordion { display: flex; flex-direction: column; gap: 1rem; }
+        .theme-item {
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: var(--radius); overflow: hidden;
+            box-shadow: var(--shadow); transition: var(--transition);
+        }
+        .theme-item:hover { box-shadow: var(--shadow-lg); }
+        .theme-header {
+            display: flex; align-items: center; gap: 1rem;
+            padding: 1.25rem 1.5rem; cursor: pointer; user-select: none;
+            transition: background var(--transition);
+        }
+        .theme-header:hover { background: var(--surface-alt); }
+        .theme-number {
+            flex-shrink: 0; width: 42px; height: 42px;
+            display: flex; align-items: center; justify-content: center;
+            background: var(--accent); color: #fff; font-weight: 800;
+            border-radius: 10px; font-size: 1.1rem;
+        }
+        .theme-header h3 { flex: 1; font-size: 1.05rem; color: var(--primary); }
+        .theme-chevron {
+            flex-shrink: 0; width: 24px; height: 24px; transition: transform var(--transition);
+            color: var(--text-light);
+        }
+        .theme-item.open .theme-chevron { transform: rotate(180deg); }
+        .theme-body {
+            max-height: 0; overflow: hidden; transition: max-height .4s ease;
+        }
+        .theme-body-inner {
+            padding: 0 1.5rem 1.5rem 4.5rem;
+        }
+        .theme-body-inner .tag {
+            display: inline-block; font-size: .7rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 1px;
+            padding: .2rem .7rem; border-radius: 4px; margin-bottom: .6rem;
+        }
+        .tag-theme { background: #e0f2fe; color: #0369a1; }
+        .tag-tactics { background: #ecfdf5; color: #047857; }
+        .theme-body-inner p { font-size: .92rem; color: var(--text-light); margin-bottom: .75rem; }
+        .theme-body-inner ul { padding-left: 1.2rem; margin-bottom: .75rem; }
+        .theme-body-inner li { font-size: .92rem; color: var(--text-light); margin-bottom: .4rem; }
+        .theme-body-inner li strong { color: var(--text); }
+
+        /* ───── DISAGREEMENTS ───── */
+        .disagree-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+        .disagree-card {
+            background: var(--surface); border-left: 4px solid var(--warning);
+            border-radius: var(--radius); padding: 1.75rem;
+            box-shadow: var(--shadow);
+        }
+        .disagree-card h4 { font-size: 1rem; color: var(--primary); margin-bottom: .5rem; display: flex; align-items: center; gap: .5rem; }
+        .disagree-card .issue { font-weight: 600; color: var(--text); font-size: .93rem; margin-bottom: .5rem; }
+        .disagree-card p { font-size: .88rem; color: var(--text-light); }
+
+        .perspective {
+            margin-top: .75rem; padding: .75rem 1rem; border-radius: 8px;
+            background: var(--surface-alt); font-size: .85rem; color: var(--text-light);
+        }
+        .perspective strong { color: var(--text); }
+
+        /* ───── ROADMAP ───── */
+        .roadmap { position: relative; }
+        .roadmap::before {
+            content: ''; position: absolute; left: 30px; top: 0; bottom: 0;
+            width: 3px; background: linear-gradient(to bottom, var(--accent), var(--info));
+            border-radius: 3px;
+        }
+        .roadmap-year { position: relative; padding-left: 72px; margin-bottom: 3rem; }
+        .roadmap-year:last-child { margin-bottom: 0; }
+        .year-dot {
+            position: absolute; left: 16px; top: 6px;
+            width: 30px; height: 30px; border-radius: 50%;
+            background: var(--surface); border: 3px solid var(--accent);
+            display: flex; align-items: center; justify-content: center;
+            font-size: .7rem; font-weight: 800; color: var(--accent);
+            z-index: 1;
+        }
+        .roadmap-year h3 {
+            font-size: 1.2rem; color: var(--primary); margin-bottom: .25rem;
+        }
+        .roadmap-year .obj {
+            font-size: .88rem; color: var(--accent-dark); font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .initiative-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+        .initiative-card {
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 1.25rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        .initiative-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+        .initiative-card h4 {
+            font-size: .85rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: .5px; margin-bottom: .6rem;
+            display: flex; align-items: center; gap: .4rem;
+        }
+        .initiative-card ul { padding-left: 1rem; }
+        .initiative-card li { font-size: .85rem; color: var(--text-light); margin-bottom: .35rem; }
+
+        .cat-ops { color: #0369a1; }
+        .cat-digital { color: #7c3aed; }
+        .cat-commercial { color: #c2410c; }
+        .cat-market { color: #047857; }
+        .cat-service { color: #b45309; }
+        .cat-tech { color: #6366f1; }
+        .cat-innovation { color: #be185d; }
+        .cat-manufacturing { color: #0f766e; }
+        .cat-ip { color: #4338ca; }
+
+        /* ───── FINANCIALS ───── */
+        .fin-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+        .fin-card {
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 1.5rem; text-align: center;
+            box-shadow: var(--shadow); transition: var(--transition);
+        }
+        .fin-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+        .fin-card .label { font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-light); margin-bottom: .4rem; }
+        .fin-card .value { font-size: 1.6rem; font-weight: 800; color: var(--primary); }
+        .fin-card .note { font-size: .78rem; color: var(--text-light); margin-top: .3rem; }
+
+        .bar-chart { margin-top: 2rem; }
+        .bar-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+        .bar-label { width: 100px; font-size: .85rem; font-weight: 600; color: var(--text); text-align: right; flex-shrink: 0; }
+        .bar-track { flex: 1; background: var(--surface-alt); border-radius: 8px; height: 32px; overflow: hidden; border: 1px solid var(--border); }
+        .bar-fill {
+            height: 100%; border-radius: 8px; display: flex; align-items: center;
+            padding: 0 .75rem; font-size: .78rem; font-weight: 700; color: #fff;
+            transition: width 1s ease;
+        }
+        .bar-fill.y1 { background: linear-gradient(90deg, #0096b7, #00b4d8); }
+        .bar-fill.y2 { background: linear-gradient(90deg, #6366f1, #818cf8); }
+        .bar-fill.y3 { background: linear-gradient(90deg, #059669, #34d399); }
+
+        /* ───── RISK ───── */
+        .risk-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+        .risk-card {
+            background: var(--surface); border-radius: var(--radius);
+            padding: 1.75rem; box-shadow: var(--shadow);
+            border-left: 4px solid var(--danger);
+        }
+        .risk-card h4 { font-size: 1rem; color: var(--primary); margin-bottom: .5rem; display: flex; align-items: center; gap: .5rem; }
+        .risk-card p { font-size: .9rem; color: var(--text-light); }
+
+        /* ───── FOOTER ───── */
+        footer {
+            background: var(--primary); color: rgba(255,255,255,.6);
+            text-align: center; padding: 2rem; font-size: .82rem;
+        }
+
+        /* ───── SCROLL-SPY HIGHLIGHT ───── */
+        .nav-links a.active { color: #fff !important; background: rgba(0,180,216,.3) !important; }
+
+        /* ───── RESPONSIVE ───── */
+        @media (max-width: 900px) {
+            .exec-grid, .disagree-cards, .risk-cards { grid-template-columns: 1fr; }
+            .initiative-grid { grid-template-columns: 1fr; }
+            .fin-row { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 640px) {
+            .top-bar-inner { padding: 0 1rem; }
+            .nav-links { display: none; }
+            .nav-links.open {
+                display: flex; flex-direction: column;
+                position: absolute; top: 64px; left: 0; right: 0;
+                background: var(--primary); padding: 1rem; gap: .25rem;
+                box-shadow: 0 8px 24px rgba(0,0,0,.3);
+            }
+            .hamburger { display: block; }
+            .hero { padding: 4rem 1.25rem 3rem; }
+            .fin-row { grid-template-columns: 1fr; }
+            .roadmap::before { left: 18px; }
+            .roadmap-year { padding-left: 52px; }
+            .year-dot { left: 4px; }
+            .theme-body-inner { padding-left: 1.5rem; }
+            .container { padding: 0 1rem; }
+        }
+
+        /* Print */
+        @media print {
+            .top-bar, .hamburger { display: none !important; }
+            .hero { margin-top: 0; }
+            section { break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ══════════════ TOP BAR ══════════════ -->
+<nav class="top-bar">
+    <div class="top-bar-inner">
+        <div class="logo"><span class="dot"></span> Sublime Laser — Strategic Plan</div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#executive-summary">Summary</a></li>
+            <li><a href="#strategic-themes">Themes</a></li>
+            <li><a href="#disagreements">Disagreements</a></li>
+            <li><a href="#roadmap">Roadmap</a></li>
+            <li><a href="#financials">Financials</a></li>
+            <li><a href="#risks">Risks</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+    </div>
+</nav>
+
+<!-- ══════════════ HERO ══════════════ -->
+<header class="hero">
+    <h1>3-Year Strategic Business Plan</h1>
+    <p class="subtitle">Sublime Laser, Inc. — Synthesized from the Strategic Advisory Council (Z.ai: GLM 4.7)</p>
+    <div class="badge-row">
+        <span class="badge"><span class="icon">🏭</span> ISO 13485 Certified</span>
+        <span class="badge"><span class="icon">⚡</span> Femtosecond &amp; Fiber Laser</span>
+        <span class="badge"><span class="icon">🩺</span> Medical Device Focus</span>
+        <span class="badge"><span class="icon">📅</span> February 2026</span>
+    </div>
+</header>
+
+<!-- ══════════════ EXECUTIVE SUMMARY ══════════════ -->
+<section id="executive-summary">
+    <div class="container">
+        <div class="section-label"><span class="pip"></span> Executive Summary</div>
+        <h2 class="section-title">Who We Are &amp; Where We're Going</h2>
+        <p class="section-desc">A snapshot of Sublime Laser's current position and the council's vision for transformation over the next three years.</p>
+
+        <div class="exec-grid">
+            <div class="exec-card">
+                <h3>🔬 Core Identity</h3>
+                <p>Sublime Laser, Inc. is a niche, ISO 13485-certified precision manufacturer specializing in femtosecond and fiber laser machining of tubular medical components (nitinol, stainless steel).</p>
+            </div>
+            <div class="exec-card">
+                <h3>⚡ Key Differentiators</h3>
+                <p>The company differentiates itself through ultra-fast turnaround times ("days, not weeks") and a unique "Rent a Laser" service that allows for on-site or in-house rapid prototyping.</p>
+            </div>
+            <div class="exec-card exec-full">
+                <h3>🚀 Strategic Vision</h3>
+                <p>While the company currently operates with a small, agile team, the council identifies significant potential to scale from a job-shop model to a diversified, innovation-led platform. The strategy focuses on professionalizing operations, digitizing the quoting process, and expanding into high-growth adjacent markets like aerospace and micro-electronics.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════ STRATEGIC THEMES ══════════════ -->
+<section id="strategic-themes" style="background:var(--surface);">
+    <div class="container">
+        <div class="section-label"><span class="pip"></span> Common Strategic Themes &amp; Directions</div>
+        <h2 class="section-title">Five Pillars of Growth</h2>
+        <p class="section-desc">The council strongly agreed on several key themes and tactical directions. At least two members endorsed each of the following:</p>
+
+        <div class="theme-accordion">
+
+            <!-- Theme 1 -->
+            <div class="theme-item open">
+                <div class="theme-header" onclick="toggleTheme(this)">
+                    <span class="theme-number">1</span>
+                    <h3>Transformation from "Job Shop" to "Strategic Engineering Partner"</h3>
+                    <svg class="theme-chevron" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+                </div>
+                <div class="theme-body">
+                    <div class="theme-body-inner">
+                        <span class="tag tag-theme">Theme</span>
+                        <p>Moving beyond one-off transactional manufacturing to becoming an integrated part of the customer's R&amp;D cycle.</p>
+                        <span class="tag tag-tactics">Tactics</span>
+                        <ul>
+                            <li><strong>Process Validation Packages:</strong> Offering "Process Lock" or "Transfer-to-Production" packages that include rigorous documentation, process characterization, and traceability. This addresses the customer's pain point of transitioning from prototype to regulated production.</li>
+                            <li><strong>Design Services:</strong> Expanding current design services to include formal Design for Manufacturing (DFM) consulting and "Development Sprints" where engineers co-locate with Sublime staff.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Theme 2 -->
+            <div class="theme-item">
+                <div class="theme-header" onclick="toggleTheme(this)">
+                    <span class="theme-number">2</span>
+                    <h3>Digital Transformation &amp; Automation</h3>
+                    <svg class="theme-chevron" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+                </div>
+                <div class="theme-body">
+                    <div class="theme-body-inner">
+                        <span class="tag tag-theme">Theme</span>
+                        <p>Leveraging technology to remove bottlenecks in quoting and production.</p>
+                        <span class="tag tag-tactics">Tactics</span>
+                        <ul>
+                            <li><strong>Automated Quoting/DFM Engines:</strong> Developing a customer portal or "Design Rules Engine" where clients can upload CAD files to receive instant manufacturability feedback and quotes.</li>
+                            <li><strong>AI &amp; Machine Learning:</strong> Utilizing AI for laser path simulation and parameter optimization to reduce setup times and improve consistency.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Theme 3 -->
+            <div class="theme-item">
+                <div class="theme-header" onclick="toggleTheme(this)">
+                    <span class="theme-number">3</span>
+                    <h3>Expansion into Adjacent High-Tech Markets</h3>
+                    <svg class="theme-chevron" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+                </div>
+                <div class="theme-body">
+                    <div class="theme-body-inner">
+                        <span class="tag tag-theme">Theme</span>
+                        <p>Reducing reliance on the traditional vascular device market by leveraging existing femtosecond capabilities elsewhere.</p>
+                        <span class="tag tag-tactics">Tactics</span>
+                        <ul>
+                            <li><strong>Aerospace &amp; Defense:</strong> Targeting micro-satellite components and sensor housings that require the same "no-heat" precision as medical stents.</li>
+                            <li><strong>Electronics &amp; Semiconductors:</strong> Pursuing micro-fluidics and probe card manufacturing where Swiss-turning cannot achieve the required precision.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Theme 4 -->
+            <div class="theme-item">
+                <div class="theme-header" onclick="toggleTheme(this)">
+                    <span class="theme-number">4</span>
+                    <h3>Evolution of the "Rent a Laser" Model</h3>
+                    <svg class="theme-chevron" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+                </div>
+                <div class="theme-body">
+                    <div class="theme-body-inner">
+                        <span class="tag tag-theme">Theme</span>
+                        <p>Capitalizing on the unique "Laser and Engineer for a Day" offering as a scalable premium service.</p>
+                        <span class="tag tag-tactics">Tactics</span>
+                        <ul>
+                            <li><strong>Virtual/Remote Access:</strong> Offering live-streamed microscope sessions where clients can direct technicians remotely.</li>
+                            <li><strong>Subscription Models:</strong> Creating "Precision-as-a-Service" (PaaS) contracts where customers reserve recurring blocks of engineering time and machine capacity for a monthly fee.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Theme 5 -->
+            <div class="theme-item">
+                <div class="theme-header" onclick="toggleTheme(this)">
+                    <span class="theme-number">5</span>
+                    <h3>Vertical Integration &amp; "One-Stop Shop" Capabilities</h3>
+                    <svg class="theme-chevron" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+                </div>
+                <div class="theme-body">
+                    <div class="theme-body-inner">
+                        <span class="tag tag-theme">Theme</span>
+                        <p>Solving the customer's entire workflow, not just the cutting step.</p>
+                        <span class="tag tag-tactics">Tactics</span>
+                        <ul>
+                            <li><strong>Post-Processing Services:</strong> Adding capabilities such as electropolishing, chemical etching, and cleaning. The goal is to deliver a "component-ready" part rather than a raw laser-cut tube.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- /theme-accordion -->
+    </div>
+</section>
+
+<!-- ══════════════ AREAS OF DISAGREEMENT ══════════════ -->
+<section id="disagreements">
+    <div class="container">
+        <div class="section-label"><span class="pip"></span> Areas of Direct Disagreement</div>
+        <h2 class="section-title">Where the Council Diverged</h2>
+        <p class="section-desc">While the council aligned on the general direction, there were distinct differences in how to execute specific elements of the plan:</p>
+
+        <div class="disagree-cards">
+            <div class="disagree-card">
+                <h4>⚖️ Vertical Integration Strategy</h4>
+                <p class="issue">In-House vs. Partnership</p>
+                <p>There was disagreement on whether to bring post-processing (electropolishing, cleaning) in-house immediately or to build a "vetted partner network."</p>
+                <div class="perspective">
+                    <strong>One faction</strong> argued for heavy capital investment in automation and post-processing equipment to control quality and margin (Gemini, Grok). <strong>Another</strong> argued for a partnership model initially to keep capital expenditures (CAPEX) low and maintain agility, potentially bringing processes in-house only after volume justifies it (GPT, Claude).
+                </div>
+            </div>
+            <div class="disagree-card">
+                <h4>💡 Innovation Platform Focus</h4>
+                <p class="issue">Physical vs. Digital Assets</p>
+                <p>Disagreement existed regarding the primary innovation vehicle for Year 3.</p>
+                <div class="perspective">
+                    <strong>Some members</strong> pushed for a "Laser-as-a-Service" digital platform allowing global API access to Sublime's lasers (Grok, Claude). <strong>Others</strong> argued the innovation should remain "on the floor" through robotics and the "Automation of One"—specifically automated loading systems that allow for "lights-out" manufacturing of small batches (Gemini, GPT).
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════ 3-YEAR ROADMAP ══════════════ -->
+<section id="roadmap" style="background:var(--surface);">
+    <div class="container">
+        <div class="section-label"><span class="pip"></span> 3-Year Strategic Roadmap</div>
+        <h2 class="section-title">From Foundation to Market Leadership</h2>
+        <p class="section-desc">Based on the synthesis of the council's views, the following phased roadmap is recommended:</p>
+
+        <div class="roadmap">
+
+            <!-- Year 1 -->
+            <div class="roadmap-year">
+                <div class="year-dot">Y1</div>
+                <h3>Year 1: Foundation &amp; Professionalization</h3>
+                <p class="obj">Objective: Solidify the core business and implement the "Speed System."</p>
+                <div class="initiative-grid">
+                    <div class="initiative-card">
+                        <h4 class="cat-ops">🏗️ Operational Excellence</h4>
+                        <ul>
+                            <li>Implement a CRM and ERP system (e.g., JobBOSS) to track quotes and turnaround times.</li>
+                            <li>Publish a "Laser Tube Design Guide" to educate customers and filter unqualified RFQs.</li>
+                            <li>Hire 2–3 additional technicians to increase capacity.</li>
+                        </ul>
+                    </div>
+                    <div class="initiative-card">
+                        <h4 class="cat-digital">💻 Digital Front-End</h4>
+                        <ul>
+                            <li>Revamp the website to remove placeholder content and highlight technical case studies.</li>
+                            <li>Develop a "Fast-Track" quoting workflow for standard geometries.</li>
+                        </ul>
+                    </div>
+                    <div class="initiative-card">
+                        <h4 class="cat-commercial">📈 Commercial</h4>
+                        <ul>
+                            <li>Formalize the "Development Sprint" — productizing the "Rent a Laser" service into defined blocks of time with specific deliverables (DOE reports, optimized parameters).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Year 2 -->
+            <div class="roadmap-year">
+                <div class="year-dot">Y2</div>
+                <h3>Year 2: Market Expansion &amp; Service Integration</h3>
+                <p class="obj">Objective: Enter adjacent markets and reduce customer friction.</p>
+                <div class="initiative-grid">
+                    <div class="initiative-card">
+                        <h4 class="cat-market">🌍 Market Expansion</h4>
+                        <ul>
+                            <li>Launch a pilot program targeting the Aerospace/Defense sector; pursue AS9100 certification if early traction is found.</li>
+                            <li>Expand into Electronics/Semiconductors for micro-machining probe cards and thermal management components.</li>
+                        </ul>
+                    </div>
+                    <div class="initiative-card">
+                        <h4 class="cat-service">🔗 Service Integration</h4>
+                        <ul>
+                            <li>Establish a strategic partnership (or acquire capability) for electropolishing and cleaning to offer a finished, sterile-ready part.</li>
+                            <li>Launch "Process Lock" documentation packages for medical clients to ease the transition from R&amp;D to pilot production.</li>
+                        </ul>
+                    </div>
+                    <div class="initiative-card">
+                        <h4 class="cat-tech">🤖 Technology</h4>
+                        <ul>
+                            <li>Beta launch an AI-Assisted DFM Tool for customers to upload files and receive instant manufacturability feedback.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Year 3 -->
+            <div class="roadmap-year">
+                <div class="year-dot">Y3</div>
+                <h3>Year 3: Innovation &amp; Scale</h3>
+                <p class="obj">Objective: Achieve market leadership through high-tech service models.</p>
+                <div class="initiative-grid">
+                    <div class="initiative-card">
+                        <h4 class="cat-innovation">✨ Innovative Business Models</h4>
+                        <ul>
+                            <li>Roll out "Precision-as-a-Service" subscription models for high-volume R&amp;D partners, guaranteeing machine availability.</li>
+                            <li>Launch a "Virtual Engineer" portal for remote collaboration.</li>
+                        </ul>
+                    </div>
+                    <div class="initiative-card">
+                        <h4 class="cat-manufacturing">⚙️ Advanced Manufacturing</h4>
+                        <ul>
+                            <li>Invest in robotic loading/automation ("Automation of One") to enable 24/7 operation for small batch runs without labor blowouts.</li>
+                            <li>Explore Picosecond laser technology to expand capabilities into precious metals and new polymers.</li>
+                        </ul>
+                    </div>
+                    <div class="initiative-card">
+                        <h4 class="cat-ip">📜 Intellectual Property</h4>
+                        <ul>
+                            <li>Begin filing patents on unique laser processes or software tools developed for the DFM engine.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- /roadmap -->
+    </div>
+</section>
+
+<!-- ══════════════ FINANCIAL TARGETS ══════════════ -->
+<section id="financials">
+    <div class="container">
+        <div class="section-label"><span class="pip"></span> Financial Targets (Synthesized)</div>
+        <h2 class="section-title">Revenue &amp; Margin Trajectory</h2>
+        <p class="section-desc">The council estimates a growth trajectory based on these initiatives:</p>
+
+        <div class="fin-row">
+            <div class="fin-card">
+                <div class="label">Year 1 Revenue</div>
+                <div class="value">$1.5–2M</div>
+                <div class="note">Stabilizing core, improving conversion</div>
+            </div>
+            <div class="fin-card">
+                <div class="label">Year 2 Revenue</div>
+                <div class="value">$3–4M</div>
+                <div class="note">New market entries, post-processing revenue</div>
+            </div>
+            <div class="fin-card">
+                <div class="label">Year 3 Revenue</div>
+                <div class="value">$5–6M</div>
+                <div class="note">Recurring revenue from subscriptions, high-margin innovation services</div>
+            </div>
+            <div class="fin-card">
+                <div class="label">Year 3 EBITDA Margin</div>
+                <div class="value">35%+</div>
+                <div class="note">Up from ~20% baseline via automation &amp; productized services</div>
+            </div>
+        </div>
+
+        <div class="bar-chart">
+            <div class="bar-row">
+                <div class="bar-label">Year 1</div>
+                <div class="bar-track">
+                    <div class="bar-fill y1" style="width:0%" data-target="33%">$1.5–2M</div>
+                </div>
+            </div>
+            <div class="bar-row">
+                <div class="bar-label">Year 2</div>
+                <div class="bar-track">
+                    <div class="bar-fill y2" style="width:0%" data-target="66%">$3–4M</div>
+                </div>
+            </div>
+            <div class="bar-row">
+                <div class="bar-label">Year 3</div>
+                <div class="bar-track">
+                    <div class="bar-fill y3" style="width:0%" data-target="100%">$5–6M</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════ RISK MITIGATION ══════════════ -->
+<section id="risks" style="background:var(--surface);">
+    <div class="container">
+        <div class="section-label"><span class="pip"></span> Risk Mitigation</div>
+        <h2 class="section-title">Safeguarding the Plan</h2>
+        <p class="section-desc">Key risks identified by the council and the recommended mitigation strategies:</p>
+
+        <div class="risk-cards">
+            <div class="risk-card">
+                <h4>🛡️ Execution Risk</h4>
+                <p>Mitigate by prioritizing the "Design Guide" in Year 1 to set expectations before investing heavily in automation.</p>
+            </div>
+            <div class="risk-card">
+                <h4>📊 Market Risk</h4>
+                <p>Diversify into Aerospace and Electronics early to buffer against any slowdown in medical device R&amp;D spending.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer>
+    <p>Sublime Laser, Inc. — 3-Year Strategic Business Plan &nbsp;|&nbsp; Generated by Z.ai: GLM 4.7 &nbsp;|&nbsp; February 24, 2026</p>
+</footer>
+
+<!-- ══════════════ JS ══════════════ -->
+<script>
+    // Hamburger menu
+    document.getElementById('hamburger').addEventListener('click', () => {
+        document.getElementById('navLinks').classList.toggle('open');
+    });
+
+    // Close mobile nav on link click
+    document.querySelectorAll('.nav-links a').forEach(a => {
+        a.addEventListener('click', () => {
+            document.getElementById('navLinks').classList.remove('open');
+        });
+    });
+
+    // Accordion
+    function toggleTheme(header) {
+        const item = header.parentElement;
+        const body = item.querySelector('.theme-body');
+        const isOpen = item.classList.contains('open');
+
+        // Close all
+        document.querySelectorAll('.theme-item').forEach(ti => {
+            ti.classList.remove('open');
+            ti.querySelector('.theme-body').style.maxHeight = null;
+        });
+
+        // Open clicked if it was closed
+        if (!isOpen) {
+            item.classList.add('open');
+            body.style.maxHeight = body.scrollHeight + 'px';
+        }
+    }
+
+    // Initialize first accordion open
+    document.addEventListener('DOMContentLoaded', () => {
+        const first = document.querySelector('.theme-item.open .theme-body');
+        if (first) first.style.maxHeight = first.scrollHeight + 'px';
+    });
+
+    // Scroll-spy
+    const sections = document.querySelectorAll('section[id]');
+    const navAnchors = document.querySelectorAll('.nav-links a');
+
+    function onScroll() {
+        let current = '';
+        sections.forEach(sec => {
+            const top = sec.offsetTop - 120;
+            if (window.scrollY >= top) current = sec.id;
+        });
+        navAnchors.forEach(a => {
+            a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+        });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // Animate bars on scroll into view
+    const barObserver = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.querySelectorAll('.bar-fill').forEach(bar => {
+                    bar.style.width = bar.dataset.target;
+                });
+                barObserver.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.3 });
+
+    const barChart = document.querySelector('.bar-chart');
+    if (barChart) barObserver.observe(barChart);
+</script>
+</body>
+</html>
+```

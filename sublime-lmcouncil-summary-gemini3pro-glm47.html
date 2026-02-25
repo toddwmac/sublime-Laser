@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sublime Laser: 3-Year Strategic Business Plan</title>
+    <style>
+        :root {
+            --primary-color: #0f172a; /* Navy */
+            --accent-color: #0ea5e9; /* Laser Blue */
+            --bg-color: #f8fafc;
+            --text-color: #334155;
+            --card-bg: #ffffff;
+            --sidebar-width: 280px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            display: flex;
+        }
+
+        /* Sidebar Navigation */
+        nav {
+            width: var(--sidebar-width);
+            background-color: var(--primary-color);
+            color: white;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            z-index: 100;
+        }
+
+        nav h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: white;
+            letter-spacing: -0.5px;
+        }
+
+        nav .meta {
+            font-size: 0.75rem;
+            color: #94a3b8;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 1rem;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav li {
+            margin-bottom: 0.5rem;
+        }
+
+        nav a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.95rem;
+            display: block;
+            padding: 0.75rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        nav a:hover, nav a.active {
+            background-color: rgba(255,255,255,0.1);
+            color: var(--accent-color);
+            padding-left: 1rem;
+        }
+
+        /* Main Content */
+        main {
+            margin-left: var(--sidebar-width);
+            padding: 3rem 4rem;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        section {
+            margin-bottom: 4rem;
+            scroll-margin-top: 2rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            border-left: 5px solid var(--accent-color);
+            padding-left: 1rem;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        h4 {
+            color: var(--accent-color);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            margin-top: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Cards & Layout Utilities */
+        .card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+            border-top: 3px solid transparent;
+        }
+
+        .card:hover {
+            border-top: 3px solid var(--accent-color);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        /* Badge Styles */
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            background-color: #e0f2fe;
+            color: #0284c7;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Financial Targets Styling */
+        .financial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .stat-box {
+            background: var(--primary-color);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-box .value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-box .label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Risk Section */
+        .risk-box {
+            border-left: 4px solid #f59e0b;
+            background-color: #fffbeb;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            nav {
+                width: 100%;
+                height: auto;
+                position: relative;
+                padding: 1rem;
+            }
+            main {
+                margin-left: 0;
+                padding: 1.5rem;
+            }
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar Navigation -->
+    <nav>
+        <h1>Sublime Laser</h1>
+        <div class="meta">
+            3-Year Strategic Plan<br>
+            Source: Z.ai: GLM 4.7
+        </div>
+        <ul>
+            <li><a href="#executive-summary" class="active">Executive Summary</a></li>
+            <li><a href="#strategic-themes">Strategic Themes</a></li>
+            <li><a href="#disagreements">Areas of Disagreement</a></li>
+            <li><a href="#roadmap">3-Year Roadmap</a></li>
+            <li><a href="#financials">Financial Targets</a></li>
+            <li><a href="#risks">Risk Mitigation</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main>
+
+        <!-- Executive Summary -->
+        <section id="executive-summary">
+            <h2>Executive Summary</h2>
+            <div class="card">
+                <p><strong>Sublime Laser, Inc.</strong> is a niche, ISO 13485-certified precision manufacturer specializing in femtosecond and fiber laser machining of tubular medical components (nitinol, stainless steel). The company differentiates itself through ultra-fast turnaround times ("days, not weeks") and a unique "Rent a Laser" service that allows for on-site or in-house rapid prototyping.</p>
+                <p>While the company currently operates with a small, agile team, the council identifies significant potential to scale from a job-shop model to a diversified, innovation-led platform. The strategy focuses on professionalizing operations, digitizing the quoting process, and expanding into high-growth adjacent markets like aerospace and micro-electronics.</p>
+            </div>
+        </section>
+
+        <!-- Strategic Themes -->
+        <section id="strategic-themes">
+            <h2>Common Strategic Themes & Directions</h2>
+            <p>The council strongly agreed on several key themes and tactical directions. At least two members endorsed each of the following:</p>
+
+            <div class="card">
+                <span class="badge">Theme 1</span>
+                <h3>Transformation from "Job Shop" to "Strategic Engineering Partner"</h3>
+                <p><strong>Theme:</strong> Moving beyond one-off transactional manufacturing to becoming an integrated part of the customer's R&D cycle.</p>
+                <h4>Tactics:</h4>
+                <ul>
+                    <li><strong>Process Validation Packages:</strong> Offering "Process Lock" or "Transfer-to-Production" packages that include rigorous documentation, process characterization, and traceability. This addresses the customer's pain point of transitioning from prototype to regulated production.</li>
+                    <li><strong>Design Services:</strong> Expanding current design services to include formal Design for Manufacturing (DFM) consulting and "Development Sprints" where engineers co-locate with Sublime staff.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <span class="badge">Theme 2</span>
+                <h3>Digital Transformation & Automation</h3>
+                <p><strong>Theme:</strong> Leveraging technology to remove bottlenecks in quoting and production.</p>
+                <h4>Tactics:</h4>
+                <ul>
+                    <li><strong>Automated Quoting/DFM Engines:</strong> Developing a customer portal or "Design Rules Engine" where clients can upload CAD files to receive instant manufacturability feedback and quotes.</li>
+                    <li><strong>AI & Machine Learning:</strong> Utilizing AI for laser path simulation and parameter optimization to reduce setup times and improve consistency.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <span class="badge">Theme 3</span>
+                <h3>Expansion into Adjacent High-Tech Markets</h3>
+                <p><strong>Theme:</strong> Reducing reliance on the traditional vascular device market by leveraging existing femtosecond capabilities elsewhere.</p>
+                <h4>Tactics:</h4>
+                <ul>
+                    <li><strong>Aerospace & Defense:</strong> Targeting micro-satellite components and sensor housings that require the same "no-heat" precision as medical stents.</li>
+                    <li><strong>Electronics & Semiconductors:</strong> Pursuing micro-fluidics and probe card manufacturing where Swiss-turning cannot achieve the required precision.</li>
+                </ul>
+            </div>
+
+            <div class="grid-2">
+                <div class="card">
+                    <span class="badge">Theme 4</span>
+                    <h3>Evolution of the "Rent a Laser" Model</h3>
+                    <p><strong>Theme:</strong> Capitalizing on the unique "Laser and Engineer for a Day" offering as a scalable premium service.</p>
+                    <h4>Tactics:</h4>
+                    <ul>
+                        <li><strong>Virtual/Remote Access:</strong> Live-streamed microscope sessions where clients direct technicians remotely.</li>
+                        <li><strong>Subscription Models:</strong> "Precision-as-a-Service" (PaaS) contracts for recurring blocks of engineering time.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <span class="badge">Theme 5</span>
+                    <h3>Vertical Integration & "One-Stop Shop"</h3>
+                    <p><strong>Theme:</strong> Solving the customer's entire workflow, not just the cutting step.</p>
+                    <h4>Tactics:</h4>
+                    <ul>
+                        <li><strong>Post-Processing Services:</strong> Adding electropolishing, chemical etching, and cleaning to deliver a "component-ready" part.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Disagreements -->
+        <section id="disagreements">
+            <h2>Areas of Direct Disagreement</h2>
+            <p>While the council aligned on the general direction, there were distinct differences in how to execute specific elements of the plan:</p>
+
+            <div class="card">
+                <h3>1. Vertical Integration Strategy</h3>
+                <p><strong>Conflict:</strong> In-House vs. Partnership.</p>
+                <div class="grid-2">
+                    <div style="background: #f1f5f9; padding: 1rem; border-radius: 4px;">
+                        <strong>Perspective A (Gemini, Grok)</strong>
+                        <p>Argued for heavy capital investment in automation and post-processing equipment to control quality and margin.</p>
+                    </div>
+                    <div style="background: #f1f5f9; padding: 1rem; border-radius: 4px;">
+                        <strong>Perspective B (GPT, Claude)</strong>
+                        <p>Argued for a partnership model initially to keep capital expenditures (CAPEX) low and maintain agility, bringing processes in-house only after volume justifies it.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>2. Innovation Platform Focus</h3>
+                <p><strong>Conflict:</strong> Physical vs. Digital Assets (Primary innovation vehicle for Year 3).</p>
+                <div class="grid-2">
+                    <div style="background: #f1f5f9; padding: 1rem; border-radius: 4px;">
+                        <strong>Perspective A (Grok, Claude)</strong>
+                        <p>Pushed for a "Laser-as-a-Service" digital platform allowing global API access to Sublime’s lasers.</p>
+                    </div>
+                    <div style="background: #f1f5f9; padding: 1rem; border-radius: 4px;">
+                        <strong>Perspective B (Gemini, GPT)</strong>
+                        <p>Argued innovation should remain "on the floor" through robotics and "Automation of One"—specifically automated loading systems for "lights-out" manufacturing.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Roadmap -->
+        <section id="roadmap">
+            <h2>3-Year Strategic Roadmap</h2>
+            
+            <div class="card" style="border-left: 5px solid var(--primary-color);">
+                <h3 style="margin-top:0;">Year 1: Foundation & Professionalization</h3>
+                <p><strong>Objective:</strong> Solidify the core business and implement the "Speed System."</p>
+                <ul>
+                    <li><strong>Operational Excellence:</strong>
+                        <ul>
+                            <li>Implement CRM and ERP system (e.g., JobBOSS) to track quotes/turnaround.</li>
+                            <li>Publish "Laser Tube Design Guide" to filter unqualified RFQs.</li>
+                            <li>Hire 2-3 additional technicians.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Digital Front-End:</strong>
+                        <ul>
+                            <li>Revamp website; remove placeholder content, highlight technical case studies.</li>
+                            <li>Develop "Fast-Track" quoting workflow for standard geometries.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Commercial:</strong>
+                        <ul>
+                            <li>Formalize "Development Sprint" productizing "Rent a Laser" into defined deliverables.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card" style="border-left: 5px solid var(--accent-color);">
+                <h3 style="margin-top:0;">Year 2: Market Expansion & Service Integration</h3>
+                <p><strong>Objective:</strong> Enter adjacent markets and reduce customer friction.</p>
+                <ul>
+                    <li><strong>Market Expansion:</strong>
+                        <ul>
+                            <li>Pilot program for Aerospace/Defense (pursue AS9100 if traction found).</li>
+                            <li>Expand into Electronics/Semiconductors (probe cards, thermal management).</li>
+                        </ul>
+                    </li>
+                    <li><strong>Service Integration:</strong>
+                        <ul>
+                            <li>Strategic partnership or acquisition for electropolishing/cleaning.</li>
+                            <li>Launch "Process Lock" documentation packages for medical clients.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Technology:</strong>
+                        <ul>
+                            <li>Beta launch AI-Assisted DFM Tool for instant feedback.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card" style="border-left: 5px solid #64748b;">
+                <h3 style="margin-top:0;">Year 3: Innovation & Scale</h3>
+                <p><strong>Objective:</strong> Achieve market leadership through high-tech service models.</p>
+                <ul>
+                    <li><strong>Innovative Business Models:</strong>
+                        <ul>
+                            <li>Roll out "Precision-as-a-Service" subscription models.</li>
+                            <li>Launch "Virtual Engineer" portal.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Advanced Manufacturing:</strong>
+                        <ul>
+                            <li>Invest in robotic loading ("Automation of One") for 24/7 small batch runs.</li>
+                            <li>Explore Picosecond laser technology for precious metals/polymers.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Intellectual Property:</strong>
+                        <ul>
+                            <li>File patents on unique laser processes or DFM engine tools.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Financials -->
+        <section id="financials">
+            <h2>Financial Targets (Synthesized)</h2>
+            <div class="financial-grid">
+                <div class="stat-box">
+                    <div class="value">$1.5M - $2M</div>
+                    <div class="label">Year 1 Revenue</div>
+                    <div style="font-size:0.75rem; margin-top:5px;">Stabilizing core, improving conversion</div>
+                </div>
+                <div class="stat-box">
+                    <div class="value">$3M - $4M</div>
+                    <div class="label">Year 2 Revenue</div>
+                    <div style="font-size:0.75rem; margin-top:5px;">New market entries, post-processing</div>
+                </div>
+                <div class="stat-box">
+                    <div class="value">$5M - $6M</div>
+                    <div class="label">Year 3 Revenue</div>
+                    <div style="font-size:0.75rem; margin-top:5px;">Recurring subscriptions, innovation services</div>
+                </div>
+                <div class="stat-box" style="background: var(--accent-color); color: var(--primary-color);">
+                    <div class="value" style="color:white;">35%+</div>
+                    <div class="label">Target EBITDA (Year 3)</div>
+                    <div style="font-size:0.75rem; margin-top:5px;">Up from ~20% baseline</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Risks -->
+        <section id="risks">
+            <h2>Risk Mitigation</h2>
+            <div class="grid-2">
+                <div class="risk-box">
+                    <h3>Execution Risk</h3>
+                    <p>Mitigate by prioritizing the "Design Guide" in Year 1 to set expectations before investing heavily in automation.</p>
+                </div>
+                <div class="risk-box">
+                    <h3>Market Risk</h3>
+                    <p>Diversify into Aerospace and Electronics early to buffer against any slowdown in medical device R&D spending.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer style="border-top: 1px solid #e2e8f0; padding-top: 2rem; color: #94a3b8; font-size: 0.85rem; margin-top: 3rem;">
+            <p>Generated: 2026-02-24T23:39:19.156Z | Z.ai: GLM 4.7</p>
+        </footer>
+    </main>
+
+    <script>
+        // Simple script to highlight active section in sidebar
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= (sectionTop - 150)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+```

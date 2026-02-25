@@ -1,0 +1,1648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sublime Laser — 3-Year Strategic Plan</title>
+    <style>
+        :root {
+            --navy: #0f1b2d;
+            --dark: #1a2332;
+            --accent: #00b4d8;
+            --accent2: #0077b6;
+            --accent3: #90e0ef;
+            --gold: #f0a500;
+            --light: #caf0f8;
+            --white: #ffffff;
+            --gray100: #f4f6f8;
+            --gray200: #e2e6ea;
+            --gray400: #8d99ae;
+            --gray600: #4a5568;
+            --gray800: #2d3748;
+            --red: #e63946;
+            --green: #2a9d8f;
+            --orange: #e76f51;
+            --purple: #7209b7;
+            --radius: 12px;
+            --shadow: 0 4px 24px rgba(0,0,0,.08);
+            --shadow-lg: 0 8px 40px rgba(0,0,0,.12);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--gray100);
+            color: var(--gray800);
+            line-height: 1.65;
+        }
+
+        /* ── SIDEBAR NAV ── */
+        .sidebar {
+            position: fixed;
+            top: 0; left: 0;
+            width: 280px;
+            height: 100vh;
+            background: var(--navy);
+            color: var(--white);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            transition: transform .3s ease;
+            overflow-y: auto;
+        }
+
+        .sidebar-brand {
+            padding: 28px 24px 20px;
+            border-bottom: 1px solid rgba(255,255,255,.08);
+        }
+
+        .sidebar-brand h1 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            letter-spacing: .5px;
+            color: var(--accent3);
+        }
+
+        .sidebar-brand p {
+            font-size: .75rem;
+            color: var(--gray400);
+            margin-top: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .sidebar-nav {
+            flex: 1;
+            padding: 16px 0;
+        }
+
+        .sidebar-nav a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 11px 24px;
+            color: rgba(255,255,255,.65);
+            text-decoration: none;
+            font-size: .875rem;
+            font-weight: 500;
+            transition: all .2s;
+            border-left: 3px solid transparent;
+        }
+
+        .sidebar-nav a:hover,
+        .sidebar-nav a.active {
+            color: var(--white);
+            background: rgba(255,255,255,.06);
+            border-left-color: var(--accent);
+        }
+
+        .sidebar-nav a .nav-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 26px;
+            height: 26px;
+            border-radius: 8px;
+            background: rgba(255,255,255,.08);
+            font-size: .75rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .sidebar-nav a.active .nav-num {
+            background: var(--accent);
+            color: var(--navy);
+        }
+
+        .sidebar-nav .nav-divider {
+            height: 1px;
+            background: rgba(255,255,255,.06);
+            margin: 12px 24px;
+        }
+
+        /* ── HAMBURGER ── */
+        .hamburger {
+            display: none;
+            position: fixed;
+            top: 16px; left: 16px;
+            z-index: 1100;
+            width: 44px; height: 44px;
+            border-radius: 10px;
+            background: var(--navy);
+            border: none;
+            cursor: pointer;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 22px; height: 2px;
+            background: var(--white);
+            border-radius: 2px;
+            transition: .3s;
+        }
+
+        /* ── MAIN ── */
+        .main {
+            margin-left: 280px;
+            min-height: 100vh;
+        }
+
+        /* ── HERO ── */
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--dark) 50%, var(--accent2) 100%);
+            color: var(--white);
+            padding: 80px 48px 60px;
+        }
+
+        .hero-inner {
+            max-width: 900px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(0,180,216,.15);
+            color: var(--accent3);
+            font-size: .75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,.75);
+            max-width: 680px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 36px;
+            flex-wrap: wrap;
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat .val {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent3);
+        }
+
+        .hero-stat .lbl {
+            font-size: .75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255,255,255,.5);
+            margin-top: 2px;
+        }
+
+        /* ── SECTIONS ── */
+        .section {
+            padding: 56px 48px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section + .section {
+            border-top: 1px solid var(--gray200);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .section-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px; height: 44px;
+            border-radius: 12px;
+            background: var(--accent);
+            color: var(--white);
+            font-size: 1.1rem;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        /* ── CARDS ── */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 28px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--gray200);
+            transition: transform .2s, box-shadow .2s;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card-label {
+            font-size: .7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 10px;
+        }
+
+        .card-label.blue { color: var(--accent2); }
+        .card-label.green { color: var(--green); }
+        .card-label.orange { color: var(--orange); }
+        .card-label.purple { color: var(--purple); }
+        .card-label.red { color: var(--red); }
+        .card-label.gold { color: var(--gold); }
+
+        .card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 10px;
+        }
+
+        .card p, .card li {
+            font-size: .9rem;
+            color: var(--gray600);
+        }
+
+        .card ul {
+            padding-left: 18px;
+        }
+
+        .card ul li {
+            margin-bottom: 6px;
+        }
+
+        .card ul li::marker {
+            color: var(--accent);
+        }
+
+        /* ── SPEC TABLE ── */
+        .spec-table-wrap {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: .875rem;
+            min-width: 500px;
+        }
+
+        .spec-table th {
+            background: var(--navy);
+            color: var(--white);
+            padding: 12px 16px;
+            text-align: left;
+            font-weight: 600;
+            font-size: .8rem;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+        }
+
+        .spec-table td {
+            padding: 11px 16px;
+            border-bottom: 1px solid var(--gray200);
+            color: var(--gray600);
+        }
+
+        .spec-table tr:nth-child(even) td {
+            background: var(--gray100);
+        }
+
+        .spec-table th:first-child { border-radius: 8px 0 0 0; }
+        .spec-table th:last-child { border-radius: 0 8px 0 0; }
+
+        /* ── SWOT GRID ── */
+        .swot-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+
+        .swot-card {
+            padding: 24px;
+            border-radius: var(--radius);
+            border: 1px solid;
+        }
+
+        .swot-card.strength { background: #e8f8f5; border-color: #b2dfdb; }
+        .swot-card.weakness { background: #fff8e1; border-color: #ffe082; }
+        .swot-card.opportunity { background: #e3f2fd; border-color: #90caf9; }
+        .swot-card.threat { background: #fce4ec; border-color: #ef9a9a; }
+
+        .swot-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .swot-card.strength h3 { color: #00796b; }
+        .swot-card.weakness h3 { color: #f57f17; }
+        .swot-card.opportunity h3 { color: #1565c0; }
+        .swot-card.threat h3 { color: #c62828; }
+
+        .swot-card ul {
+            padding-left: 18px;
+        }
+
+        .swot-card li {
+            font-size: .875rem;
+            color: var(--gray600);
+            margin-bottom: 5px;
+        }
+
+        /* ── PILLAR CARDS ── */
+        .pillar-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 32px;
+            box-shadow: var(--shadow);
+            border-left: 5px solid var(--accent);
+            margin-bottom: 24px;
+        }
+
+        .pillar-card.p2 { border-left-color: var(--green); }
+        .pillar-card.p3 { border-left-color: var(--orange); }
+        .pillar-card.p4 { border-left-color: var(--purple); }
+
+        .pillar-num {
+            font-size: .7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 6px;
+        }
+
+        .pillar-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 6px;
+        }
+
+        .pillar-card .goal {
+            font-size: .9rem;
+            color: var(--accent2);
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+
+        .pillar-card ul {
+            padding-left: 18px;
+            margin-bottom: 14px;
+        }
+
+        .pillar-card li {
+            font-size: .9rem;
+            color: var(--gray600);
+            margin-bottom: 6px;
+        }
+
+        .pillar-card li::marker { color: var(--accent); }
+        .pillar-card.p2 li::marker { color: var(--green); }
+        .pillar-card.p3 li::marker { color: var(--orange); }
+        .pillar-card.p4 li::marker { color: var(--purple); }
+
+        .innovation-box {
+            background: var(--gray100);
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin-top: 12px;
+        }
+
+        .innovation-box .inn-label {
+            font-size: .7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--gold);
+            margin-bottom: 6px;
+        }
+
+        .innovation-box p {
+            font-size: .875rem;
+            color: var(--gray600);
+        }
+
+        .innovation-box ul {
+            padding-left: 18px;
+        }
+
+        .innovation-box li {
+            font-size: .875rem;
+            color: var(--gray600);
+            margin-bottom: 4px;
+        }
+
+        /* ── YEAR TIMELINE ── */
+        .year-block {
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 32px;
+            overflow: hidden;
+        }
+
+        .year-header {
+            padding: 24px 32px;
+            color: var(--white);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            user-select: none;
+        }
+
+        .year-header h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+        }
+
+        .year-header p {
+            font-size: .85rem;
+            opacity: .8;
+            margin-top: 2px;
+        }
+
+        .year-header .chevron {
+            width: 28px; height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255,255,255,.15);
+            transition: transform .3s;
+            flex-shrink: 0;
+        }
+
+        .year-header .chevron svg {
+            width: 16px; height: 16px;
+            fill: var(--white);
+        }
+
+        .year-block.open .year-header .chevron {
+            transform: rotate(180deg);
+        }
+
+        .year1 .year-header { background: linear-gradient(135deg, #0077b6, #00b4d8); }
+        .year2 .year-header { background: linear-gradient(135deg, #2a9d8f, #52b788); }
+        .year3 .year-header { background: linear-gradient(135deg, #7209b7, #b5179e); }
+
+        .year-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .4s ease;
+        }
+
+        .year-block.open .year-body {
+            max-height: 5000px;
+        }
+
+        .year-content {
+            padding: 28px 32px;
+        }
+
+        .year-content h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin: 20px 0 10px;
+        }
+
+        .year-content h4:first-child {
+            margin-top: 0;
+        }
+
+        .year-content ul {
+            padding-left: 20px;
+        }
+
+        .year-content li {
+            font-size: .9rem;
+            color: var(--gray600);
+            margin-bottom: 6px;
+        }
+
+        .year-content li::marker {
+            color: var(--accent);
+        }
+
+        .year-content .sub {
+            margin-left: 16px;
+            font-size: .85rem;
+            color: var(--gray400);
+        }
+
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .kpi-item {
+            background: var(--gray100);
+            border-radius: 8px;
+            padding: 14px 18px;
+            font-size: .85rem;
+            font-weight: 600;
+            color: var(--gray800);
+            border-left: 3px solid var(--accent);
+        }
+
+        /* ── COMPETITOR SECTION ── */
+        .comp-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 24px 28px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--gray200);
+            margin-bottom: 20px;
+        }
+
+        .comp-card h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        .comp-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 16px;
+        }
+
+        .comp-col h4 {
+            font-size: .75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .comp-col.str h4 { color: var(--green); }
+        .comp-col.weak h4 { color: var(--orange); }
+        .comp-col.how h4 { color: var(--accent2); }
+
+        .comp-col p {
+            font-size: .85rem;
+            color: var(--gray600);
+        }
+
+        /* ── NEXT STEPS ── */
+        .steps-list {
+            counter-reset: steps;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            margin-bottom: 18px;
+        }
+
+        .step-num {
+            counter-increment: steps;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: var(--white);
+            font-size: .85rem;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        .step-text {
+            font-size: .95rem;
+            color: var(--gray800);
+            padding-top: 6px;
+        }
+
+        /* ── FOOTER ── */
+        .footer-note {
+            background: var(--navy);
+            color: rgba(255,255,255,.5);
+            text-align: center;
+            padding: 24px;
+            font-size: .8rem;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 900px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.open {
+                transform: translateX(0);
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .main {
+                margin-left: 0;
+            }
+
+            .hero {
+                padding: 72px 24px 48px;
+            }
+
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+
+            .section {
+                padding: 40px 20px;
+            }
+
+            .swot-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .comp-row {
+                grid-template-columns: 1fr;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .year-content {
+                padding: 20px;
+            }
+        }
+
+        /* backdrop for mobile */
+        .sidebar-backdrop {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,.4);
+            z-index: 999;
+        }
+
+        .sidebar-backdrop.show {
+            display: block;
+        }
+
+        /* ── Scroll-to-top ── */
+        .scroll-top {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: var(--white);
+            border: none;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-lg);
+            z-index: 900;
+            font-size: 1.2rem;
+        }
+
+        .scroll-top.show { display: flex; }
+
+        /* Subsection styling */
+        .subsection-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin: 28px 0 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--gray200);
+        }
+
+        .text-block {
+            font-size: .925rem;
+            color: var(--gray600);
+            margin-bottom: 16px;
+            max-width: 800px;
+        }
+
+        .text-block strong {
+            color: var(--gray800);
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(0,180,216,.06), rgba(0,119,182,.06));
+            border: 1px solid rgba(0,180,216,.2);
+            border-radius: var(--radius);
+            padding: 20px 24px;
+            margin: 20px 0;
+        }
+
+        .highlight-box p {
+            font-size: .9rem;
+            color: var(--gray600);
+        }
+
+        .revenue-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .revenue-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--gray200);
+            font-size: .9rem;
+            color: var(--gray600);
+        }
+
+        .revenue-list li:last-child {
+            border-bottom: none;
+        }
+
+        .rev-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px; height: 28px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: var(--white);
+            font-size: .75rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        /* ── Innovation cards for Year 3 ── */
+        .innov-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 16px;
+        }
+
+        .innov-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 24px;
+            border: 1px solid var(--gray200);
+            box-shadow: var(--shadow);
+        }
+
+        .innov-card h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .innov-card p, .innov-card li {
+            font-size: .85rem;
+            color: var(--gray600);
+        }
+
+        .innov-card ul {
+            padding-left: 16px;
+            margin-bottom: 10px;
+        }
+
+        .innov-card li { margin-bottom: 4px; }
+
+        .innov-why {
+            font-size: .8rem !important;
+            font-style: italic;
+            color: var(--accent2) !important;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Backdrop for mobile sidebar -->
+<div class="sidebar-backdrop" id="backdrop" onclick="toggleSidebar()"></div>
+
+<!-- Hamburger -->
+<button class="hamburger" id="hamburger" onclick="toggleSidebar()" aria-label="Toggle navigation">
+    <span></span><span></span><span></span>
+</button>
+
+<!-- Sidebar -->
+<nav class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+        <h1>Sublime Laser</h1>
+        <p>Strategic Plan 2026–2029</p>
+    </div>
+    <div class="sidebar-nav">
+        <a href="#business-model"><span class="nav-num">1</span> Business Model</a>
+        <a href="#market-analysis"><span class="nav-num">2</span> Market Analysis</a>
+        <a href="#competitors"><span class="nav-num">3</span> Competitor Landscape</a>
+        <a href="#swot"><span class="nav-num">4</span> Strategic Diagnosis</a>
+        <div class="nav-divider"></div>
+        <a href="#north-star"><span class="nav-num">5</span> 3-Year Strategic Plan</a>
+        <a href="#pillars"><span class="nav-num">⬡</span> Strategic Pillars</a>
+        <a href="#year1"><span class="nav-num">Y1</span> Year 1</a>
+        <a href="#year2"><span class="nav-num">Y2</span> Year 2</a>
+        <a href="#year3"><span class="nav-num">Y3</span> Year 3</a>
+        <div class="nav-divider"></div>
+        <a href="#operating"><span class="nav-num">6</span> Operating Plan</a>
+        <a href="#next-steps"><span class="nav-num">7</span> Next Steps</a>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<div class="main">
+
+    <!-- Hero -->
+    <header class="hero" id="top">
+        <div class="hero-inner">
+            <span class="hero-badge">Confidential Strategic Document</span>
+            <h2>Sublime Laser<br>Three-Year Strategic Business Plan</h2>
+            <p>Become the go-to rapid-development and pilot-production partner for laser-machined tubular medical components — known for fast iteration, validated repeatable processes, and data-rich documentation that reduces customer risk.</p>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="val">ISO 13485</div>
+                    <div class="lbl">Certified QMS</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="val">≥12 µm</div>
+                    <div class="lbl">Feature Size</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="val">Days</div>
+                    <div class="lbl">Not Weeks</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="val">4</div>
+                    <div class="lbl">Strategic Pillars</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- 1) BUSINESS MODEL & CURRENT POSITIONING        -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="section" id="business-model">
+        <div class="section-header">
+            <span class="section-num">1</span>
+            <h2 class="section-title">Business Model &amp; Current Positioning</h2>
+        </div>
+
+        <h3 class="subsection-title">Core Offering</h3>
+        <p class="text-block">Contract laser micromachining of medical-device tubular components (nitinol, stainless steel, precious metals; also ceramic/glass noted) with an emphasis on tight tolerances and speed.</p>
+
+        <p class="text-block"><strong>Two primary process lanes:</strong></p>
+
+        <div class="spec-table-wrap">
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Femtosecond Laser</th>
+                        <th>Fiber Laser</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Process</strong></td>
+                        <td>Material vaporization; minimal HAZ</td>
+                        <td>Melting; faster throughput, larger envelopes</td>
+                    </tr>
+                    <tr>
+                        <td><strong>OD Range</strong></td>
+                        <td>0.008″–0.313″</td>
+                        <td>0.008″–0.500″</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Wall Thickness</strong></td>
+                        <td>0.0005″–0.013″</td>
+                        <td>0.003″–0.040″</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tube Length</strong></td>
+                        <td>Up to 120″</td>
+                        <td>Up to 120″</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Kerf Width</strong></td>
+                        <td>12–30 µm</td>
+                        <td>20–40 µm</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Min Feature Size</strong></td>
+                        <td>≥12 µm</td>
+                        <td>≥20 µm</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3 class="subsection-title">Service Lines</h3>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-label blue">Prototyping</div>
+                <h3>R&amp;D Projects</h3>
+                <p>Quick-turn prototyping for medical device R&amp;D teams needing fast design iterations.</p>
+            </div>
+            <div class="card">
+                <div class="card-label green">Engineering</div>
+                <h3>Design Services</h3>
+                <p>Engineering support and DFM consultation to optimize designs for laser micromachining.</p>
+            </div>
+            <div class="card">
+                <div class="card-label purple">Premium</div>
+                <h3>Rent a Laser</h3>
+                <p>Laser + tech/engineer by the hour or day for rapid iteration and co-development.</p>
+            </div>
+            <div class="card">
+                <div class="card-label orange">Production</div>
+                <h3>Making Parts</h3>
+                <p>Production-scale manufacturing of validated laser-machined tubular components.</p>
+            </div>
+        </div>
+
+        <h3 class="subsection-title">Quality &amp; Credibility</h3>
+        <div class="highlight-box">
+            <p><strong>ISO 13485 Certified</strong> — Medical device quality management system, which is a meaningful differentiator for regulated supply chains.</p>
+        </div>
+
+        <h3 class="subsection-title">Value Proposition</h3>
+        <p class="text-block"><strong>"Parts in days, not weeks or months"</strong> — Convenience + fastest possible turnaround + process capability in medical devices.</p>
+
+        <h3 class="subsection-title">Likely Revenue Streams</h3>
+        <ol class="revenue-list">
+            <li><span class="rev-num">1</span> Prototype and R&amp;D build orders (high margin, variable demand)</li>
+            <li><span class="rev-num">2</span> Pilot and limited production (repeat orders, higher utilization)</li>
+            <li><span class="rev-num">3</span> On-site "laser + engineer" rental (premium, consultative)</li>
+            <li><span class="rev-num">4</span> Design/DFM services (sticky early engagement; can be packaged)</li>
+            <li><span class="rev-num">5</span> Over time: validated processes for specific indications/components (price power)</li>
+        </ol>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- 2) MARKET ANALYSIS                             -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="section" id="market-analysis">
+        <div class="section-header">
+            <span class="section-num">2</span>
+            <h2 class="section-title">Market Analysis — Where Demand Comes From and What's Changing</h2>
+        </div>
+
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-label blue">Primary Customers</div>
+                <h3>Who Buys</h3>
+                <ul>
+                    <li>Medical device companies developing neurovascular, cardiovascular, peripheral vascular devices</li>
+                    <li>R&amp;D teams needing fast design iterations; later, supply chain teams needing qualified suppliers for pilot/production</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-label green">Macro Drivers</div>
+                <h3>Why Demand Grows</h3>
+                <ul>
+                    <li>Continued growth in minimally invasive therapies (stents, thrombectomy/flow diversion adjacencies, peripheral interventions)</li>
+                    <li>More complex lattice/mesh geometries and miniaturization — pushes demand toward ultrafast lasers (less HAZ, better edge quality)</li>
+                    <li>OEM pressure to shorten development cycles (more prototyping loops; suppliers that can respond fast win early)</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3 class="subsection-title">Buying Criteria</h3>
+        <div class="card-grid">
+            <div class="card">
+                <h3>Technical</h3>
+                <ul>
+                    <li>Demonstrated capability at micron feature sizes</li>
+                    <li>Material handling expertise (nitinol is nontrivial)</li>
+                    <li>Inspection/metrology, documentation, traceability</li>
+                    <li>Repeatability/process window control</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Commercial &amp; Quality</h3>
+                <ul>
+                    <li>Lead time and responsiveness</li>
+                    <li>QMS maturity (ISO 13485)</li>
+                    <li>Ability to scale from prototype to pilot to production without changing suppliers</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <p><strong>Key Market Tension:</strong> Customers want "prototype speed" and "production discipline" simultaneously. Winning suppliers productize speed (standard quoting, design rules, capacity buffers) without sacrificing validation and documentation.</p>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- 3) COMPETITOR LANDSCAPE                        -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="section" id="competitors">
+        <div class="section-header">
+            <span class="section-num">3</span>
+            <h2 class="section-title">Competitor Landscape — Who You're Up Against</h2>
+        </div>
+
+        <p class="text-block">The realistic competitive set by category — the companies your buyers typically consider:</p>
+
+        <div class="comp-card">
+            <h3>A) Large, Full-Service Outsourced Manufacturers (Platform Players)</h3>
+            <div class="comp-row">
+                <div class="comp-col str">
+                    <h4>Strengths</h4>
+                    <p>Scale, broad process portfolio (laser + EDM + grind + coat + clean + assembly), global footprint, deep regulatory infrastructure.</p>
+                </div>
+                <div class="comp-col weak">
+                    <h4>Weaknesses</h4>
+                    <p>Slower quoting/change cycles, minimums, less flexible for early R&amp;D, higher overhead.</p>
+                </div>
+                <div class="comp-col how">
+                    <h4>How They Compete</h4>
+                    <p>"One-stop shop" + supply assurance + ability to bundle processes.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="comp-card">
+            <h3>B) Specialized Laser Micromachining Job Shops (Direct Peers)</h3>
+            <div class="comp-row">
+                <div class="comp-col str">
+                    <h4>Strengths</h4>
+                    <p>Similar equipment, speed, expertise in stents/hypotubes; some have deep automation and metrology.</p>
+                </div>
+                <div class="comp-col weak">
+                    <h4>Weaknesses</h4>
+                    <p>Often undifferentiated; compete on lead time and price; capacity constraints.</p>
+                </div>
+                <div class="comp-col how">
+                    <h4>How They Compete</h4>
+                    <p>Faster turnaround, comparable kerf/feature, established relationships.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="comp-card">
+            <h3>C) In-House OEM Laser Teams</h3>
+            <div class="comp-row">
+                <div class="comp-col str">
+                    <h4>Strengths</h4>
+                    <p>Immediate iteration, IP control, deep product context.</p>
+                </div>
+                <div class="comp-col weak">
+                    <h4>Weaknesses</h4>
+                    <p>Capital cost, staffing, uptime risk, limited surge capacity, may lag in latest ultrafast process know-how.</p>
+                </div>
+                <div class="comp-col how">
+                    <h4>How They Compete</h4>
+                    <p>"We can do it ourselves."</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="comp-card">
+            <h3>D) Adjacent Processes as Substitutes</h3>
+            <div class="comp-row">
+                <div class="comp-col str">
+                    <h4>Alternatives</h4>
+                    <p>Photochemical etching/micro-EDM (depending on geometry/material); additive manufacturing for certain lattice structures (still limited for thin-walled tubes but improving); waterjet/other niche processes (rare for this tolerance class).</p>
+                </div>
+                <div class="comp-col weak" style="grid-column: span 2;">
+                    <h4>Implication</h4>
+                    <p>Sublime must differentiate beyond "we have a femto laser." The defensible moat becomes validated processes + design rules + speed system + customer integration + data/traceability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- 4) SWOT                                        -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="section" id="swot">
+        <div class="section-header">
+            <span class="section-num">4</span>
+            <h2 class="section-title">Strategic Diagnosis (SWOT-Style)</h2>
+        </div>
+
+        <div class="swot-grid">
+            <div class="swot-card strength">
+                <h3>✦ Strengths</h3>
+                <ul>
+                    <li>ISO 13485</li>
+                    <li>Clear positioning around speed + microns + minimal HAZ</li>
+                    <li>Both femto and fiber offerings (coverage for speed vs edge quality)</li>
+                    <li>"Rent a laser" is a differentiator for rapid co-development</li>
+                </ul>
+            </div>
+            <div class="swot-card weakness">
+                <h3>⚠ Weaknesses (Likely)</h3>
+                <ul>
+                    <li>Narrow public footprint of documented case studies/application notes (site is light on technical proof and outcomes)</li>
+                    <li>Reliance on speed as primary hook can become commoditized</li>
+                    <li>Scaling risk: fast-turn shops can get capacity-constrained quickly; lead-time promise breaks if utilization spikes</li>
+                </ul>
+            </div>
+            <div class="swot-card opportunity">
+                <h3>▲ Opportunities</h3>
+                <ul>
+                    <li>Productize R&amp;D-to-pilot handoff (repeatability + documentation packages)</li>
+                    <li>Become "default" supplier for specific component archetypes (e.g., hypotube patterns, micro-slots, marker bands)</li>
+                    <li>Expand into process validation services, metrology/inspection reporting, and design libraries</li>
+                    <li>Innovative adjacency: digital quoting + DFM rules engine, on-site development pods, co-development partnerships, and potentially cleaning/passivation &amp; packaging partnerships (even if not fully in-house at first)</li>
+                </ul>
+            </div>
+            <div class="swot-card threat">
+                <h3>▼ Threats</h3>
+                <ul>
+                    <li>Large CMs adding ultrafast capacity</li>
+                    <li>Price pressure in commoditized stent/hypotube patterns</li>
+                    <li>OEMs bringing femto capability in-house</li>
+                    <li>Regulatory expectations increasing for process characterization and documentation</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- 5) THREE-YEAR STRATEGIC PLAN                   -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="section" id="north-star">
+        <div class="section-header">
+            <span class="section-num">5</span>
+            <h2 class="section-title">Three-Year Strategic Business Plan (with Stretch Innovation)</h2>
+        </div>
+
+        <div class="highlight-box" style="background: linear-gradient(135deg, rgba(15,27,45,.04), rgba(0,119,182,.06)); border-color: rgba(0,119,182,.25);">
+            <p style="font-size: 1rem; color: var(--navy); font-weight: 700; margin-bottom: 8px;">North Star (3-Year)</p>
+            <p>Become a go-to rapid-development and pilot-production partner for laser-machined tubular medical components, known for:</p>
+            <p style="margin-top: 8px;"><strong>1)</strong> Fast iteration &nbsp;·&nbsp; <strong>2)</strong> Validated repeatable processes &nbsp;·&nbsp; <strong>3)</strong> Data-rich documentation that reduces customer risk.</p>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- STRATEGIC PILLARS                              -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="section" id="pillars">
+        <h2 class="section-title" style="margin-bottom: 28px;">Strategic Pillars — What You Build</h2>
+
+        <!-- Pillar 1 -->
+        <div class="pillar-card">
+            <div class="pillar-num" style="color: var(--accent);">Pillar 1</div>
+            <h3>"Speed System": Quote-to-Part in Days, Reliably</h3>
+            <p class="goal">Goal: Make fast turnaround a repeatable system, not heroics.</p>
+            <ul>
+                <li>Standardized intake: drawing + material + target features + functional constraints</li>
+                <li>Design-for-laser rules (published) for femto vs fiber (min strut, slot width, radii, allowable burr/HAZ requirements)</li>
+                <li>Capacity buffering: reserve a fixed % of machine time for true "rush R&amp;D"</li>
+                <li>Fast metrology loop: define standard inspection bundles by tolerance tier</li>
+            </ul>
+            <div class="innovation-box">
+                <div class="inn-label">💡 Innovation Angle</div>
+                <p>A DFM + quoting configurator that generates:</p>
+                <ul>
+                    <li>Recommended process (femto vs fiber)</li>
+                    <li>Risk flags (e.g., thin wall + dense pattern)</li>
+                    <li>Lead time bands</li>
+                    <li>A documentation pack tier</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="pillar-card p2">
+            <div class="pillar-num" style="color: var(--green);">Pillar 2</div>
+            <h3>R&amp;D-to-Pilot "Process Lock" Packages (Defensibility)</h3>
+            <p class="goal">Goal: Convert prototypes into long-term repeat business.</p>
+            <p class="text-block">Offer tiered packages customers can buy:</p>
+            <ul>
+                <li><strong>Prototype Pack:</strong> basic process notes + dimensional report</li>
+                <li><strong>Pilot Pack:</strong> defined critical process parameters, in-process checks, GR&amp;R on key measurements, lot traceability</li>
+                <li><strong>Transfer-to-Production Pack:</strong> process window characterization, control plan, capability snapshots (Cp/Cpk where applicable), change control agreement</li>
+            </ul>
+            <div class="innovation-box">
+                <div class="inn-label">💡 Why This Matters</div>
+                <p>This is how you compete with large CMs without being one: you reduce perceived risk.</p>
+            </div>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="pillar-card p3">
+            <div class="pillar-num" style="color: var(--orange);">Pillar 3</div>
+            <h3>Add Adjacencies That Customers Already Need (Without Boiling the Ocean)</h3>
+            <p class="goal">Goal: Expand value without full vertical integration.</p>
+            <ul>
+                <li>Build a vetted partner network for electropolishing, passivation, heat-set, cleaning, and packaging while owning the traveler, specs, and documentation.</li>
+                <li>Over time, selectively bring the highest-margin/highest-control steps in-house.</li>
+            </ul>
+            <div class="innovation-box">
+                <div class="inn-label">💡 Innovation Angle</div>
+                <p>"Component-ready" deliveries (laser + finishing + inspection pack) so customers can assemble sooner.</p>
+            </div>
+        </div>
+
+        <!-- Pillar 4 -->
+        <div class="pillar-card p4">
+            <div class="pillar-num" style="color: var(--purple);">Pillar 4</div>
+            <h3>"Engineer + Laser" as a Premium Product</h3>
+            <p class="goal">Goal: Turn the rental concept into a structured program.</p>
+            <ul>
+                <li>On-site or at Sublime: customer engineers co-located with Sublime tech/engineer</li>
+                <li>Pre-scheduled design-of-experiments (DOE) blocks</li>
+                <li>Output: optimized pattern parameters + sample set + documented learnings</li>
+            </ul>
+            <div class="innovation-box">
+                <div class="inn-label">💡 Innovation Angle</div>
+                <p>Subscription-style "development sprints" (e.g., 4 sprints/year) for funded R&amp;D teams.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- YEAR-BY-YEAR PLAN                              -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="section" id="year-plan">
+        <h2 class="section-title" style="margin-bottom: 28px;">Year-by-Year Plan</h2>
+
+        <!-- Year 1 -->
+        <div class="year-block year1 open" id="year1">
+            <div class="year-header" onclick="toggleYear(this)">
+                <div>
+                    <h3>Year 1: Foundation + Commercial Clarity</h3>
+                    <p>Prove reliability and capture more R&amp;D</p>
+                </div>
+                <div class="chevron">
+                    <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+                </div>
+            </div>
+            <div class="year-body">
+                <div class="year-content">
+                    <h4>Objectives</h4>
+                    <ul>
+                        <li>Increase conversion of inbound leads to paying prototypes</li>
+                        <li>Reduce quoting and engineering cycle time</li>
+                        <li>Make documentation and process discipline visible (without slowing speed)</li>
+                    </ul>
+
+                    <h4>Key Initiatives</h4>
+                    <ul>
+                        <li><strong>Segment the offering into 3 lanes:</strong>
+                            <div class="sub">— Rapid Prototype (days)</div>
+                            <div class="sub">— Pilot Builds (repeat lots, documentation)</div>
+                            <div class="sub">— Development Sprint (laser + engineer/day, DOE-driven)</div>
+                        </li>
+                        <li><strong>Publish a "Laser Tube Design Guide":</strong>
+                            <div class="sub">— Separate femto vs fiber capability guidance (min feature, kerf expectations, wall/OD constraints)</div>
+                            <div class="sub">— Common failure modes and how to design around them</div>
+                        </li>
+                        <li><strong>Build a standard metrology/reporting menu:</strong>
+                            <div class="sub">— Define what "standard," "enhanced," and "validation-ready" inspection reports include</div>
+                        </li>
+                        <li><strong>Implement a lightweight customer portal:</strong>
+                            <div class="sub">— RFQ upload, revision tracking, order status, inspection report download</div>
+                            <div class="sub">— This becomes sticky and reduces admin time</div>
+                        </li>
+                    </ul>
+
+                    <h4>KPIs</h4>
+                    <div class="kpi-grid">
+                        <div class="kpi-item">RFQ-to-quote time (median)</div>
+                        <div class="kpi-item">Quote-to-PO conversion rate</div>
+                        <div class="kpi-item">On-time delivery for Rapid Prototype lane</div>
+                        <div class="kpi-item">Repeat-order rate within 6 months</div>
+                        <div class="kpi-item">% orders with "Pilot Pack" or higher</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Year 2 -->
+        <div class="year-block year2" id="year2">
+            <div class="year-header" onclick="toggleYear(this)">
+                <div>
+                    <h3>Year 2: Scale + Differentiation</h3>
+                    <p>Own the R&amp;D-to-pilot bridge</p>
+                </div>
+                <div class="chevron">
+                    <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+                </div>
+            </div>
+            <div class="year-body">
+                <div class="year-content">
+                    <h4>Objectives</h4>
+                    <ul>
+                        <li>Increase repeatability, utilization, and margin</li>
+                        <li>Win "preferred supplier" status for 3–5 OEMs or funded startups</li>
+                        <li>Expand technical credibility</li>
+                    </ul>
+
+                    <h4>Key Initiatives</h4>
+                    <ul>
+                        <li><strong>Process Lock program launch:</strong>
+                            <div class="sub">— Sell "Pilot Pack" and "Transfer-to-Production Pack"</div>
+                            <div class="sub">— Add formal change control + revision management</div>
+                        </li>
+                        <li><strong>Application specialization — Choose 2–3 component archetypes to dominate:</strong>
+                            <div class="sub">— Neurovascular thin-wall nitinol tube patterns</div>
+                            <div class="sub">— Peripheral/cardiovascular tube components with larger OD range</div>
+                            <div class="sub">— Precision marker features in precious metals</div>
+                            <div class="sub">— Create internal parameter libraries and fixturing standards for each</div>
+                        </li>
+                        <li><strong>Partnered finishing supply chain:</strong>
+                            <div class="sub">— Offer "laser + finishing + final inspection" as a single PO</div>
+                            <div class="sub">— Negotiate SLAs with finishing partners to preserve speed promise</div>
+                        </li>
+                        <li><strong>Content &amp; proof:</strong>
+                            <div class="sub">— Publish anonymized case studies: turnaround time, edge quality, HAZ minimization outcomes, iteration counts saved</div>
+                        </li>
+                    </ul>
+
+                    <h4>KPIs</h4>
+                    <div class="kpi-grid">
+                        <div class="kpi-item">Revenue mix: % pilot/recurring vs one-off prototype</div>
+                        <div class="kpi-item">Gross margin by lane</div>
+                        <div class="kpi-item">Customer concentration &amp; preferred-supplier wins</div>
+                        <div class="kpi-item">Scrap/rework rate</div>
+                        <div class="kpi-item">Average cycle time for repeat builds (should fall)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Year 3 -->
+        <div class="year-block year3" id="year3">
+            <div class="year-header" onclick="toggleYear(this)">
+                <div>
+                    <h3>Year 3: Innovative Expansion</h3>
+                    <p>New business lines that leverage your core</p>
+                </div>
+                <div class="chevron">
+                    <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+                </div>
+            </div>
+            <div class="year-body">
+                <div class="year-content">
+                    <h4>Objectives</h4>
+                    <ul>
+                        <li>Become harder to replace (data + validated workflows)</li>
+                        <li>Enter 1–2 adjacent markets or applications without diluting focus</li>
+                        <li>Create new high-margin offerings</li>
+                    </ul>
+
+                    <h4>Stretch Innovations (pick 2–3 to execute well)</h4>
+
+                    <div class="innov-grid">
+                        <div class="innov-card">
+                            <h4>Innovation A: "Design Rules Engine" + Instant DFM</h4>
+                            <p>A more advanced version of the portal:</p>
+                            <ul>
+                                <li>Upload CAD/drawing → automatic checks for feature feasibility by OD/wall/material</li>
+                                <li>Suggest femto vs fiber, expected kerf, and risk flags</li>
+                                <li>Produce a "DFM report" customers can take to design reviews</li>
+                            </ul>
+                            <p class="innov-why">Why it matters: shifts you from job shop to design partner and increases lock-in early.</p>
+                        </div>
+
+                        <div class="innov-card">
+                            <h4>Innovation B: Micro-Tube "Platform Processes" with Guaranteed Windows</h4>
+                            <p>Offer standardized, pre-validated process recipes for common materials/OD ranges.</p>
+                            <ul>
+                                <li>Customers design within a known box → you guarantee lead time + quality metrics.</li>
+                            </ul>
+                            <p class="innov-why">Why it matters: defensibility and scalability.</p>
+                        </div>
+
+                        <div class="innov-card">
+                            <h4>Innovation C: Regulatory-Ready Manufacturing Documentation as a Product</h4>
+                            <p>Offer a premium documentation bundle:</p>
+                            <ul>
+                                <li>Device history record-ready traceability (as applicable to component supplier)</li>
+                                <li>Process characterization summaries</li>
+                                <li>Inspection data packages structured for easy submission support</li>
+                            </ul>
+                            <p class="innov-why">Why it matters: procurement and quality teams value this; it justifies price.</p>
+                        </div>
+
+                        <div class="innov-card">
+                            <h4>Innovation D: Adjacent Regulated Verticals (Selective)</h4>
+                            <p>Without changing your core physics/process, explore:</p>
+                            <ul>
+                                <li>Aerospace micro-tubing components (if quality system expansion makes sense)</li>
+                                <li>Industrial microfluidics tubing (stainless, specialty metals)</li>
+                                <li>Life-science instrumentation components (less regulatory burden than implantables)</li>
+                            </ul>
+                            <p class="innov-why">Do this via a "separate lane" so medical lead times don't suffer.</p>
+                        </div>
+                    </div>
+
+                    <h4>KPIs</h4>
+                    <div class="kpi-grid">
+                        <div class="kpi-item">% revenue from packaged offerings (Process Lock, DFM reports, sprint programs)</div>
+                        <div class="kpi-item">Customer retention over 24 months</div>
+                        <div class="kpi-item">Time-to-quote and time-to-first-article vs baseline</div>
+                        <div class="kpi-item">Contribution margin per machine hour</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- 6) OPERATING PLAN                              -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="section" id="operating">
+        <div class="section-header">
+            <span class="section-num">6</span>
+            <h2 class="section-title">Operating Plan — What Must Be True Internally</h2>
+        </div>
+
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-label blue">Operations</div>
+                <h3>Capacity &amp; Throughput</h3>
+                <ul>
+                    <li>Define explicit capacity allocation by lane (R&amp;D rush vs pilot vs production) to protect the brand promise.</li>
+                    <li>Invest in fixturing standards and setup reduction (this is often the real limiter).</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-label green">Quality</div>
+                <h3>Quality System Maturity</h3>
+                <p style="margin-bottom: 10px;">ISO 13485 is a strong base; the growth lever is consistent:</p>
+                <ul>
+                    <li>Document control</li>
+                    <li>Calibration and metrology GR&amp;R</li>
+                    <li>Nonconformance/CAPA loop that's fast (not bureaucratic)</li>
+                    <li>Supplier controls for any outsourced finishing</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-label orange">Commercial</div>
+                <h3>Go-to-Market</h3>
+                <ul>
+                    <li>Productize pricing (prototype premiums, sprint day rates, documentation tiers).</li>
+                    <li>Create preferred-customer agreements tied to forecasted sprint blocks or pilot schedules.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- 7) IMMEDIATE NEXT STEPS                        -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="section" id="next-steps">
+        <div class="section-header">
+            <span class="section-num">7</span>
+            <h2 class="section-title">Immediate Next Steps (Next 30–60 Days)</h2>
+        </div>
+
+        <div class="steps-list">
+            <div class="step-item">
+                <div class="step-num">1</div>
+                <div class="step-text">Decide the 3 lanes (Rapid Prototype / Pilot / Development Sprint) and write a one-page spec for each.</div>
+            </div>
+            <div class="step-item">
+                <div class="step-num">2</div>
+                <div class="step-text">Draft and publish the Laser Tube Design Guide (even v1) to reduce RFQ friction.</div>
+            </div>
+            <div class="step-item">
+                <div class="step-num">3</div>
+                <div class="step-text">Build an internal process library structure (material + OD + wall + pattern class → parameter sets + inspection plan).</div>
+            </div>
+            <div class="step-item">
+                <div class="step-num">4</div>
+                <div class="step-text">Define and price documentation tiers (standard / enhanced / validation-ready).</div>
+            </div>
+            <div class="step-item">
+                <div class="step-num">5</div>
+                <div class="step-text">Identify 5–10 target accounts (neurovascular / cardiovascular / peripheral) and pitch the Development Sprint as the wedge.</div>
+            </div>
+        </div>
+
+        <div class="highlight-box" style="margin-top: 32px;">
+            <p><strong>Next Level:</strong> If you share (a) current annual revenue or order volume, (b) how many lasers/shift capacity, and (c) what % of work is prototype vs repeat production today, this plan can be turned into a quantified plan with targets (revenue, headcount, capex, utilization) and a milestone timeline by quarter.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-note">
+        Sublime Laser — Strategic Plan 2026–2029 &nbsp;·&nbsp; Confidential
+    </footer>
+</div>
+
+<!-- Scroll to top -->
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">↑</button>
+
+<script>
+    // ── Sidebar toggle (mobile) ──
+    function toggleSidebar() {
+        document.getElementById('sidebar').classList.toggle('open');
+        document.getElementById('backdrop').classList.toggle('show');
+    }
+
+    // Close sidebar when link clicked (mobile)
+    document.querySelectorAll('.sidebar-nav a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth <= 900) {
+                document.getElementById('sidebar').classList.remove('open');
+                document.getElementById('backdrop').classList.remove('show');
+            }
+        });
+    });
+
+    // ── Year accordion ──
+    function toggleYear(header) {
+        const block = header.parentElement;
+        block.classList.toggle('open');
+    }
+
+    // ── Active nav on scroll ──
+    const sections = document.querySelectorAll('section[id], header[id]');
+    const navLinks = document.querySelectorAll('.sidebar-nav a');
+
+    function updateActiveNav() {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 120;
+            if (pageYOffset >= sectionTop) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + current) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    // ── Scroll to top button ──
+    function updateScrollTop() {
+        const btn = document.getElementById('scrollTop');
+        if (window.scrollY > 400) {
+            btn.classList.add('show');
+        } else {
+            btn.classList.remove('show');
+        }
+    }
+
+    window.addEventListener('scroll', () => {
+        updateActiveNav();
+        updateScrollTop();
+    });
+
+    // Init
+    updateActiveNav();
+</script>
+</body>
+</html>
