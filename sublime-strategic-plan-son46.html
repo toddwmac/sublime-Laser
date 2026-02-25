@@ -1,0 +1,1814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sublime Laser — 3-Year Strategic Business Plan 2026–2028</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #070a0f;
+    --surface: #0d1117;
+    --surface2: #131920;
+    --border: #1e2a35;
+    --accent: #00d4ff;
+    --accent2: #ff6b35;
+    --accent3: #7cf86e;
+    --text: #e8edf2;
+    --text-dim: #6e8090;
+    --text-mid: #a0b4c0;
+    --gold: #f5c842;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Mono', monospace;
+    font-size: 14px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* NOISE OVERLAY */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.4;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 500;
+    background: rgba(7,10,15,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    height: 52px;
+  }
+
+  .nav-brand {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-right: 3rem;
+    white-space: nowrap;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .nav-links::-webkit-scrollbar { display: none; }
+
+  .nav-link {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    text-decoration: none;
+    padding: 0 1rem;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    border-right: 1px solid var(--border);
+    transition: color 0.2s, background 0.2s;
+    white-space: nowrap;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+  }
+  .nav-link:first-child { border-left: 1px solid var(--border); }
+  .nav-link:hover, .nav-link.active { color: var(--accent); background: rgba(0,212,255,0.05); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8rem 4rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 80%);
+  }
+
+  .hero-glow {
+    position: absolute;
+    top: 20%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(ellipse, rgba(0,212,255,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-glow2 {
+    position: absolute;
+    bottom: 10%;
+    left: -5%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(255,107,53,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .hero-label::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .hero-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    line-height: 1.05;
+    font-style: italic;
+    color: var(--text);
+    max-width: 800px;
+    margin-bottom: 2rem;
+  }
+
+  .hero-title span {
+    color: var(--accent);
+    font-style: normal;
+  }
+
+  .hero-subtitle {
+    font-size: 13px;
+    color: var(--text-mid);
+    max-width: 520px;
+    margin-bottom: 3rem;
+    line-height: 1.8;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .hero-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .hero-stat-num {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    color: var(--accent);
+  }
+
+  .hero-stat-label {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 5rem 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    margin-bottom: 2.5rem;
+    line-height: 1.2;
+  }
+
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    margin: 0;
+  }
+
+  /* CARDS */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 2rem;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .card:hover {
+    border-color: rgba(0,212,255,0.3);
+    transform: translateY(-2px);
+  }
+
+  .card-tag {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    border: 1px solid currentColor;
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+
+  .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+
+  @media (max-width: 1100px) {
+    .grid-4 { grid-template-columns: repeat(2, 1fr); }
+    .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 700px) {
+    .grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr; }
+    section { padding: 3rem 1.5rem; }
+    .hero { padding: 7rem 1.5rem 3rem; }
+  }
+
+  /* ANALYSIS SECTION */
+  .swot-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .swot-cell {
+    background: var(--surface);
+    padding: 2rem;
+  }
+
+  .swot-cell h3 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .swot-cell ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .swot-cell li {
+    font-size: 12px;
+    color: var(--text-mid);
+    padding-left: 1rem;
+    position: relative;
+    line-height: 1.5;
+  }
+  .swot-cell li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--text-dim);
+    font-size: 10px;
+  }
+
+  /* COMPETITOR TABLE */
+  .comp-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+
+  .comp-table th {
+    background: var(--surface2);
+    color: var(--text-dim);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .comp-table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    color: var(--text-mid);
+    line-height: 1.5;
+  }
+
+  .comp-table tr:hover td { background: rgba(0,212,255,0.02); }
+
+  .badge {
+    display: inline-block;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    padding: 0.15rem 0.5rem;
+    border-radius: 0;
+    text-transform: uppercase;
+  }
+  .badge-green { background: rgba(124,248,110,0.1); color: var(--accent3); border: 1px solid rgba(124,248,110,0.3); }
+  .badge-yellow { background: rgba(245,200,66,0.1); color: var(--gold); border: 1px solid rgba(245,200,66,0.3); }
+  .badge-red { background: rgba(255,80,80,0.1); color: #ff8080; border: 1px solid rgba(255,80,80,0.3); }
+  .badge-blue { background: rgba(0,212,255,0.1); color: var(--accent); border: 1px solid rgba(0,212,255,0.3); }
+
+  /* TIMELINE / ROADMAP */
+  .roadmap {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border: 1px solid var(--border);
+  }
+
+  @media (max-width: 900px) {
+    .roadmap { grid-template-columns: 1fr; }
+  }
+
+  .roadmap-year {
+    border-right: 1px solid var(--border);
+    padding: 0;
+  }
+  .roadmap-year:last-child { border-right: none; }
+
+  .roadmap-header {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+  }
+
+  .roadmap-year-num {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 2.5rem;
+    line-height: 1;
+  }
+
+  .roadmap-year-label {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  .roadmap-body {
+    padding: 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .initiative {
+    border-left: 2px solid var(--border);
+    padding-left: 1rem;
+    transition: border-color 0.3s;
+  }
+  .initiative:hover { border-left-color: var(--accent); }
+
+  .initiative h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
+
+  .initiative p {
+    font-size: 11px;
+    color: var(--text-dim);
+    line-height: 1.6;
+  }
+
+  /* INNOVATION CARDS */
+  .innovation-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+  .innovation-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+  }
+  .innovation-card:hover { border-color: rgba(0,212,255,0.4); }
+
+  .innovation-card:nth-child(1)::before { background: var(--accent); }
+  .innovation-card:nth-child(2)::before { background: var(--accent2); }
+  .innovation-card:nth-child(3)::before { background: var(--accent3); }
+  .innovation-card:nth-child(4)::before { background: var(--gold); }
+
+  .innovation-icon {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .innovation-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .innovation-card p {
+    font-size: 12px;
+    color: var(--text-mid);
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+  }
+
+  .innovation-metrics {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .innovation-metric {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .innovation-metric span:first-child {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--accent);
+  }
+
+  .innovation-metric span:last-child {
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  /* FINANCIAL PROJECTIONS */
+  .fin-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+
+  .fin-table th {
+    background: var(--surface2);
+    color: var(--text-dim);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.8rem 1.2rem;
+    text-align: right;
+    border-bottom: 1px solid var(--border);
+  }
+  .fin-table th:first-child { text-align: left; }
+
+  .fin-table td {
+    padding: 0.9rem 1.2rem;
+    border-bottom: 1px solid var(--border);
+    text-align: right;
+    color: var(--text-mid);
+  }
+  .fin-table td:first-child {
+    text-align: left;
+    color: var(--text);
+  }
+  .fin-table tr.highlight td {
+    color: var(--accent);
+    font-weight: 500;
+    background: rgba(0,212,255,0.03);
+  }
+  .fin-table tr.highlight td:first-child { color: var(--accent); }
+  .fin-table tr:hover td { background: rgba(0,212,255,0.02); }
+
+  /* BAR CHART */
+  .bar-chart {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .bar-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .bar-label {
+    font-size: 11px;
+    color: var(--text-dim);
+    width: 100px;
+    flex-shrink: 0;
+  }
+
+  .bar-track {
+    flex: 1;
+    height: 8px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bar-fill {
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: width 1.2s ease;
+    width: 0;
+  }
+
+  .bar-value {
+    font-family: 'Syne', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    width: 60px;
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  /* KPIs */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .kpi {
+    background: var(--surface);
+    padding: 1.75rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .kpi-label {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  .kpi-value {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1.8rem;
+    line-height: 1;
+  }
+
+  .kpi-desc {
+    font-size: 11px;
+    color: var(--text-dim);
+  }
+
+  /* RISK TABLE */
+  .risk-item {
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr 3fr;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+    font-size: 12px;
+    align-items: start;
+    transition: background 0.2s;
+  }
+  .risk-item:hover { background: rgba(0,212,255,0.02); }
+  .risk-item.header {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    background: var(--surface2);
+  }
+  .risk-item .risk-name { color: var(--text); font-weight: 500; }
+  .risk-item .risk-desc { color: var(--text-dim); }
+
+  /* TABS */
+  .tabs {
+    display: flex;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2rem;
+    gap: 0;
+    overflow-x: auto;
+  }
+
+  .tab-btn {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    background: transparent;
+    color: var(--text-dim);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+    white-space: nowrap;
+  }
+  .tab-btn:hover { color: var(--text); }
+  .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 4px; height: 4px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border); }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 3rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 11px;
+    color: var(--text-dim);
+  }
+
+  .footer-brand {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    color: var(--accent);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-up {
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards;
+  }
+
+  .fade-up:nth-child(1) { animation-delay: 0.1s; }
+  .fade-up:nth-child(2) { animation-delay: 0.2s; }
+  .fade-up:nth-child(3) { animation-delay: 0.3s; }
+  .fade-up:nth-child(4) { animation-delay: 0.4s; }
+
+  /* MARKET SIZE VISUAL */
+  .market-rings {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+    position: relative;
+    min-height: 280px;
+  }
+
+  .ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    transition: border-color 0.3s;
+  }
+
+  .ring:hover { border-color: var(--accent); }
+
+  .ring-1 { width: 120px; height: 120px; background: rgba(0,212,255,0.06); border-color: rgba(0,212,255,0.4); z-index: 3; }
+  .ring-2 { width: 200px; height: 200px; background: rgba(0,212,255,0.03); z-index: 2; }
+  .ring-3 { width: 280px; height: 280px; background: rgba(0,212,255,0.015); z-index: 1; }
+
+  .ring-label {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--accent);
+  }
+
+  .ring-desc {
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    max-width: 80px;
+    line-height: 1.4;
+  }
+
+  /* HIGHLIGHT BOX */
+  .highlight-box {
+    background: rgba(0,212,255,0.04);
+    border: 1px solid rgba(0,212,255,0.2);
+    padding: 2rem;
+    margin: 2rem 0;
+  }
+
+  .highlight-box p {
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.8;
+  }
+
+  .highlight-box strong { color: var(--accent); }
+
+  /* EXEC SUMMARY BULLETS */
+  .exec-bullets {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .exec-bullet {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.25rem 1.5rem;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    transition: border-color 0.3s;
+  }
+  .exec-bullet:hover { border-color: rgba(0,212,255,0.3); }
+
+  .exec-bullet-num {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: rgba(0,212,255,0.2);
+    line-height: 1;
+    width: 2rem;
+    flex-shrink: 0;
+  }
+
+  .exec-bullet-content h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+  }
+
+  .exec-bullet-content p {
+    font-size: 12px;
+    color: var(--text-dim);
+    line-height: 1.6;
+  }
+
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">Sublime Laser</div>
+  <div class="nav-links">
+    <a class="nav-link active" onclick="scrollToSection('exec')">Executive Summary</a>
+    <a class="nav-link" onclick="scrollToSection('analysis')">Business Analysis</a>
+    <a class="nav-link" onclick="scrollToSection('market')">Market & Competition</a>
+    <a class="nav-link" onclick="scrollToSection('roadmap')">3-Year Roadmap</a>
+    <a class="nav-link" onclick="scrollToSection('innovation')">Innovation Strategy</a>
+    <a class="nav-link" onclick="scrollToSection('financial')">Financial Plan</a>
+    <a class="nav-link" onclick="scrollToSection('risk')">Risk & KPIs</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  
+  <div style="position:relative;">
+    <div class="hero-label">Strategic Business Plan · 2026–2028</div>
+    <h1 class="hero-title">
+      Precision at the<br>
+      <span>speed of light.</span>
+    </h1>
+    <p class="hero-subtitle">
+      A three-year growth and innovation strategy for Sublime Laser, Inc. — Salt Lake City's ISO 13485-certified femtosecond laser machining specialist for next-generation medical devices.
+    </p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">12µm</div>
+        <div class="hero-stat-label">Min Feature Size</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">ISO</div>
+        <div class="hero-stat-label">13485 Certified</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">3×</div>
+        <div class="hero-stat-label">Revenue Target</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">4</div>
+        <div class="hero-stat-label">Innovation Vectors</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- EXECUTIVE SUMMARY -->
+<section id="exec">
+  <div class="section-label">01 — Executive Summary</div>
+  <h2 class="section-title">Where we are.<br>Where we're going.</h2>
+
+  <div class="highlight-box">
+    <p>
+      Sublime Laser, Inc. is a <strong>specialized medical device laser machining company</strong> based in Salt Lake City, UT. Operating with femtosecond and ultrafast fiber laser systems, Sublime occupies a highly defensible niche: precision cutting of nitinol and stainless steel tubular components for cardiovascular, neurovascular, and peripheral vascular device R&D. Their <strong>ISO 13485 certification</strong>, days-not-weeks turnaround, and "Rent-a-Laser" service model create a uniquely flexible offering in a market dominated by slower, less agile incumbents. This plan charts a path from specialized contract machining shop to a <strong>vertically integrated platform</strong> serving the full lifecycle of medical device development.
+    </p>
+  </div>
+
+  <div class="exec-bullets">
+    <div class="exec-bullet fade-up">
+      <div class="exec-bullet-num">01</div>
+      <div class="exec-bullet-content">
+        <h4>Solidify the Core — Year 1 (2026)</h4>
+        <p>Expand capacity, formalize key account relationships, add a second femtosecond system, and launch a digital quoting platform to accelerate the sales cycle. Build recurring revenue through retainer-based R&D partnerships.</p>
+      </div>
+    </div>
+    <div class="exec-bullet fade-up">
+      <div class="exec-bullet-num">02</div>
+      <div class="exec-bullet-content">
+        <h4>Scale and Diversify — Year 2 (2027)</h4>
+        <p>Expand addressable market beyond tubular components into flat sheet and planar geometries. Pursue aerospace and semiconductor markets. Launch a proprietary design-to-manufacture SaaS portal for engineer customers. Add cleanroom-adjacent capabilities for Class III device work.</p>
+      </div>
+    </div>
+    <div class="exec-bullet fade-up">
+      <div class="exec-bullet-num">03</div>
+      <div class="exec-bullet-content">
+        <h4>Platform & Innovation — Year 3 (2028)</h4>
+        <p>Position Sublime as the definitive precision micromachining partner for deep-tech industries. Launch an AI-assisted design co-pilot tool, explore IP licensing from proprietary process recipes, and evaluate strategic partnerships or acquisition targets for scale.</p>
+      </div>
+    </div>
+    <div class="exec-bullet fade-up">
+      <div class="exec-bullet-num">04</div>
+      <div class="exec-bullet-content">
+        <h4>Three-Year Financial Target</h4>
+        <p>Targeting 3× revenue growth, gross margins above 55%, and building toward a defensible recurring revenue base representing 30%+ of total revenue by end of Year 3.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BUSINESS ANALYSIS -->
+<section id="analysis">
+  <div class="section-label">02 — Business Analysis</div>
+  <h2 class="section-title">SWOT Analysis</h2>
+
+  <div class="swot-grid">
+    <div class="swot-cell">
+      <h3><span style="color:var(--accent3)">S</span> Strengths</h3>
+      <ul>
+        <li>ISO 13485:2016 certification — mandatory for serious medical device customers</li>
+        <li>Femtosecond laser technology offering near-zero HAZ — technically superior to conventional laser cutting</li>
+        <li>Days-to-weeks turnaround vs. industry norm of weeks-to-months</li>
+        <li>"Rent-a-Laser" offering is unique and directly addresses R&D iteration speed</li>
+        <li>Small, experienced team with decades of domain expertise</li>
+        <li>Dual laser capability: femtosecond (precision) + fiber (throughput)</li>
+        <li>Materials breadth: nitinol, stainless steel, precious metals, ceramic, glass</li>
+        <li>Tight feature resolution: down to 12 microns</li>
+        <li>Local SLC presence in a growing medtech corridor</li>
+      </ul>
+    </div>
+    <div class="swot-cell">
+      <h3><span style="color:var(--gold)">W</span> Weaknesses</h3>
+      <ul>
+        <li>Very small team — single points of failure in production and engineering</li>
+        <li>Currently limited to tubular geometries only</li>
+        <li>No proprietary IP (process knowledge, not patents)</li>
+        <li>Website/marketing is basic — likely underrepresenting capability</li>
+        <li>No evidence of a formal CRM or sales function</li>
+        <li>Revenue likely highly concentrated in a small number of customers</li>
+        <li>Limited brand recognition outside direct referrals</li>
+        <li>Blog content incomplete — signals potential marketing underinvestment</li>
+      </ul>
+    </div>
+    <div class="swot-cell">
+      <h3><span style="color:var(--accent)">O</span> Opportunities</h3>
+      <ul>
+        <li>Global vascular stent market projected to reach $12B+ by 2030</li>
+        <li>Neurovascular device market growing at 8%+ CAGR</li>
+        <li>Expansion into flat/planar laser cutting (sheets, foils, films)</li>
+        <li>Aerospace and defense demand for precision laser machining of exotic alloys</li>
+        <li>Semiconductor packaging and microelectronics assembly components</li>
+        <li>Digital quoting/ordering platform to capture inbound R&D teams directly</li>
+        <li>AI-assisted process parameter optimization to reduce setup time</li>
+        <li>IP generation from proprietary nitinol cutting recipes and post-processing protocols</li>
+        <li>Utah life sciences ecosystem — access to talent and partnerships</li>
+      </ul>
+    </div>
+    <div class="swot-cell">
+      <h3><span style="color:#ff8080)">T</span> Threats</h3>
+      <ul>
+        <li>Large contract manufacturers (e.g., Resonetics, Accellent) offering competitive services at scale</li>
+        <li>In-house laser capability investment by large OEM device companies</li>
+        <li>Rising femtosecond laser hardware costs limiting expansion pace</li>
+        <li>Talent scarcity for skilled laser technicians</li>
+        <li>FDA regulatory tightening on medical device supply chain documentation</li>
+        <li>Global macroeconomic volatility affecting R&D spending cycles</li>
+        <li>New entrants with lower cost-base from lower-cost geographies</li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="margin-top:3rem;">
+    <h3 style="font-family:'Syne',sans-serif;font-weight:700;margin-bottom:1.5rem;">Current Service Portfolio</h3>
+    <div class="grid-4">
+      <div class="card">
+        <div class="card-tag" style="color:var(--accent);border-color:var(--accent);">Core Revenue</div>
+        <h4 style="font-family:'Syne',sans-serif;margin-bottom:0.5rem;">R&D Laser Machining</h4>
+        <p style="font-size:12px;color:var(--text-dim);">Custom precision cutting of tubular components. Fast turnaround for prototype quantities. Primary revenue driver.</p>
+      </div>
+      <div class="card">
+        <div class="card-tag" style="color:var(--accent2);border-color:var(--accent2);">Differentiator</div>
+        <h4 style="font-family:'Syne',sans-serif;margin-bottom:0.5rem;">Rent-a-Laser</h4>
+        <p style="font-size:12px;color:var(--text-dim);">On-demand laser + tech for hours or days. R&D teams iterate on-site, saving weeks of back-and-forth.</p>
+      </div>
+      <div class="card">
+        <div class="card-tag" style="color:var(--accent3);border-color:var(--accent3);">Value Add</div>
+        <h4 style="font-family:'Syne',sans-serif;margin-bottom:0.5rem;">Design Services</h4>
+        <p style="font-size:12px;color:var(--text-dim);">Engineering support for component design, DFM guidance, material selection for neurovascular/cardiovascular applications.</p>
+      </div>
+      <div class="card">
+        <div class="card-tag" style="color:var(--gold);border-color:var(--gold);">Production</div>
+        <h4 style="font-family:'Syne',sans-serif;margin-bottom:0.5rem;">Production Parts</h4>
+        <p style="font-size:12px;color:var(--text-dim);">Volume manufacturing of laser-machined components from nitinol, stainless steel, and specialty materials to exact specifications.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- MARKET & COMPETITION -->
+<section id="market">
+  <div class="section-label">03 — Market & Competition</div>
+  <h2 class="section-title">Competitive Landscape</h2>
+
+  <div class="grid-2" style="margin-bottom:3rem;align-items:start;">
+    <div>
+      <p style="font-size:13px;color:var(--text-mid);line-height:1.8;margin-bottom:1.5rem;">
+        Sublime competes in the precision contract laser machining sub-segment of the broader medical device contract manufacturing market. Their differentiation is <strong style="color:var(--text);">speed, precision, and flexibility</strong> — not scale. The key battleground is R&D-stage medical device companies who cannot afford multi-week lead times or minimum order quantities from large manufacturers.
+      </p>
+      <div class="highlight-box" style="margin:0;">
+        <p><strong>Target Market Size:</strong><br>
+        The global medical device contract manufacturing market is ~$18B (2025), growing at 10.5% CAGR. The precision laser machining sub-segment most relevant to Sublime is estimated at ~$1.2–1.8B, with a serviceable addressable market for a company of Sublime's profile at approximately <strong>$80–120M</strong> in the US.</p>
+      </div>
+    </div>
+    <div class="market-rings">
+      <div class="ring ring-3">
+        <div class="ring-label" style="position:absolute;bottom:1rem;font-size:0.7rem;color:var(--text-dim);">$18B Total Med Device CM</div>
+      </div>
+      <div class="ring ring-2">
+        <div class="ring-label" style="position:absolute;bottom:1rem;font-size:0.75rem;color:var(--text-mid);">$1.5B Laser Machining</div>
+      </div>
+      <div class="ring ring-1">
+        <div class="ring-label">~$100M</div>
+        <div class="ring-desc">Sublime's SAM</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="overflow-x:auto;">
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>Competitor</th>
+          <th>Type</th>
+          <th>Scale</th>
+          <th>Strengths vs Sublime</th>
+          <th>Weaknesses vs Sublime</th>
+          <th>Threat Level</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="color:var(--text);font-weight:500;">Resonetics</td>
+          <td><span class="badge badge-red">Large Corp</span></td>
+          <td>$150M+ Rev</td>
+          <td>Scale, global footprint, broadest material range, long-standing OEM relationships</td>
+          <td>Slower for small R&D runs, less personalized, higher minimums</td>
+          <td><span class="badge badge-red">High</span></td>
+        </tr>
+        <tr>
+          <td style="color:var(--text);font-weight:500;">Fort Wayne Metals</td>
+          <td><span class="badge badge-red">Large Corp</span></td>
+          <td>$200M+ Rev</td>
+          <td>Vertically integrated wire/tube + machining, deep nitinol expertise, global brand</td>
+          <td>Primary focus is wire/tube supply, not precision machining; higher MOQs</td>
+          <td><span class="badge badge-yellow">Medium</span></td>
+        </tr>
+        <tr>
+          <td style="color:var(--text);font-weight:500;">Laserage Technology</td>
+          <td><span class="badge badge-yellow">Mid-Market</span></td>
+          <td>$20–50M Rev</td>
+          <td>Established brand, multi-technology offering, AS9100 + ISO 13485</td>
+          <td>Longer lead times, less flexible service model, no rent-a-laser</td>
+          <td><span class="badge badge-yellow">Medium</span></td>
+        </tr>
+        <tr>
+          <td style="color:var(--text);font-weight:500;">LPW Technology / SPI Lasers</td>
+          <td><span class="badge badge-yellow">Mid-Market</span></td>
+          <td>$30–60M Rev</td>
+          <td>Broader laser technology portfolio, international presence</td>
+          <td>Less focused on medical device niche, less agile for prototype work</td>
+          <td><span class="badge badge-yellow">Medium</span></td>
+        </tr>
+        <tr>
+          <td style="color:var(--text);font-weight:500;">Local/Regional Job Shops</td>
+          <td><span class="badge badge-green">Small</span></td>
+          <td>&lt;$5M Rev</td>
+          <td>Price competitive for simpler cuts, lower overhead</td>
+          <td>No ISO 13485, no femtosecond capability, limited material expertise</td>
+          <td><span class="badge badge-green">Low</span></td>
+        </tr>
+        <tr>
+          <td style="color:var(--text);font-weight:500;">In-House OEM Capability</td>
+          <td><span class="badge badge-red">Indirect</span></td>
+          <td>Variable</td>
+          <td>Full control of IP, no outsourcing cost</td>
+          <td>High capex, slow to iterate, Sublime's speed still wins at R&D stage</td>
+          <td><span class="badge badge-red">High (Long Term)</span></td>
+        </tr>
+        <tr>
+          <td style="color:var(--accent);font-weight:500;">✦ Sublime Laser</td>
+          <td><span class="badge badge-blue">Specialized</span></td>
+          <td>Growth Stage</td>
+          <td colspan="2" style="color:var(--text-mid);">Ultra-fast turnaround · Femtosecond precision · ISO 13485 · Rent-a-Laser · Highly personalized · Expert team</td>
+          <td><span class="badge badge-blue">Challenger</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div style="margin-top:3rem;">
+    <h3 style="font-family:'Syne',sans-serif;font-weight:700;margin-bottom:1.5rem;">Competitive Positioning Map</h3>
+    <div class="grid-2">
+      <div class="card">
+        <h4 style="font-family:'Syne',sans-serif;margin-bottom:1rem;color:var(--accent);">Sublime's Defensible Moat</h4>
+        <p style="font-size:12px;color:var(--text-dim);line-height:1.7;">The intersection of <strong style="color:var(--text);">femtosecond laser precision + ISO 13485 certification + days-level turnaround + on-demand rental</strong> is a combination no major competitor currently offers in a single boutique service model. This creates a natural home for underfunded startup device companies and large OEM R&D teams equally — both value speed over cost.</p>
+      </div>
+      <div class="card">
+        <h4 style="font-family:'Syne',sans-serif;margin-bottom:1rem;color:var(--accent2);">Strategic Gap to Exploit</h4>
+        <p style="font-size:12px;color:var(--text-dim);line-height:1.7;">Large competitors like Resonetics focus on production volumes and long-term OEM contracts. <strong style="color:var(--text);">The R&D iteration gap remains underserved.</strong> Sublime can own the "first 50 prototype cycles" for every major new cardiovascular device being developed — a beachhead that can follow devices into production relationships.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 3-YEAR ROADMAP -->
+<section id="roadmap">
+  <div class="section-label">04 — Strategic Roadmap</div>
+  <h2 class="section-title">3-Year Initiative Plan</h2>
+
+  <div class="roadmap">
+    <div class="roadmap-year">
+      <div class="roadmap-header">
+        <div class="roadmap-year-num" style="color:var(--accent);">2026</div>
+        <div>
+          <div class="roadmap-year-label">Year One</div>
+          <div style="font-size:11px;color:var(--text-mid);margin-top:0.2rem;">Strengthen & Systematize</div>
+        </div>
+      </div>
+      <div class="roadmap-body">
+        <div class="initiative">
+          <h4>Add 2nd Femtosecond System</h4>
+          <p>Eliminate single-machine bottleneck. Enables parallel runs for different clients and redundancy for uptime SLAs.</p>
+        </div>
+        <div class="initiative">
+          <h4>Digital Quoting Platform</h4>
+          <p>Build or buy a web-based RFQ/quoting tool. Engineers upload DXF/CAD → receive instant feasibility + price estimate → book time slot. Reduces sales cycle from days to minutes.</p>
+        </div>
+        <div class="initiative">
+          <h4>Key Account Program</h4>
+          <p>Formalize relationships with top 5–10 R&D customers via annual retainer agreements. Guaranteed capacity + priority queue = predictable revenue.</p>
+        </div>
+        <div class="initiative">
+          <h4>Hire: Sales/Application Engineer</h4>
+          <p>First dedicated external-facing technical hire. Owns new account development, tradeshows (MD&M, RIMS), and inbound lead qualification.</p>
+        </div>
+        <div class="initiative">
+          <h4>Process Documentation & IP Capture</h4>
+          <p>Document proprietary cutting recipes for nitinol, SS, and exotic materials. Foundation for future licensing or defensibility in due diligence.</p>
+        </div>
+        <div class="initiative">
+          <h4>Content Marketing Engine</h4>
+          <p>Launch a technical blog, LinkedIn cadence, and case study series. Target medical device R&D engineers searching for "nitinol laser cutting" and "femtosecond stent machining."</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="roadmap-year">
+      <div class="roadmap-header">
+        <div class="roadmap-year-num" style="color:var(--accent2);">2027</div>
+        <div>
+          <div class="roadmap-year-label">Year Two</div>
+          <div style="font-size:11px;color:var(--text-mid);margin-top:0.2rem;">Scale & Diversify</div>
+        </div>
+      </div>
+      <div class="roadmap-body">
+        <div class="initiative">
+          <h4>Flat / Planar Laser Capability</h4>
+          <p>Invest in a flat-bed or galvo-scanning femtosecond system. Opens foil, sheet, and film cutting — new applications in drug delivery patches, MEMS components, and semiconductor tooling.</p>
+        </div>
+        <div class="initiative">
+          <h4>Aerospace Market Entry</h4>
+          <p>Pursue AS9100 certification. Target aerospace precision component machining for titanium and Inconel structures. Natural fit for existing femtosecond capability.</p>
+        </div>
+        <div class="initiative">
+          <h4>SaaS Design Portal Launch</h4>
+          <p>Web app for engineers: upload geometry, select material, configure tolerances, get DFM feedback in real-time, schedule production. Recurring SaaS subscription revenue for premium features.</p>
+        </div>
+        <div class="initiative">
+          <h4>Cleanroom Expansion</h4>
+          <p>Build or certify adjacent ISO Class 7/8 cleanroom space to support Class II and Class III medical device component manufacturing — unlocking more lucrative production contracts.</p>
+        </div>
+        <div class="initiative">
+          <h4>Post-Processing Partnerships</h4>
+          <p>Partner with local heat-treating, electropolishing, and passivation providers. Offer customers a "complete component" — machined + finished — reducing their supply chain complexity.</p>
+        </div>
+        <div class="initiative">
+          <h4>Hire: Process/Materials Engineer</h4>
+          <p>Dedicated R&D role for developing new material processes, reducing setup scrap, and pushing feature resolution boundaries. Drives IP creation.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="roadmap-year">
+      <div class="roadmap-header">
+        <div class="roadmap-year-num" style="color:var(--accent3);">2028</div>
+        <div>
+          <div class="roadmap-year-label">Year Three</div>
+          <div style="font-size:11px;color:var(--text-mid);margin-top:0.2rem;">Platform & Innovate</div>
+        </div>
+      </div>
+      <div class="roadmap-body">
+        <div class="initiative">
+          <h4>AI Process Co-Pilot</h4>
+          <p>Develop or license an AI system that recommends optimal laser parameters (power, rep rate, focus, gas) for new material/geometry combinations. Cuts setup time 60-80%. Potential product for sale/license to other shops.</p>
+        </div>
+        <div class="initiative">
+          <h4>Micro-Additive Manufacturing</h4>
+          <p>Explore femtosecond laser-based two-photon polymerization or laser-induced forward transfer (LIFT) for nanoscale additive capabilities — opening biosensor, drug delivery, and neural device markets.</p>
+        </div>
+        <div class="initiative">
+          <h4>IP Licensing Program</h4>
+          <p>License proprietary nitinol and exotic alloy process recipes to non-competing geographies or application verticals. Asset-light revenue stream.</p>
+        </div>
+        <div class="initiative">
+          <h4>Strategic Partnership / M&A</h4>
+          <p>Evaluate acquisition of a small wire-forming or electrochemical machining shop to become a more complete vascular device component supplier. OR position for strategic acquisition by a larger medtech CM player.</p>
+        </div>
+        <div class="initiative">
+          <h4>International Customer Expansion</h4>
+          <p>Target EU medtech clusters (Germany, Ireland, Netherlands) via trade shows and digital channels. Leverage ISO 13485 as a passport for European medical device OEM relationships.</p>
+        </div>
+        <div class="initiative">
+          <h4>University R&D Partnerships</h4>
+          <p>Establish formal research partnerships with University of Utah, BYU, and Utah State engineering programs. Access to cutting-edge materials research, talent pipeline, and potential grant funding.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- INNOVATION STRATEGY -->
+<section id="innovation">
+  <div class="section-label">05 — Innovation Strategy</div>
+  <h2 class="section-title">Four Vectors of Innovation</h2>
+
+  <p style="font-size:13px;color:var(--text-mid);max-width:640px;margin-bottom:2.5rem;line-height:1.8;">
+    Beyond incremental growth, Sublime's technical foundation opens doors to transformative business opportunities that go well beyond contract machining. These four vectors represent the highest-impact innovation bets for the next three years.
+  </p>
+
+  <div class="grid-2">
+    <div class="innovation-card">
+      <span class="innovation-icon">⚡</span>
+      <div class="card-tag" style="color:var(--accent);border-color:rgba(0,212,255,0.4);">Technology Platform</div>
+      <h3>AI-Driven Process Intelligence</h3>
+      <p>Build a proprietary machine learning system trained on millions of laser cut events (material, parameters, outcome, quality). This "process brain" can predict optimal parameters for any new combination — dramatically reducing scrap rates and setup time. Deployable as internal tooling and potentially as a commercial product for the $4B+ industrial laser market.</p>
+      <p>The data moat grows with every part cut. Start capturing structured process data now before the opportunity is ceded to laser hardware OEMs who are building similar capabilities into their machines.</p>
+      <div class="innovation-metrics">
+        <div class="innovation-metric">
+          <span>60%</span>
+          <span>Setup time reduction</span>
+        </div>
+        <div class="innovation-metric">
+          <span>$2M+</span>
+          <span>Potential licensing value</span>
+        </div>
+        <div class="innovation-metric">
+          <span>Yr 3</span>
+          <span>Commercial launch</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="innovation-card">
+      <span class="innovation-icon">🔬</span>
+      <div class="card-tag" style="color:var(--accent2);border-color:rgba(255,107,53,0.4);">New Market</div>
+      <h3>Nanoscale Additive & Structural Biology</h3>
+      <p>Femtosecond lasers enable two-photon polymerization (2PP) — a nanoscale additive manufacturing process capable of producing 3D structures with sub-micron resolution. This positions Sublime at the frontier of biodegradable scaffold fabrication, neural implant structures, and lab-on-chip diagnostic devices.</p>
+      <p>A single 2PP system (est. $500K capital) could open access to the $1.2B neural device market and $800M point-of-care diagnostics component space — markets with far higher margins than current offerings.</p>
+      <div class="innovation-metrics">
+        <div class="innovation-metric">
+          <span>200nm</span>
+          <span>Achievable resolution</span>
+        </div>
+        <div class="innovation-metric">
+          <span>$2B+</span>
+          <span>New market access</span>
+        </div>
+        <div class="innovation-metric">
+          <span>Yr 2–3</span>
+          <span>Pilot launch</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="innovation-card">
+      <span class="innovation-icon">🛠</span>
+      <div class="card-tag" style="color:var(--accent3);border-color:rgba(124,248,110,0.4);">Business Model</div>
+      <h3>Engineer-as-a-Service Platform</h3>
+      <p>Evolve "Rent-a-Laser" into a full Engineer-as-a-Service (EaaS) subscription. Medical device R&D teams pay a monthly retainer for a guaranteed pool of laser hours + dedicated application engineering support + rapid design feedback. This mirrors the Model N / product management tooling trend: sell expertise and access, not just parts.</p>
+      <p>Subscribers get a web dashboard showing usage, budget, and a design review queue. This stickiness makes it near-impossible for a customer to switch once integrated into their R&D workflow.</p>
+      <div class="innovation-metrics">
+        <div class="innovation-metric">
+          <span>$5–20K</span>
+          <span>Monthly retainer target</span>
+        </div>
+        <div class="innovation-metric">
+          <span>30%</span>
+          <span>Recurring rev target</span>
+        </div>
+        <div class="innovation-metric">
+          <span>Yr 1–2</span>
+          <span>Build phase</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="innovation-card">
+      <span class="innovation-icon">🌐</span>
+      <div class="card-tag" style="color:var(--gold);border-color:rgba(245,200,66,0.4);">Vertical Integration</div>
+      <h3>Digital Manufacturing Marketplace</h3>
+      <p>Build the "Fictiv for precision laser machining" — a web platform where medical device engineers upload drawings and receive instant quotes, DFM analysis, and scheduling. Sublime handles all jobs in-house initially, but the platform could eventually broker overflow to vetted network partners, creating a marketplace flywheel.</p>
+      <p>The platform becomes an asset beyond Sublime's own capacity — generating commission revenue, data, and a customer database that has independent strategic value for acquirers or investors.</p>
+      <div class="innovation-metrics">
+        <div class="innovation-metric">
+          <span>10×</span>
+          <span>Lead volume potential</span>
+        </div>
+        <div class="innovation-metric">
+          <span>Yr 1–2</span>
+          <span>MVP launch</span>
+        </div>
+        <div class="innovation-metric">
+          <span>Platform</span>
+          <span>Acquisition value</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FINANCIAL PLAN -->
+<section id="financial">
+  <div class="section-label">06 — Financial Projections</div>
+  <h2 class="section-title">3-Year Financial Model</h2>
+
+  <p style="font-size:12px;color:var(--text-dim);margin-bottom:2rem;">All figures in USD thousands. Based on reasonable assumptions for a growth-stage specialty manufacturer with ISO certification and expanding service lines. Assumes no external equity funding.</p>
+
+  <div style="overflow-x:auto;margin-bottom:3rem;">
+    <table class="fin-table">
+      <thead>
+        <tr>
+          <th>Revenue Stream</th>
+          <th>2025E (Baseline)</th>
+          <th>2026 (Yr 1)</th>
+          <th>2027 (Yr 2)</th>
+          <th>2028 (Yr 3)</th>
+          <th>3yr CAGR</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Core Laser Machining (R&D & Production)</td>
+          <td>$1,200K</td>
+          <td>$1,680K</td>
+          <td>$2,300K</td>
+          <td>$2,900K</td>
+          <td>+34%</td>
+        </tr>
+        <tr>
+          <td>Rent-a-Laser / On-Demand</td>
+          <td>$180K</td>
+          <td>$320K</td>
+          <td>$480K</td>
+          <td>$600K</td>
+          <td>+49%</td>
+        </tr>
+        <tr>
+          <td>Design / Engineering Services</td>
+          <td>$120K</td>
+          <td>$200K</td>
+          <td>$350K</td>
+          <td>$500K</td>
+          <td>+61%</td>
+        </tr>
+        <tr>
+          <td>EaaS Retainer Subscriptions (New)</td>
+          <td>—</td>
+          <td>$150K</td>
+          <td>$450K</td>
+          <td>$900K</td>
+          <td>N/A</td>
+        </tr>
+        <tr>
+          <td>New Markets: Aerospace / Semiconductor (New)</td>
+          <td>—</td>
+          <td>$50K</td>
+          <td>$250K</td>
+          <td>$600K</td>
+          <td>N/A</td>
+        </tr>
+        <tr>
+          <td>SaaS Platform / IP Licensing (New)</td>
+          <td>—</td>
+          <td>—</td>
+          <td>$100K</td>
+          <td>$400K</td>
+          <td>N/A</td>
+        </tr>
+        <tr class="highlight">
+          <td>TOTAL REVENUE</td>
+          <td>$1,500K</td>
+          <td>$2,400K</td>
+          <td>$3,930K</td>
+          <td>$5,900K</td>
+          <td>+58%</td>
+        </tr>
+        <tr>
+          <td>Cost of Revenue (Ops, Materials, Equipment)</td>
+          <td>$820K</td>
+          <td>$1,200K</td>
+          <td>$1,770K</td>
+          <td>$2,360K</td>
+          <td>—</td>
+        </tr>
+        <tr class="highlight">
+          <td>GROSS PROFIT</td>
+          <td>$680K</td>
+          <td>$1,200K</td>
+          <td>$2,160K</td>
+          <td>$3,540K</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>Gross Margin %</td>
+          <td>45%</td>
+          <td>50%</td>
+          <td>55%</td>
+          <td>60%</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>SG&A + R&D + Marketing</td>
+          <td>$350K</td>
+          <td>$650K</td>
+          <td>$1,050K</td>
+          <td>$1,400K</td>
+          <td>—</td>
+        </tr>
+        <tr class="highlight">
+          <td>EBITDA</td>
+          <td>$330K</td>
+          <td>$550K</td>
+          <td>$1,110K</td>
+          <td>$2,140K</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>EBITDA Margin %</td>
+          <td>22%</td>
+          <td>23%</td>
+          <td>28%</td>
+          <td>36%</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>Capex (Equipment, Facility, Tech)</td>
+          <td>$200K</td>
+          <td>$550K</td>
+          <td>$800K</td>
+          <td>$600K</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>Headcount (approx FTEs)</td>
+          <td>5</td>
+          <td>8</td>
+          <td>13</td>
+          <td>18</td>
+          <td>—</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="font-family:'Syne',sans-serif;font-weight:700;margin-bottom:1.5rem;">Revenue Mix Evolution</h3>
+  <div class="grid-2" style="align-items:start;gap:3rem;">
+    <div>
+      <div style="font-size:11px;color:var(--text-dim);margin-bottom:1rem;letter-spacing:0.1em;text-transform:uppercase;">2025 Baseline (Est.)</div>
+      <div class="bar-chart">
+        <div class="bar-row">
+          <div class="bar-label">Core Machining</div>
+          <div class="bar-track"><div class="bar-fill" style="background:var(--accent);width:80%"></div></div>
+          <div class="bar-value" style="color:var(--accent)">80%</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Rent-a-Laser</div>
+          <div class="bar-track"><div class="bar-fill" style="background:var(--accent2);width:12%"></div></div>
+          <div class="bar-value" style="color:var(--accent2)">12%</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Design Svcs</div>
+          <div class="bar-track"><div class="bar-fill" style="background:var(--accent3);width:8%"></div></div>
+          <div class="bar-value" style="color:var(--accent3)">8%</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:11px;color:var(--text-dim);margin-bottom:1rem;letter-spacing:0.1em;text-transform:uppercase;">2028 Target</div>
+      <div class="bar-chart">
+        <div class="bar-row">
+          <div class="bar-label">Core Machining</div>
+          <div class="bar-track"><div class="bar-fill" style="background:var(--accent);width:49%"></div></div>
+          <div class="bar-value" style="color:var(--accent)">49%</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Recurring Svcs</div>
+          <div class="bar-track"><div class="bar-fill" style="background:var(--accent2);width:25%"></div></div>
+          <div class="bar-value" style="color:var(--accent2)">25%</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">New Markets</div>
+          <div class="bar-track"><div class="bar-fill" style="background:var(--accent3);width:17%"></div></div>
+          <div class="bar-value" style="color:var(--accent3)">17%</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">SaaS / IP</div>
+          <div class="bar-track"><div class="bar-fill" style="background:var(--gold);width:7%"></div></div>
+          <div class="bar-value" style="color:var(--gold)">7%</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Design Svcs</div>
+          <div class="bar-track"><div class="bar-fill" style="background:var(--text-dim);width:8%"></div></div>
+          <div class="bar-value" style="color:var(--text-dim)">8%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="highlight-box" style="margin-top:2.5rem;">
+    <p><strong>Key Financial Assumptions:</strong> Revenue baseline estimated at ~$1.5M for 2025 based on team size and operational indicators. Figures are illustrative projections based on industry benchmarks for specialty medical device contract manufacturers of comparable size and capability. Actual results dependent on execution, market conditions, and capital investment timing. CAGR of 58% over three years is aggressive but achievable given current market tailwinds in vascular device development.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- RISK & KPIs -->
+<section id="risk">
+  <div class="section-label">07 — Risk Management & KPIs</div>
+  <h2 class="section-title">Risk Register & Success Metrics</h2>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab(this, 'tab-risk')">Risk Register</button>
+    <button class="tab-btn" onclick="switchTab(this, 'tab-kpis')">Key Performance Indicators</button>
+    <button class="tab-btn" onclick="switchTab(this, 'tab-milestones')">Milestone Gates</button>
+  </div>
+
+  <div id="tab-risk" class="tab-content active">
+    <div style="border:1px solid var(--border);">
+      <div class="risk-item header">
+        <div>Risk</div>
+        <div>Likelihood</div>
+        <div>Impact</div>
+        <div>Mitigation</div>
+      </div>
+      <div class="risk-item">
+        <div>
+          <div class="risk-name">Key Person Dependency</div>
+          <div class="risk-desc">Todd / Dave as single points of failure for technical expertise</div>
+        </div>
+        <div><span class="badge badge-red">High</span></div>
+        <div><span class="badge badge-red">High</span></div>
+        <div class="risk-desc">Hire and cross-train second application engineer in Year 1. Document all processes. Succession planning for key roles.</div>
+      </div>
+      <div class="risk-item">
+        <div>
+          <div class="risk-name">Customer Concentration Risk</div>
+          <div class="risk-desc">Revenue heavily dependent on a small number of accounts</div>
+        </div>
+        <div><span class="badge badge-red">High</span></div>
+        <div><span class="badge badge-red">High</span></div>
+        <div class="risk-desc">Target no single customer >20% of revenue by Year 2. Actively diversify across device verticals and company sizes.</div>
+      </div>
+      <div class="risk-item">
+        <div>
+          <div class="risk-name">Laser Hardware Failure</div>
+          <div class="risk-desc">Single femtosecond system = production shutdown if down</div>
+        </div>
+        <div><span class="badge badge-yellow">Medium</span></div>
+        <div><span class="badge badge-red">High</span></div>
+        <div class="risk-desc">Add second system in Year 1 for redundancy. Maintain service contract with OEM. Keep critical spare parts inventory.</div>
+      </div>
+      <div class="risk-item">
+        <div>
+          <div class="risk-name">Regulatory / Quality Non-Conformance</div>
+          <div class="risk-desc">Loss of ISO 13485 certification would be catastrophic</div>
+        </div>
+        <div><span class="badge badge-green">Low</span></div>
+        <div><span class="badge badge-red">Critical</span></div>
+        <div class="risk-desc">Invest in dedicated Quality Manager hire by Year 2. Quarterly internal audits. Engage external notified body for pre-audit reviews.</div>
+      </div>
+      <div class="risk-item">
+        <div>
+          <div class="risk-name">Market Downturn / R&D Spending Cuts</div>
+          <div class="risk-desc">Medical device R&D spending cycles follow investment and FDA clearance timelines</div>
+        </div>
+        <div><span class="badge badge-yellow">Medium</span></div>
+        <div><span class="badge badge-yellow">Medium</span></div>
+        <div class="risk-desc">Diversify into non-medical markets (aerospace, semiconductor) to reduce sector concentration. Retainer model provides buffer.</div>
+      </div>
+      <div class="risk-item">
+        <div>
+          <div class="risk-name">Technology Disruption</div>
+          <div class="risk-desc">Cheaper desktop laser systems or improved EDM competing on simple geometries</div>
+        </div>
+        <div><span class="badge badge-green">Low</span></div>
+        <div><span class="badge badge-yellow">Medium</span></div>
+        <div class="risk-desc">Move up the complexity curve — focus on features that are only achievable with femtosecond systems. Patent process innovations.</div>
+      </div>
+      <div class="risk-item">
+        <div>
+          <div class="risk-name">Talent Shortage</div>
+          <div class="risk-desc">Skilled laser technicians are scarce; competition from defense and semiconductor sectors</div>
+        </div>
+        <div><span class="badge badge-yellow">Medium</span></div>
+        <div><span class="badge badge-yellow">Medium</span></div>
+        <div class="risk-desc">Partner with University of Utah for pipeline. Create apprenticeship/training program. Competitive equity compensation for key hires.</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="tab-kpis" class="tab-content">
+    <div class="kpi-grid">
+      <div class="kpi">
+        <div class="kpi-label">Revenue</div>
+        <div class="kpi-value" style="color:var(--accent);">$5.9M</div>
+        <div class="kpi-desc">2028 target revenue</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Gross Margin</div>
+        <div class="kpi-value" style="color:var(--accent3);">60%</div>
+        <div class="kpi-desc">Year 3 target</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Recurring Revenue</div>
+        <div class="kpi-value" style="color:var(--accent2);">30%+</div>
+        <div class="kpi-desc">% of total by 2028</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">EBITDA Margin</div>
+        <div class="kpi-value" style="color:var(--gold);">36%</div>
+        <div class="kpi-desc">Year 3 target</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Active Accounts</div>
+        <div class="kpi-value" style="color:var(--accent);">50+</div>
+        <div class="kpi-desc">Active customers by 2028</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Avg Turnaround</div>
+        <div class="kpi-value" style="color:var(--accent3);">&lt;5 days</div>
+        <div class="kpi-desc">R&D prototype runs</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Uptime SLA</div>
+        <div class="kpi-value" style="color:var(--accent2);">99%</div>
+        <div class="kpi-desc">Laser system availability</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Headcount</div>
+        <div class="kpi-value" style="color:var(--gold);">18</div>
+        <div class="kpi-desc">FTEs by end of Year 3</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">NPS Score</div>
+        <div class="kpi-value" style="color:var(--accent);">70+</div>
+        <div class="kpi-desc">Customer promoter score</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Max Customer Conc.</div>
+        <div class="kpi-value" style="color:var(--accent3);">&lt;20%</div>
+        <div class="kpi-desc">Single account share</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">New Markets</div>
+        <div class="kpi-value" style="color:var(--accent2);">2+</div>
+        <div class="kpi-desc">Non-medical verticals live</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Digital Leads</div>
+        <div class="kpi-value" style="color:var(--gold);">40%</div>
+        <div class="kpi-desc">Revenue from inbound digital</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="tab-milestones" class="tab-content">
+    <div style="display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);">
+      <div style="display:grid;grid-template-columns:140px 1fr 200px;gap:1rem;padding:1rem 1.5rem;background:var(--surface2);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);">
+        <div>Date</div><div>Milestone</div><div>Success Criteria</div>
+      </div>
+      <div style="display:grid;grid-template-columns:140px 1fr 200px;gap:1rem;padding:1.25rem 1.5rem;background:var(--surface);font-size:12px;border-top:1px solid var(--border);">
+        <div style="color:var(--accent);font-family:'Syne',sans-serif;font-weight:600;">Q2 2026</div>
+        <div style="color:var(--text);">Digital quoting platform MVP live</div>
+        <div style="color:var(--text-dim);">First 10 quotes generated digitally</div>
+      </div>
+      <div style="display:grid;grid-template-columns:140px 1fr 200px;gap:1rem;padding:1.25rem 1.5rem;background:var(--surface);font-size:12px;border-top:1px solid var(--border);">
+        <div style="color:var(--accent);font-family:'Syne',sans-serif;font-weight:600;">Q3 2026</div>
+        <div style="color:var(--text);">2nd femtosecond system operational</div>
+        <div style="color:var(--text-dim);">System producing revenue within 60 days of install</div>
+      </div>
+      <div style="display:grid;grid-template-columns:140px 1fr 200px;gap:1rem;padding:1.25rem 1.5rem;background:var(--surface);font-size:12px;border-top:1px solid var(--border);">
+        <div style="color:var(--accent);font-family:'Syne',sans-serif;font-weight:600;">Q4 2026</div>
+        <div style="color:var(--text);">First 3 EaaS retainer customers signed</div>
+        <div style="color:var(--text-dim);">≥$15K MRR from retainers</div>
+      </div>
+      <div style="display:grid;grid-template-columns:140px 1fr 200px;gap:1rem;padding:1.25rem 1.5rem;background:var(--surface);font-size:12px;border-top:1px solid var(--border);">
+        <div style="color:var(--accent2);font-family:'Syne',sans-serif;font-weight:600;">Q1 2027</div>
+        <div style="color:var(--text);">Sales/Application Engineer hire starts</div>
+        <div style="color:var(--text-dim);">5 new accounts within first 90 days</div>
+      </div>
+      <div style="display:grid;grid-template-columns:140px 1fr 200px;gap:1rem;padding:1.25rem 1.5rem;background:var(--surface);font-size:12px;border-top:1px solid var(--border);">
+        <div style="color:var(--accent2);font-family:'Syne',sans-serif;font-weight:600;">Q2 2027</div>
+        <div style="color:var(--text);">Flat/planar laser system operational</div>
+        <div style="color:var(--text-dim);">First non-tubular revenue generated</div>
+      </div>
+      <div style="display:grid;grid-template-columns:140px 1fr 200px;gap:1rem;padding:1.25rem 1.5rem;background:var(--surface);font-size:12px;border-top:1px solid var(--border);">
+        <div style="color:var(--accent2);font-family:'Syne',sans-serif;font-weight:600;">Q3 2027</div>
+        <div style="color:var(--text);">AS9100 certification achieved</div>
+        <div style="color:var(--text-dim);">First aerospace contract signed</div>
+      </div>
+      <div style="display:grid;grid-template-columns:140px 1fr 200px;gap:1rem;padding:1.25rem 1.5rem;background:var(--surface);font-size:12px;border-top:1px solid var(--border);">
+        <div style="color:var(--accent2);font-family:'Syne',sans-serif;font-weight:600;">Q4 2027</div>
+        <div style="color:var(--text);">SaaS Design Portal beta live</div>
+        <div style="color:var(--text-dim);">25+ beta users, first paid subscribers</div>
+      </div>
+      <div style="display:grid;grid-template-columns:140px 1fr 200px;gap:1rem;padding:1.25rem 1.5rem;background:var(--surface);font-size:12px;border-top:1px solid var(--border);">
+        <div style="color:var(--accent3);font-family:'Syne',sans-serif;font-weight:600;">Q1 2028</div>
+        <div style="color:var(--text);">AI process co-pilot internal deployment</div>
+        <div style="color:var(--text-dim);">Measurable reduction in setup scrap rate</div>
+      </div>
+      <div style="display:grid;grid-template-columns:140px 1fr 200px;gap:1rem;padding:1.25rem 1.5rem;background:var(--surface);font-size:12px;border-top:1px solid var(--border);">
+        <div style="color:var(--accent3);font-family:'Syne',sans-serif;font-weight:600;">Q2 2028</div>
+        <div style="color:var(--text);">University partnership program launched</div>
+        <div style="color:var(--text-dim);">2+ formal research agreements signed</div>
+      </div>
+      <div style="display:grid;grid-template-columns:140px 1fr 200px;gap:1rem;padding:1.25rem 1.5rem;background:var(--surface);font-size:12px;border-top:1px solid var(--border);">
+        <div style="color:var(--accent3);font-family:'Syne',sans-serif;font-weight:600;">Q4 2028</div>
+        <div style="color:var(--text);">$5.9M ARR run rate achieved</div>
+        <div style="color:var(--text-dim);">30%+ recurring revenue mix; EBITDA >35%</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<footer>
+  <div>
+    <div class="footer-brand">SUBLIME LASER, INC.</div>
+    <div style="margin-top:0.5rem;">Strategic Business Plan 2026–2028 · Confidential & Proprietary</div>
+  </div>
+  <div style="text-align:right;">
+    <div>1785 S 4130 W, Suite M · Salt Lake City, UT 84104</div>
+    <div style="margin-top:0.25rem;">sales@sublimelaser.com · sublimelaser.com</div>
+    <div style="margin-top:0.25rem;color:rgba(0,212,255,0.6);">ISO 13485:2016 Certified</div>
+  </div>
+</footer>
+
+<script>
+  // NAV SCROLL
+  function scrollToSection(id) {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // ACTIVE NAV LINK
+  const sections = ['exec','analysis','market','roadmap','innovation','financial','risk'];
+  const links = document.querySelectorAll('.nav-link');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && window.scrollY >= el.offsetTop - 100) current = id;
+    });
+    links.forEach((link, i) => {
+      link.classList.toggle('active', i === sections.indexOf(current));
+    });
+  });
+
+  // TABS
+  function switchTab(btn, tabId) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(tabId).classList.add('active');
+  }
+
+  // ANIMATE BARS ON SCROLL
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.bar-fill').forEach(fill => {
+          const w = fill.style.width;
+          fill.style.width = '0%';
+          setTimeout(() => { fill.style.width = w; }, 100);
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+
+  document.querySelectorAll('.bar-chart').forEach(chart => observer.observe(chart));
+</script>
+
+</body>
+</html>

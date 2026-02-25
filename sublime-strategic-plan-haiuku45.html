@@ -1,0 +1,1855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sublime Laser - 3-Year Strategic Business Plan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2c3e50;
+            --secondary: #e74c3c;
+            --accent: #3498db;
+            --light: #ecf0f1;
+            --text: #2c3e50;
+            --success: #27ae60;
+            --warning: #f39c12;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: #f5f7fa;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        nav {
+            background: var(--primary);
+            padding: 1rem;
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: sticky;
+            top: 100px;
+            z-index: 99;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        nav button {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        nav button:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        nav button.active {
+            background: var(--secondary);
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        section {
+            display: none;
+        }
+
+        section.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--secondary);
+        }
+
+        .subsection-title {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--secondary);
+            transition: all 0.3s;
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transform: translateY(-2px);
+        }
+
+        .card.accent {
+            border-left-color: var(--accent);
+        }
+
+        .card.success {
+            border-left-color: var(--success);
+        }
+
+        .card.warning {
+            border-left-color: var(--warning);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        th {
+            background: var(--primary);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        tr:hover {
+            background: #f9f9f9;
+        }
+
+        .metric {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--secondary);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .badge-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .badge-secondary {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .badge-accent {
+            background: var(--accent);
+            color: white;
+        }
+
+        .badge-success {
+            background: var(--success);
+            color: white;
+        }
+
+        .swot-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .swot-item {
+            padding: 1.5rem;
+            border-radius: 8px;
+            color: white;
+        }
+
+        .swot-strengths {
+            background: linear-gradient(135deg, var(--success), #229954);
+        }
+
+        .swot-weaknesses {
+            background: linear-gradient(135deg, var(--warning), #d68910);
+        }
+
+        .swot-opportunities {
+            background: linear-gradient(135deg, var(--accent), #2980b9);
+        }
+
+        .swot-threats {
+            background: linear-gradient(135deg, var(--secondary), #c0392b);
+        }
+
+        .swot-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .swot-item ul {
+            margin-left: 1.5rem;
+        }
+
+        .swot-item li {
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline-item {
+            margin-bottom: 2rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0.5rem;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: var(--secondary);
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 0 3px var(--secondary);
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 20px;
+            width: 2px;
+            height: calc(100% + 1rem);
+            background: var(--secondary);
+        }
+
+        .timeline-item:last-child::after {
+            display: none;
+        }
+
+        .timeline-item h4 {
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item p {
+            color: #666;
+        }
+
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .comparison-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .comparison-item.highlight {
+            background: linear-gradient(135deg, var(--accent), #2980b9);
+            color: white;
+            transform: scale(1.05);
+            z-index: 1;
+        }
+
+        .comparison-item h5 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .metric-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .comparison-item.highlight .metric-row {
+            border-bottom-color: rgba(255,255,255,0.3);
+        }
+
+        .metric-row:last-child {
+            border-bottom: none;
+        }
+
+        .metric-label {
+            font-weight: 600;
+        }
+
+        .roadmap {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .roadmap-phase {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            border-top: 4px solid var(--secondary);
+        }
+
+        .roadmap-phase h4 {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .roadmap-phase ul {
+            margin-left: 1.5rem;
+        }
+
+        .roadmap-phase li {
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(231, 76, 60, 0.1));
+            border-left: 4px solid var(--secondary);
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin: 1.5rem 0;
+        }
+
+        .highlight-box strong {
+            color: var(--secondary);
+        }
+
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .kpi-card {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .kpi-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 0.5rem 0;
+        }
+
+        .kpi-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            nav button {
+                width: 100%;
+                text-align: left;
+            }
+
+            .comparison {
+                grid-template-columns: 1fr;
+            }
+
+            .swot-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            header h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        .print-only {
+            display: none;
+        }
+
+        @media print {
+            .print-only {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Sublime Laser, Inc.</h1>
+        <p>3-Year Strategic Business Plan & Market Analysis</p>
+    </header>
+
+    <nav>
+        <button onclick="showSection('executive')" class="nav-btn active">Executive Summary</button>
+        <button onclick="showSection('business')" class="nav-btn">Business Analysis</button>
+        <button onclick="showSection('market')" class="nav-btn">Market & Competitors</button>
+        <button onclick="showSection('swot')" class="nav-btn">SWOT Analysis</button>
+        <button onclick="showSection('strategy')" class="nav-btn">3-Year Strategy</button>
+        <button onclick="showSection('innovation')" class="nav-btn">Innovation Plan</button>
+        <button onclick="showSection('financial')" class="nav-btn">Financial Projections</button>
+    </nav>
+
+    <div class="container">
+        <!-- EXECUTIVE SUMMARY -->
+        <section id="executive" class="active">
+            <h2 class="section-title">Executive Summary</h2>
+            
+            <div class="card">
+                <h3>Company Overview</h3>
+                <p><strong>Sublime Laser, Inc.</strong> is a specialized medical device component manufacturer based in Salt Lake City, Utah. The company utilizes advanced femtosecond and fiber laser machining technology to produce precision-engineered tubular components for the neurovascular, cardiovascular, and peripheral vascular medical device industries.</p>
+            </div>
+
+            <div class="grid">
+                <div class="card">
+                    <h4>Core Strengths</h4>
+                    <ul style="margin-left: 1.5rem;">
+                        <li>Proprietary femtosecond laser technology</li>
+                        <li>Exceptional turnaround times (days vs. weeks)</li>
+                        <li>ISO 13485 Medical Device Certification</li>
+                        <li>Experienced R&D-focused team</li>
+                        <li>Minimal heat-affected zones in machining</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Key Market Position</h4>
+                    <ul style="margin-left: 1.5rem;">
+                        <li>Niche market leader in fast-turnaround laser machining</li>
+                        <li>Serves primarily R&D and prototyping phases</li>
+                        <li>Limited geographic reach (primarily regional)</li>
+                        <li>Small, agile team of 4 technical staff</li>
+                        <li>Minimal marketing and sales infrastructure</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <strong>Strategic Vision:</strong> Transform from a regional service provider into a national leader in advanced laser machining while expanding into adjacent markets and innovative service offerings.
+            </div>
+
+            <div class="subsection-title">Key Performance Indicators (Current State)</div>
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-label">Average Turnaround</div>
+                    <div class="kpi-value">2-5 Days</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-label">Team Size</div>
+                    <div class="kpi-value">4</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-label">Service Types</div>
+                    <div class="kpi-value">4</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-label">Certifications</div>
+                    <div class="kpi-value">ISO 13485</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BUSINESS ANALYSIS -->
+        <section id="business">
+            <h2 class="section-title">Business Analysis</h2>
+
+            <div class="subsection-title">Current Business Model</div>
+            <div class="card">
+                <h4>Revenue Streams</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Service</th>
+                            <th>Description</th>
+                            <th>Target Customer</th>
+                            <th>Est. Revenue %</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Parts Manufacturing</td>
+                            <td>Custom laser-machined components for medical devices</td>
+                            <td>Medical device companies (R&D)</td>
+                            <td>60%</td>
+                        </tr>
+                        <tr>
+                            <td>Design Services</td>
+                            <td>Consulting on laser machining design parameters</td>
+                            <td>Device design teams</td>
+                            <td>20%</td>
+                        </tr>
+                        <tr>
+                            <td>Laser Rental</td>
+                            <td>Hourly/daily rental of equipment and technical staff</td>
+                            <td>Companies with ad-hoc needs</td>
+                            <td>15%</td>
+                        </tr>
+                        <tr>
+                            <td>Consulting</td>
+                            <td>Expert advice on manufacturing processes</td>
+                            <td>Device development teams</td>
+                            <td>5%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="subsection-title">Core Capabilities & Constraints</div>
+            <div class="grid grid-2">
+                <div class="card success">
+                    <h4>Technical Capabilities</h4>
+                    <ul style="margin-left: 1.5rem;">
+                        <li><strong>Femtosecond Lasers:</strong> 12-30 micron precision, 0.008"-0.313" OD</li>
+                        <li><strong>Fiber Lasers:</strong> 20-40 micron kerf, 0.008"-0.500" OD</li>
+                        <li><strong>Materials:</strong> Stainless steel, Nitinol, precious metals, ceramics, glass</li>
+                        <li><strong>Wall Thickness:</strong> 0.0005" - 0.040"</li>
+                        <li><strong>Tube Length:</strong> Up to 120"</li>
+                    </ul>
+                </div>
+                <div class="card warning">
+                    <h4>Operational Constraints</h4>
+                    <ul style="margin-left: 1.5rem;">
+                        <li>Limited to tubular geometries</li>
+                        <li>Small team limits simultaneous projects</li>
+                        <li>Minimal marketing/sales infrastructure</li>
+                        <li>Single facility location</li>
+                        <li>Limited equipment redundancy</li>
+                        <li>Geographic reach limited to regional customers</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="subsection-title">Customer Profile</div>
+            <div class="card">
+                <h4>Primary Target Market</h4>
+                <p><strong>Size:</strong> Mid-sized to large medical device companies ($50M - $5B revenue)</p>
+                <p><strong>Industry:</strong> Neurovascular, Cardiovascular, Peripheral Vascular devices</p>
+                <p><strong>Department:</strong> R&D, Engineering, Prototyping teams</p>
+                <p><strong>Key Needs:</strong></p>
+                <ul style="margin-left: 1.5rem;">
+                    <li>Fast turnaround for design iterations</li>
+                    <li>High precision and repeatability</li>
+                    <li>Quality consistency (ISO 13485)</li>
+                    <li>Flexibility to accommodate design changes</li>
+                    <li>Expert technical guidance</li>
+                </ul>
+            </div>
+
+            <div class="subsection-title">Customer Acquisition Channels</div>
+            <div class="grid">
+                <div class="card">
+                    <h4>Current (Ad-Hoc)</h4>
+                    <ul style="margin-left: 1.5rem;">
+                        <li>LinkedIn referrals</li>
+                        <li>Direct contact form</li>
+                        <li>Word-of-mouth</li>
+                        <li>Trade shows (minimal)</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Untapped Channels</h4>
+                    <ul style="margin-left: 1.5rem;">
+                        <li>Industry publications & webinars</li>
+                        <li>Strategic partnerships</li>
+                        <li>Content marketing</li>
+                        <li>Sales team outreach</li>
+                        <li>Industry conferences</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- MARKET & COMPETITORS -->
+        <section id="market">
+            <h2 class="section-title">Market & Competitive Analysis</h2>
+
+            <div class="subsection-title">Market Overview</div>
+            <div class="card">
+                <h4>Medical Device Component Manufacturing Market</h4>
+                <p><strong>Market Size:</strong> Global precision manufacturing for medical devices estimated at $25-30B annually</p>
+                <p><strong>Growth Rate:</strong> 6-8% CAGR (2023-2030)</p>
+                <p><strong>Key Drivers:</strong></p>
+                <ul style="margin-left: 1.5rem;">
+                    <li>Increasing demand for minimally invasive devices</li>
+                    <li>Aging population driving vascular procedures</li>
+                    <li>Innovation cycle acceleration</li>
+                    <li>Need for rapid prototyping and low-volume production</li>
+                    <li>Regulatory compliance requirements</li>
+                </ul>
+            </div>
+
+            <div class="subsection-title">Competitive Landscape</div>
+            <div class="comparison">
+                <div class="comparison-item">
+                    <h5>Sublime Laser</h5>
+                    <div class="metric-row">
+                        <span class="metric-label">Turnaround:</span>
+                        <span>2-5 days</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Precision:</span>
+                        <span>12 microns</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Price:</span>
+                        <span>Premium</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Geography:</span>
+                        <span>Regional</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Focus:</span>
+                        <span>R&D/Proto</span>
+                    </div>
+                </div>
+
+                <div class="comparison-item">
+                    <h5>Precision Tube Cutters</h5>
+                    <div class="metric-row">
+                        <span class="metric-label">Turnaround:</span>
+                        <span>1-2 weeks</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Precision:</span>
+                        <span>50 microns</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Price:</span>
+                        <span>Standard</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Geography:</span>
+                        <span>National</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Focus:</span>
+                        <span>Volume Prod</span>
+                    </div>
+                </div>
+
+                <div class="comparison-item highlight">
+                    <h5>Traditional Machining</h5>
+                    <div class="metric-row">
+                        <span class="metric-label">Turnaround:</span>
+                        <span>3-8 weeks</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Precision:</span>
+                        <span>100 microns</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Price:</span>
+                        <span>Budget</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Geography:</span>
+                        <span>Widely Avail</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Focus:</span>
+                        <span>All volumes</span>
+                    </div>
+                </div>
+
+                <div class="comparison-item">
+                    <h5>EDM/Wire Services</h5>
+                    <div class="metric-row">
+                        <span class="metric-label">Turnaround:</span>
+                        <span>2-4 weeks</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Precision:</span>
+                        <span>25 microns</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Price:</span>
+                        <span>High</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Geography:</span>
+                        <span>Regional</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Focus:</span>
+                        <span>Complex geo</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subsection-title">Competitive Advantages</div>
+            <div class="grid">
+                <div class="card success">
+                    <h4>Sublime's Advantages</h4>
+                    <ul style="margin-left: 1.5rem;">
+                        <li><strong>Speed:</strong> Industry-leading 2-5 day turnaround</li>
+                        <li><strong>Precision:</strong> Femtosecond laser enables 12-micron features</li>
+                        <li><strong>Minimal HAZ:</strong> Clean cuts without heat distortion</li>
+                        <li><strong>Quality:</strong> ISO 13485 certified for medical devices</li>
+                        <li><strong>Expertise:</strong> Deep medical device manufacturing knowledge</li>
+                        <li><strong>Flexibility:</strong> Small batch/custom work capability</li>
+                    </ul>
+                </div>
+                <div class="card warning">
+                    <h4>Competitive Vulnerabilities</h4>
+                    <ul style="margin-left: 1.5rem;">
+                        <li><strong>Scale:</strong> Limited capacity for large orders</li>
+                        <li><strong>Geography:</strong> Regional presence vs. national competitors</li>
+                        <li><strong>Price:</strong> Premium pricing limits broad market appeal</li>
+                        <li><strong>Limited Services:</strong> Focuses only on tubular components</li>
+                        <li><strong>Visibility:</strong> Minimal brand awareness in market</li>
+                        <li><strong>Team Size:</strong> Limited sales/business development capacity</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="subsection-title">Market Opportunities</div>
+            <div class="grid">
+                <div class="card accent">
+                    <h4>Underserved Market Segments</h4>
+                    <ul style="margin-left: 1.5rem;">
+                        <li>Early-stage MedTech startups (fast-growing segment)</li>
+                        <li>International medical device companies</li>
+                        <li>Non-vascular applications (orthopedic, dental, etc.)</li>
+                        <li>Contract manufacturers seeking white-label capabilities</li>
+                        <li>Universities and research institutions</li>
+                    </ul>
+                </div>
+                <div class="card accent">
+                    <h4>Adjacent Market Opportunities</h4>
+                    <ul style="margin-left: 1.5rem;">
+                        <li>Non-medical precision manufacturing (aerospace, semiconductors)</li>
+                        <li>Flat sheet material processing</li>
+                        <li>3D component manufacturing</li>
+                        <li>Custom laser marking and engraving</li>
+                        <li>Materials testing and validation services</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="subsection-title">Competitive Threats</div>
+            <div class="card warning">
+                <h4>Threats to Monitor</h4>
+                <ul style="margin-left: 1.5rem;">
+                    <li><strong>Larger Competitors:</strong> Established manufacturing groups acquiring laser capabilities</li>
+                    <li><strong>Technology Migration:</strong> Alternative manufacturing methods (3D printing, waterjet, etc.)</li>
+                    <li><strong>Price Pressure:</strong> Competitors using automation to reduce costs</li>
+                    <li><strong>Customer Consolidation:</strong> Medical device companies internalizing manufacturing</li>
+                    <li><strong>Emerging Markets:</strong> Lower-cost manufacturing locations (Asia, Eastern Europe)</li>
+                    <li><strong>Supply Chain Risk:</strong> Component availability, equipment maintenance</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- SWOT ANALYSIS -->
+        <section id="swot">
+            <h2 class="section-title">SWOT Analysis</h2>
+
+            <div class="swot-grid">
+                <div class="swot-item swot-strengths">
+                    <h4>Strengths</h4>
+                    <ul>
+                        <li>Proprietary femtosecond laser technology with minimal HAZ</li>
+                        <li>Industry-leading 2-5 day turnaround time</li>
+                        <li>ISO 13485 Medical Device Certification</li>
+                        <li>Deep expertise in vascular device manufacturing</li>
+                        <li>Experienced, dedicated technical team</li>
+                        <li>Proven track record with satisfied R&D customers</li>
+                        <li>Flexible, agile operations</li>
+                        <li>Direct customer relationships and testimonials</li>
+                    </ul>
+                </div>
+
+                <div class="swot-item swot-weaknesses">
+                    <h4>Weaknesses</h4>
+                    <ul>
+                        <li>Limited team size (4 people) constrains capacity</li>
+                        <li>Minimal sales and marketing infrastructure</li>
+                        <li>Limited brand recognition and market visibility</li>
+                        <li>Restricted to tubular component geometry</li>
+                        <li>Single facility location (geographic risk)</li>
+                        <li>Limited equipment redundancy</li>
+                        <li>Premium pricing vs. alternatives</li>
+                        <li>No significant capital reserves for growth investment</li>
+                    </ul>
+                </div>
+
+                <div class="swot-item swot-opportunities">
+                    <h4>Opportunities</h4>
+                    <ul>
+                        <li>MedTech startup boom requires rapid prototyping</li>
+                        <li>International market expansion (Europe, Asia)</li>
+                        <li>Adjacent market expansion (non-medical precision manufacturing)</li>
+                        <li>Technology licensing to regional manufacturers</li>
+                        <li>Acquisitions by larger manufacturing groups</li>
+                        <li>Flat sheet/wire processing capability expansion</li>
+                        <li>Subscription/SaaS-style services (e.g., "parts on demand")</li>
+                        <li>Industry partnerships and white-label arrangements</li>
+                        <li>Training and consulting services monetization</li>
+                    </ul>
+                </div>
+
+                <div class="swot-item swot-threats">
+                    <h4>Threats</h4>
+                    <ul>
+                        <li>Larger competitors acquiring laser manufacturing capabilities</li>
+                        <li>Alternative technologies (3D printing, waterjet cutting)</li>
+                        <li>Economic downturn reducing R&D spending</li>
+                        <li>Medical device company consolidation (fewer customers)</li>
+                        <li>Customer internalization of manufacturing</li>
+                        <li>Emerging competition from lower-cost regions</li>
+                        <li>Equipment obsolescence/maintenance costs</li>
+                        <li>Talent recruitment and retention challenges</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3-YEAR STRATEGY -->
+        <section id="strategy">
+            <h2 class="section-title">3-Year Strategic Plan (2024-2027)</h2>
+
+            <div class="highlight-box">
+                <strong>Strategic Objective:</strong> Position Sublime Laser as a national leader in precision laser machining for medical devices while expanding into adjacent markets and establishing recurring revenue streams.
+            </div>
+
+            <div class="subsection-title">Year 1 (2024-2025): Foundation & Market Expansion</div>
+            <div class="roadmap">
+                <div class="roadmap-phase">
+                    <h4>Sales & Marketing</h4>
+                    <ul>
+                        <li>Hire Director of Sales & Business Development</li>
+                        <li>Develop comprehensive marketing strategy and collateral</li>
+                        <li>Launch LinkedIn content and thought leadership program</li>
+                        <li>Establish presence at 3-4 major medical device industry conferences</li>
+                        <li>Create case studies and customer success stories</li>
+                        <li>Implement CRM and sales tracking system</li>
+                        <li><strong>Target:</strong> 150% revenue growth, expand customer base by 40%</li>
+                    </ul>
+                </div>
+
+                <div class="roadmap-phase">
+                    <h4>Operations & Capacity</h4>
+                    <ul>
+                        <li>Hire Production Engineer and Operations Manager</li>
+                        <li>Implement manufacturing execution system (MES)</li>
+                        <li>Document and standardize all processes</li>
+                        <li>Increase daily capacity by 25% through process optimization</li>
+                        <li>Establish supplier relationships for component sourcing</li>
+                        <li>Create preventive maintenance program for equipment</li>
+                        <li><strong>Target:</strong> 25% capacity increase, 30% faster turnaround average</li>
+                    </ul>
+                </div>
+
+                <div class="roadmap-phase">
+                    <h4>Product/Service Expansion</h4>
+                    <ul>
+                        <li>Develop and launch "Medical Device Rapid Prototyping" service package</li>
+                        <li>Create tiered pricing model (Standard/Express/Emergency)</li>
+                        <li>Launch wire/flat material processing capability</li>
+                        <li>Establish "Design for Manufacturability" consulting service</li>
+                        <li>Develop online quoting system</li>
+                        <li><strong>Target:</strong> Launch 2 new service offerings</li>
+                    </ul>
+                </div>
+
+                <div class="roadmap-phase">
+                    <h4>Geographic Expansion</h4>
+                    <ul>
+                        <li>Target major MedTech hubs: Boston, Minneapolis, San Diego, Orange County, Southern California</li>
+                        <li>Establish remote sales office relationships</li>
+                        <li>Create regional partnerships with contract manufacturers</li>
+                        <li>Implement national shipping and logistics partnerships</li>
+                        <li><strong>Target:</strong> 50% of new revenue from outside West region</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-label">Revenue Target</div>
+                    <div class="kpi-value">$2.5-3.0M</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-label">Team Size</div>
+                    <div class="kpi-value">8-10</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-label">New Services</div>
+                    <div class="kpi-value">2-3</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-label">EBITDA Target</div>
+                    <div class="kpi-value">15-20%</div>
+                </div>
+            </div>
+
+            <div class="subsection-title">Year 2 (2025-2026): Scale & Diversification</div>
+            <div class="roadmap">
+                <div class="roadmap-phase">
+                    <h4>Market Development</h4>
+                    <ul>
+                        <li>Launch strategic partnerships with contract manufacturers</li>
+                        <li>Expand into non-vascular medical applications (orthopedic, cardio-oncology)</li>
+                        <li>Enter aerospace/defense precision manufacturing market</li>
+                        <li>Develop MedTech startup accelerator relationships</li>
+                        <li>Establish patent portfolio for proprietary processes</li>
+                        <li><strong>Target:</strong> 200% YoY revenue growth, 30% from new markets</li>
+                    </ul>
+                </div>
+
+                <div class="roadmap-phase">
+                    <h4>Capacity & Operations</h4>
+                    <ul>
+                        <li>Add second laser system (fiber laser for higher volume)</li>
+                        <li>Expand facility by 50% (additional 1,500 sq ft)</li>
+                        <li>Implement advanced process automation</li>
+                        <li>Achieve ISO 9001 certification</li>
+                        <li>Establish quality management and SPC systems</li>
+                        <li><strong>Target:</strong> 50% capacity increase, maintain <5% defect rate</li>
+                    </ul>
+                </div>
+
+                <div class="roadmap-phase">
+                    <h4>Recurring Revenue Services</h4>
+                    <ul>
+                        <li>Launch "Parts on Demand" subscription service (monthly component allotments)</li>
+                        <li>Develop white-label manufacturing partnerships</li>
+                        <li>Create equipment-as-a-service (EaaS) offering for select customers</li>
+                        <li>Launch advanced training academy for customer engineers</li>
+                        <li><strong>Target:</strong> 20% of revenue from recurring services</li>
+                    </ul>
+                </div>
+
+                <div class="roadmap-phase">
+                    <h4>Geographic & Sales Expansion</h4>
+                    <ul>
+                        <li>Open first satellite office (likely Boston or San Diego)</li>
+                        <li>Hire regional sales representatives (3-4 positions)</li>
+                        <li>Develop distribution partnerships in key markets</li>
+                        <li>Launch international inquiry process (Canada, Western Europe)</li>
+                        <li><strong>Target:</strong> 60% of revenue from outside home region</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-label">Revenue Target</div>
+                    <div class="kpi-value">$5.5-7.0M</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-label">Team Size</div>
+                    <div class="kpi-value">16-20</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-label">Recurring Revenue %</div>
+                    <div class="kpi-value">20%</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-label">EBITDA Target</div>
+                    <div class="kpi-value">20-25%</div>
+                </div>
+            </div>
+
+            <div class="subsection-title">Year 3 (2026-2027): Market Leadership & Platform</div>
+            <div class="roadmap">
+                <div class="roadmap-phase">
+                    <h4>Market Leadership</h4>
+                    <ul>
+                        <li>Position as national thought leader in precision laser manufacturing</li>
+                        <li>Publish research and white papers in industry journals</li>
+                        <li>Sponsor industry research and academic partnerships</li>
+                        <li>Develop proprietary methodologies and best practices</li>
+                        <li>Establish advisory board with key industry figures</li>
+                        <li><strong>Target:</strong> Industry recognition and awards</li>
+                    </ul>
+                </div>
+
+                <div class="roadmap-phase">
+                    <h4>Digital Transformation & Platform</h4>
+                    <ul>
+                        <li>Develop online design-to-manufacturing platform</li>
+                        <li>Launch customer self-service ordering portal</li>
+                        <li>Implement AI-powered design optimization tools</li>
+                        <li>Create digital process documentation and training</li>
+                        <li>Build data analytics and predictive quality system</li>
+                        <li><strong>Target:</strong> 30% of orders through digital channels</li>
+                    </ul>
+                </div>
+
+                <div class="roadmap-phase">
+                    <h4>Business Model Evolution</h4>
+                    <ul>
+                        <li>Transition 40% of revenue to recurring/subscription models</li>
+                        <li>Establish strategic partnerships (3-5 major contract manufacturers)</li>
+                        <li>Expand to adjacent technologies (UV/green lasers, plasma processing)</li>
+                        <li>Develop technology licensing opportunities</li>
+                        <li>Consider acquisition targets in complementary areas</li>
+                        <li><strong>Target:</strong> Establish as acquisition target or platform for growth</li>
+                    </ul>
+                </div>
+
+                <div class="roadmap-phase">
+                    <h4>Scale & Profitability</h4>
+                    <ul>
+                        <li>Expand to 2-3 additional regional offices</li>
+                        <li>Implement continuous improvement program (Lean/Six Sigma)</li>
+                        <li>Target international expansion (Europe, Asia)</li>
+                        <li>Explore strategic financing or acquisition by larger entity</li>
+                        <li><strong>Target:</strong> $10-15M revenue, 25-30% EBITDA margins</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-label">Revenue Target</div>
+                    <div class="kpi-value">$10-15M</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-label">Team Size</div>
+                    <div class="kpi-value">30-35</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-label">Recurring Revenue %</div>
+                    <div class="kpi-value">40%</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-label">EBITDA Target</div>
+                    <div class="kpi-value">25-30%</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INNOVATION PLAN -->
+        <section id="innovation">
+            <h2 class="section-title">Innovative Business Expansion (Years 2-3)</h2>
+
+            <div class="highlight-box">
+                <strong>Innovation Strategy:</strong> Leverage core laser machining expertise to expand into adjacent high-growth markets while building recurring revenue streams and digital-first service offerings.
+            </div>
+
+            <div class="subsection-title">Innovation Area 1: Adjacent Market Expansion</div>
+            <div class="grid grid-2">
+                <div class="card success">
+                    <h4>Aerospace & Defense</h4>
+                    <p><strong>Market Size:</strong> $50B+ global precision manufacturing</p>
+                    <p><strong>Opportunity:</strong> Lightweight components, heat shields, precise connectors</p>
+                    <p><strong>Entry Strategy:</strong></p>
+                    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                        <li>Partner with Tier 2/3 aerospace suppliers</li>
+                        <li>Achieve AS9100 certification (aerospace quality)</li>
+                        <li>Target hypersonic and space propulsion components</li>
+                    </ul>
+                    <p><strong>Timeline:</strong> Year 2 | <strong>Revenue Potential:</strong> $1-2M</p>
+                </div>
+
+                <div class="card success">
+                    <h4>Semiconductor & Electronics</h4>
+                    <p><strong>Market Size:</strong> $30B+ precision manufacturing for semiconductors</p>
+                    <p><strong>Opportunity:</strong> Micro-components, thermal management, precision fixtures</p>
+                    <p><strong>Entry Strategy:</strong></p>
+                    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                        <li>Develop capability for ultra-thin wall components</li>
+                        <li>Partner with equipment manufacturers</li>
+                        <li>Target chiplet and advanced packaging applications</li>
+                    </ul>
+                    <p><strong>Timeline:</strong> Year 2-3 | <strong>Revenue Potential:</strong> $500K-1.5M</p>
+                </div>
+
+                <div class="card success">
+                    <h4>Expanded Medical Applications</h4>
+                    <p><strong>Market Size:</strong> $50B+ broader medical device market</p>
+                    <p><strong>Opportunity:</strong> Orthopedic implants, dental, ophthalmology, surgical instruments</p>
+                    <p><strong>Entry Strategy:</strong></p>
+                    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                        <li>Expand beyond vascular to multi-specialty</li>
+                        <li>Develop medical device design consulting practice</li>
+                        <li>Create vertical-specific solutions (e.g., orthopedic specialist)</li>
+                    </ul>
+                    <p><strong>Timeline:</strong> Year 1-2 | <strong>Revenue Potential:</strong> $2-3M</p>
+                </div>
+
+                <div class="card success">
+                    <h4>Industrial Components & Automotive</h4>
+                    <p><strong>Market Size:</strong> $100B+ precision manufacturing</p>
+                    <p><strong>Opportunity:</strong> EV components, sensors, micro-motors, thermal systems</p>
+                    <p><strong>Entry Strategy:</strong></p>
+                    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                        <li>Target EV battery thermal management components</li>
+                        <li>Partner with Tier 1/2 automotive suppliers</li>
+                        <li>Develop high-volume capability (IATF 16949 certification)</li>
+                    </ul>
+                    <p><strong>Timeline:</strong> Year 2-3 | <strong>Revenue Potential:</strong> $1.5-2.5M</p>
+                </div>
+            </div>
+
+            <div class="subsection-title">Innovation Area 2: Recurring Revenue Services</div>
+            <div class="grid grid-2">
+                <div class="card accent">
+                    <h4>1. "Parts on Demand" Subscription</h4>
+                    <p><strong>Model:</strong> Monthly subscription for component allotments</p>
+                    <p><strong>Structure:</strong></p>
+                    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                        <li>Starter: 50 parts/month - $2,500</li>
+                        <li>Professional: 200 parts/month - $8,500</li>
+                        <li>Enterprise: Unlimited - $25,000+</li>
+                    </ul>
+                    <p><strong>Value Prop:</strong> Predictable budgeting, guaranteed turnaround, priority access</p>
+                    <p><strong>Target Customers:</strong> Established device companies with steady prototyping needs</p>
+                    <p><strong>Revenue Potential:</strong> $500K-1.5M annually (100-150 subscribers)</p>
+                </div>
+
+                <div class="card accent">
+                    <h4>2. Design Optimization Consulting</h4>
+                    <p><strong>Service:</strong> Expert consultation on manufacturability and design</p>
+                    <p><strong>Offerings:</strong></p>
+                    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                        <li>Design review workshops: $5K-15K</li>
+                        <li>Process optimization: $3K-10K</li>
+                        <li>Training programs: $10K-50K</li>
+                        <li>Retainer arrangements: $2K-5K/month</li>
+                    </ul>
+                    <p><strong>Target Customers:</strong> Startups, internal R&D teams, contract manufacturers</p>
+                    <p><strong>Revenue Potential:</strong> $300K-800K annually</p>
+                </div>
+
+                <div class="card accent">
+                    <h4>3. White-Label Manufacturing</h4>
+                    <p><strong>Model:</strong> Provide manufacturing capacity under partner brand</p>
+                    <p><strong>Target Partners:</strong></p>
+                    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                        <li>Contract manufacturers needing specialized capability</li>
+                        <li>Medical device companies without internal capacity</li>
+                        <li>Engineering firms needing manufacturing capability</li>
+                    </ul>
+                    <p><strong>Structure:</strong> Volume-based pricing + service fees (10-30% margin)</p>
+                    <p><strong>Revenue Potential:</strong> $1-3M annually (3-5 partnerships)</p>
+                </div>
+
+                <div class="card accent">
+                    <h4>4. Equipment-as-a-Service (EaaS)</h4>
+                    <p><strong>Model:</strong> Monthly rental of equipment + technician time</p>
+                    <p><strong>Variants:</strong></p>
+                    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                        <li>4-hour sessions: $2K-3K</li>
+                        <li>Day rental: $5K-7K</li>
+                        <li>Weekly package: $12K-15K</li>
+                        <li>Monthly dedicated: $25K-35K</li>
+                    </ul>
+                    <p><strong>Target Customers:</strong> Customers with intermittent needs</p>
+                    <p><strong>Revenue Potential:</strong> $200K-600K annually</p>
+                </div>
+            </div>
+
+            <div class="subsection-title">Innovation Area 3: Technology Platform Development</div>
+            <div class="grid grid-2">
+                <div class="card warning">
+                    <h4>1. Online Design-to-Manufacturing Portal</h4>
+                    <p><strong>Vision:</strong> Customer self-service platform for ordering and tracking</p>
+                    <p><strong>Key Features:</strong></p>
+                    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                        <li>Automated quote generation using AI</li>
+                        <li>Design upload and verification</li>
+                        <li>Real-time manufacturing status tracking</li>
+                        <li>Quality certificate generation</li>
+                        <li>Invoice and compliance documentation</li>
+                    </ul>
+                    <p><strong>Investment:</strong> $150K-250K | <strong>Timeline:</strong> 6-9 months</p>
+                    <p><strong>Expected ROI:</strong> 30% reduction in sales overhead, 2x quote volume</p>
+                </div>
+
+                <div class="card warning">
+                    <h4>2. AI-Powered Design Optimization</h4>
+                    <p><strong>Vision:</strong> ML-based system for optimizing designs for manufacturability</p>
+                    <p><strong>Capabilities:</strong></p>
+                    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                        <li>Automated design analysis against manufacturing constraints</li>
+                        <li>Cost optimization suggestions</li>
+                        <li>Alternative geometry recommendations</li>
+                        <li>Material selection optimization</li>
+                    </ul>
+                    <p><strong>Investment:</strong> $200K-350K | <strong>Timeline:</strong> 12 months</p>
+                    <p><strong>Revenue Model:</strong> SaaS tool for external customers ($500-2K/month)</p>
+                </div>
+
+                <div class="card warning">
+                    <h4>3. Predictive Quality Analytics</h4>
+                    <p><strong>Vision:</strong> Real-time quality monitoring and defect prediction</p>
+                    <p><strong>Capabilities:</strong></p>
+                    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                        <li>Laser parameter optimization in real-time</li>
+                        <li>Defect prediction before production</li>
+                        <li>Equipment maintenance predictions</li>
+                        <li>Process capability analysis</li>
+                    </ul>
+                    <p><strong>Investment:</strong> $100K-200K | <strong>Timeline:</strong> 9-12 months</p>
+                    <p><strong>Impact:</strong> 50% reduction in scrap, 20% capacity increase</p>
+                </div>
+
+                <div class="card warning">
+                    <h4>4. Digital Process Academy</h4>
+                    <p><strong>Vision:</strong> Online learning platform for laser manufacturing</p>
+                    <p><strong>Curriculum:</strong></p>
+                    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                        <li>Laser technology fundamentals</li>
+                        <li>Design for manufacturability</li>
+                        <li>Medical device manufacturing compliance</li>
+                        <li>Quality management systems</li>
+                        <li>Advanced applications</li>
+                    </ul>
+                    <p><strong>Investment:</strong> $75K-150K | <strong>Timeline:</strong> 6-8 months</p>
+                    <p><strong>Revenue Potential:</strong> $100K-300K annually (100-500 learners)</p>
+                </div>
+            </div>
+
+            <div class="subsection-title">Innovation Area 4: Process & Technology Expansion</div>
+            <div class="grid">
+                <div class="card">
+                    <h4>Flat Sheet & Wire Processing</h4>
+                    <p>Expand from tubes to flat materials and wire</p>
+                    <ul style="margin-left: 1.5rem;">
+                        <li><strong>Investment:</strong> $50K-100K for equipment modifications</li>
+                        <li><strong>Timeline:</strong> 6 months | <strong>Revenue Potential:</strong> $300K-800K</li>
+                        <li><strong>Applications:</strong> Stents, springs, meshes, surgical blades</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>UV/Green Laser Capability</h4>
+                    <p>Add complementary laser wavelengths for materials currently limited</p>
+                    <ul style="margin-left: 1.5rem;">
+                        <li><strong>Investment:</strong> $500K-800K for new system</li>
+                        <li><strong>Timeline:</strong> 12-18 months | <strong>Revenue Potential:</strong> $1-2M</li>
+                        <li><strong>Applications:</strong> Polymers, ceramics, coatings, sensitive materials</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Micro-Assembly Services</h4>
+                    <p>Expand beyond machining to assembly and integration</p>
+                    <ul style="margin-left: 1.5rem;">
+                        <li><strong>Investment:</strong> $200K-300K for equipment and training</li>
+                        <li><strong>Timeline:</strong> 12 months | <strong>Revenue Potential:</strong> $500K-1.5M</li>
+                        <li><strong>Applications:</strong> Complete sub-assemblies for devices</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Laser Marking & Traceability</h4>
+                    <p>Add laser marking for serialization and track-and-trace</p>
+                    <ul style="margin-left: 1.5rem;">
+                        <li><strong>Investment:</strong> $100K-150K for equipment</li>
+                        <li><strong>Timeline:</strong> 6-9 months | <strong>Revenue Potential:</strong> $200K-400K</li>
+                        <li><strong>Applications:</strong> Device serialization, QR codes, data matrix</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="subsection-title">Innovation Investment Summary</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Initiative</th>
+                        <th>Timeline</th>
+                        <th>Investment</th>
+                        <th>Year 3 Revenue Potential</th>
+                        <th>Priority</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Expanded Medical Markets</td>
+                        <td>Year 1-2</td>
+                        <td>$150K</td>
+                        <td>$2-3M</td>
+                        <td>High</td>
+                    </tr>
+                    <tr>
+                        <td>Parts on Demand Subscription</td>
+                        <td>Year 2</td>
+                        <td>$75K</td>
+                        <td>$500K-1.5M</td>
+                        <td>High</td>
+                    </tr>
+                    <tr>
+                        <td>Online Portal & Automation</td>
+                        <td>Year 2</td>
+                        <td>$150-250K</td>
+                        <td>$300-500K (indirect)</td>
+                        <td>High</td>
+                    </tr>
+                    <tr>
+                        <td>Aerospace/Defense Entry</td>
+                        <td>Year 2-3</td>
+                        <td>$100K</td>
+                        <td>$1-2M</td>
+                        <td>Medium</td>
+                    </tr>
+                    <tr>
+                        <td>White-Label Partnerships</td>
+                        <td>Year 1-2</td>
+                        <td>$50K</td>
+                        <td>$1-3M</td>
+                        <td>High</td>
+                    </tr>
+                    <tr>
+                        <td>AI Design Optimization</td>
+                        <td>Year 2-3</td>
+                        <td>$200-350K</td>
+                        <td>$200-400K</td>
+                        <td>Medium</td>
+                    </tr>
+                    <tr>
+                        <td>Flat Sheet Processing</td>
+                        <td>Year 1-2</td>
+                        <td>$50-100K</td>
+                        <td>$300-800K</td>
+                        <td>Medium</td>
+                    </tr>
+                    <tr>
+                        <td>UV/Green Laser System</td>
+                        <td>Year 3</td>
+                        <td>$500-800K</td>
+                        <td>$1-2M</td>
+                        <td>Medium</td>
+                    </tr>
+                    <tr>
+                        <td>Digital Academy</td>
+                        <td>Year 2-3</td>
+                        <td>$75-150K</td>
+                        <td>$100-300K</td>
+                        <td>Low</td>
+                    </tr>
+                    <tr>
+                        <td><strong>TOTAL</strong></td>
+                        <td></td>
+                        <td><strong>$1.35-2.0M</strong></td>
+                        <td><strong>$7-15M+</strong></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- FINANCIAL PROJECTIONS -->
+        <section id="financial">
+            <h2 class="section-title">Financial Projections & Metrics</h2>
+
+            <div class="subsection-title">Revenue Projections (Base Case)</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>2023 (Actual)</th>
+                        <th>2024 (Year 1)</th>
+                        <th>2025 (Year 2)</th>
+                        <th>2026 (Year 3)</th>
+                        <th>CAGR</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Total Revenue</strong></td>
+                        <td>$1.0M</td>
+                        <td>$2.5M</td>
+                        <td>$6.5M</td>
+                        <td>$12.5M</td>
+                        <td>117%</td>
+                    </tr>
+                    <tr>
+                        <td>Parts Manufacturing</td>
+                        <td>$600K</td>
+                        <td>$1.5M</td>
+                        <td>$3.5M</td>
+                        <td>$6.0M</td>
+                        <td>116%</td>
+                    </tr>
+                    <tr>
+                        <td>Design/Consulting Services</td>
+                        <td>$200K</td>
+                        <td>$600K</td>
+                        <td>$1.5M</td>
+                        <td>$2.5M</td>
+                        <td>122%</td>
+                    </tr>
+                    <tr>
+                        <td>Equipment Rental</td>
+                        <td>$150K</td>
+                        <td>$300K</td>
+                        <td>$800K</td>
+                        <td>$1.5M</td>
+                        <td>114%</td>
+                    </tr>
+                    <tr>
+                        <td>Recurring Services (subscriptions)</td>
+                        <td>$50K</td>
+                        <td>$100K</td>
+                        <td>$1.2M</td>
+                        <td>$2.5M</td>
+                        <td>202%</td>
+                    </tr>
+                    <tr>
+                        <td>Adjacent Markets</td>
+                        <td>$0K</td>
+                        <td>$0K</td>
+                        <td>$0K</td>
+                        <td>$0K</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="subsection-title">Margin & Profitability Projections</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>2023 (Actual)</th>
+                        <th>2024 (Year 1)</th>
+                        <th>2025 (Year 2)</th>
+                        <th>2026 (Year 3)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Gross Margin</strong></td>
+                        <td>65%</td>
+                        <td>62%</td>
+                        <td>65%</td>
+                        <td>68%</td>
+                    </tr>
+                    <tr>
+                        <td>Gross Profit</td>
+                        <td>$650K</td>
+                        <td>$1.55M</td>
+                        <td>$4.23M</td>
+                        <td>$8.5M</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Operating Margin</strong></td>
+                        <td>10%</td>
+                        <td>12%</td>
+                        <td>18%</td>
+                        <td>25%</td>
+                    </tr>
+                    <tr>
+                        <td>Operating Income (EBITDA)</td>
+                        <td>$100K</td>
+                        <td>$300K</td>
+                        <td>$1.17M</td>
+                        <td>$3.13M</td>
+                    </tr>
+                    <tr>
+                        <td><strong>EBITDA Margin</strong></td>
+                        <td>10%</td>
+                        <td>12%</td>
+                        <td>18%</td>
+                        <td>25%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Net Profit Margin (est.)</strong></td>
+                        <td>8%</td>
+                        <td>8%</td>
+                        <td>12%</td>
+                        <td>18%</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="subsection-title">Key Operating Metrics</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>2023</th>
+                        <th>2024</th>
+                        <th>2025</th>
+                        <th>2026</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Team Size</strong></td>
+                        <td>4</td>
+                        <td>9</td>
+                        <td>18</td>
+                        <td>32</td>
+                    </tr>
+                    <tr>
+                        <td>Revenue per Employee</td>
+                        <td>$250K</td>
+                        <td>$278K</td>
+                        <td>$361K</td>
+                        <td>$391K</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Active Customers</strong></td>
+                        <td>8-12</td>
+                        <td>15-20</td>
+                        <td>30-40</td>
+                        <td>60-80</td>
+                    </tr>
+                    <tr>
+                        <td>Average Contract Value</td>
+                        <td>$80K</td>
+                        <td>$130K</td>
+                        <td>$165K</td>
+                        <td>$160K</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Manufacturing Capacity (parts/day)</strong></td>
+                        <td>50</td>
+                        <td>65</td>
+                        <td>100</td>
+                        <td>150</td>
+                    </tr>
+                    <tr>
+                        <td>Capacity Utilization</td>
+                        <td>60%</td>
+                        <td>65%</td>
+                        <td>70%</td>
+                        <td>75%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Recurring Revenue %</strong></td>
+                        <td>5%</td>
+                        <td>4%</td>
+                        <td>18%</td>
+                        <td>35%</td>
+                    </tr>
+                    <tr>
+                        <td>Customer Retention Rate</td>
+                        <td>85%</td>
+                        <td>88%</td>
+                        <td>90%</td>
+                        <td>92%</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="subsection-title">Investment Requirements & Use of Funds</div>
+            <div class="grid grid-2">
+                <div class="card">
+                    <h4>Year 1 Investment (2024)</h4>
+                    <p><strong>Total: $400-600K</strong></p>
+                    <ul style="margin-left: 1.5rem;">
+                        <li>Sales & Marketing: $150K</li>
+                        <li>Operations systems (MES): $80K</li>
+                        <li>Team expansion: $150K (salary offset)</li>
+                        <li>Equipment upgrades: $80K</li>
+                        <li>Working capital: $50-100K</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Year 2 Investment (2025)</h4>
+                    <p><strong>Total: $900-1.2M</strong></p>
+                    <ul style="margin-left: 1.5rem;">
+                        <li>New laser system: $400K</li>
+                        <li>Facility expansion: $250K</li>
+                        <li>Digital platform: $150K</li>
+                        <li>Sales expansion: $100K</li>
+                        <li>Working capital: $100K</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="subsection-title">Funding Strategy</div>
+            <div class="card warning">
+                <h4>Recommended Approach</h4>
+                <p><strong>Phase 1 (2024):</strong> Bootstrap or SBA loan for Year 1 investments ($400-600K)</p>
+                <ul style="margin-left: 1.5rem;">
+                    <li>Use existing cash flow and operating profits</li>
+                    <li>Consider SBA 7(a) loan for equipment ($150-250K)</li>
+                    <li>Owner investment or line of credit for working capital</li>
+                </ul>
+                
+                <p style="margin-top: 1rem;"><strong>Phase 2 (2025):</strong> Growth equity or strategic investment for scale ($600-1.2M)</p>
+                <ul style="margin-left: 1.5rem;">
+                    <li>Growth equity from mid-market PE firms</li>
+                    <li>Strategic investment from larger manufacturing groups</li>
+                    <li>Equipment financing for new laser system ($300-400K)</li>
+                    <li>Working capital facilities for inventory/receivables</li>
+                </ul>
+
+                <p style="margin-top: 1rem;"><strong>Phase 3 (2026+):</strong> Expansion capital or acquisition preparation</p>
+                <ul style="margin-left: 1.5rem;">
+                    <li>Prepare for potential acquisition or IPO</li>
+                    <li>Additional growth capital for geographic expansion</li>
+                    <li>Technology platform investments</li>
+                </ul>
+            </div>
+
+            <div class="subsection-title">Return on Investment Analysis</div>
+            <div class="card success">
+                <h4>Base Case Scenario (3-Year Projection)</h4>
+                <table style="margin-top: 1rem;">
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Total Revenue (3 years)</td>
+                            <td>$21.5M</td>
+                        </tr>
+                        <tr>
+                            <td>Cumulative EBITDA</td>
+                            <td>$4.6M</td>
+                        </tr>
+                        <tr>
+                            <td>Total Investment Required</td>
+                            <td>$1.5-2.0M</td>
+                        </tr>
+                        <tr>
+                            <td>Net ROI on Investment</td>
+                            <td>130-207%</td>
+                        </tr>
+                        <tr>
+                            <td>Payback Period</td>
+                            <td>18-24 months</td>
+                        </tr>
+                        <tr>
+                            <td>Year 3 Exit Valuation (5-7x EBITDA)</td>
+                            <td>$15.6-21.9M</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="subsection-title">Key Success Metrics & Milestones</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Quarter</th>
+                        <th>Revenue Target</th>
+                        <th>Key Milestones</th>
+                        <th>Team Size</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Q1 2024</strong></td>
+                        <td>$550K</td>
+                        <td>Hire Sales Director; Launch marketing program</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Q2 2024</strong></td>
+                        <td>$650K</td>
+                        <td>First trade show presence; CRM implementation</td>
+                        <td>6</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Q3 2024</strong></td>
+                        <td>$700K</td>
+                        <td>Launch flat sheet processing; 50% YoY growth</td>
+                        <td>7</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Q4 2024</strong></td>
+                        <td>$600K</td>
+                        <td>Achieve $2.5M revenue target; Hire Operations Manager</td>
+                        <td>9</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Q1 2025</strong></td>
+                        <td>$1.4M</td>
+                        <td>Launch "Parts on Demand" subscription service</td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Q2 2025</strong></td>
+                        <td>$1.6M</td>
+                        <td>Launch online portal; Add 3 new enterprise customers</td>
+                        <td>14</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Q3 2025</strong></td>
+                        <td>$1.8M</td>
+                        <td>Enter aerospace market; Install new laser system</td>
+                        <td>16</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Q4 2025</strong></td>
+                        <td>$1.7M</td>
+                        <td>Achieve $6.5M revenue; 18% recurring revenue</td>
+                        <td>18</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Q1 2026</strong></td>
+                        <td>$2.8M</td>
+                        <td>Open satellite office; Launch AI design tool beta</td>
+                        <td>22</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Q2 2026</strong></td>
+                        <td>$3.2M</td>
+                        <td>5 white-label partnerships active</td>
+                        <td>25</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Q3 2026</strong></td>
+                        <td>$3.3M</td>
+                        <td>Consider strategic options (acquisition, equity raise)</td>
+                        <td>28</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Q4 2026</strong></td>
+                        <td>$3.2M</td>
+                        <td>Achieve $12.5M revenue; 35% recurring; $3.1M EBITDA</td>
+                        <td>32</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <strong>Bottom Line:</strong> With disciplined execution of this strategic plan, Sublime Laser can achieve 10-12x revenue growth over 3 years, establish itself as a national leader in precision laser manufacturing, and create a platform company valued at $15-20M+ that is attractive to growth equity investors or strategic acquirers.
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Sublime Laser, Inc. Strategic Business Plan</p>
+        <p>This document contains forward-looking projections and strategic recommendations. Actual results may vary based on market conditions and execution.</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Remove active class from all nav buttons
+            const navButtons = document.querySelectorAll('.nav-btn');
+            navButtons.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+
+            // Add active class to clicked button
+            event.target.classList.add('active');
+
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Initialize with first section active
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('.nav-btn').classList.add('active');
+            document.getElementById('executive').classList.add('active');
+        });
+    </script>
+</body>
+</html>

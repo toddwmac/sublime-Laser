@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sublime Laser | Strategic Planning Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0a2540;
+            --accent: #007bff;
+            --text: #333;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+            --border: #e2e8f0;
+            --transition: all 0.2s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--white);
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 5%;
+            background: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.4rem;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-cta {
+            background: var(--accent);
+            color: white !important;
+            padding: 0.7rem 1.4rem;
+            border-radius: 4px;
+            font-weight: 700 !important;
+            transition: var(--transition);
+        }
+
+        .btn-cta:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 6rem 5%;
+            background: linear-gradient(rgba(10, 37, 64, 0.92), rgba(10, 37, 64, 0.92)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 4rem 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 1.75rem;
+            margin-bottom: 3rem;
+            color: var(--primary);
+            letter-spacing: 1.5px;
+            font-weight: 800;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            margin: 1rem auto 0;
+        }
+
+        /* Grid Layout */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2.5rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        /* Card Styling */
+        .card {
+            background: var(--white);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+            transform: translateY(-4px);
+            border-color: var(--accent);
+        }
+
+        .card-header {
+            padding: 1.5rem;
+            background: var(--light-bg);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .card-header h3 {
+            text-transform: uppercase;
+            color: var(--primary);
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .card-body p {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .link-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .doc-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.8rem 1rem;
+            background: var(--light-bg);
+            border-radius: 6px;
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .doc-link:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        .file-type {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            padding: 2px 6px;
+            border-radius: 4px;
+            background: rgba(0,0,0,0.1);
+            font-weight: 700;
+        }
+
+        .doc-link:hover .file-type {
+            background: rgba(255,255,255,0.2);
+        }
+
+        /* Highlight Card */
+        .highlight-card {
+            background: var(--primary);
+            color: white;
+            grid-column: 1 / -1;
+            display: flex;
+            align-items: center;
+            padding: 2.5rem;
+            border-radius: 12px;
+            gap: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .highlight-content h2 {
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .highlight-content p {
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content p {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-legal {
+            margin-top: 2rem;
+            opacity: 0.5;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 900px) {
+            .highlight-card { flex-direction: column; text-align: center; gap: 1.5rem; }
+            .hero h1 { font-size: 2.25rem; }
+        }
+
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">SUBLIME LASER</div>
+        <div class="nav-links">
+            <a href="https://www.sublimelaser.com">Official Site</a>
+            <a href="mailto:sales@sublimelaser.com" class="btn-cta">Contact Us</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <h1>Strategic Planning Hub</h1>
+            <p>Comparative 3-Year Strategic Business Plans (2024-2028) synthesized by leading Artificial Intelligence models for Sublime Laser, Inc.</p>
+        </div>
+    </header>
+
+    <section>
+        <div class="grid">
+            
+            <!-- Synthesis Card -->
+            <div class="highlight-card">
+                <div class="highlight-content">
+                    <h2>Executive Summary & Synthesis</h2>
+                    <p>The definitive strategic roadmap, synthesizing insights from the LM Council and multi-model analysis for the future of Sublime Laser.</p>
+                    <a href="sublime-strategic-plan-lmcouncil-summary.pdf" class="btn-cta" target="_blank">View Council Summary (PDF)</a>
+                </div>
+            </div>
+
+            <!-- Anthropic Collection -->
+            <div class="card">
+                <div class="card-header">
+                    <h3>Anthropic Claude Series</h3>
+                </div>
+                <div class="card-body">
+                    <p>Deep reasoning and tactical execution plans generated by the Claude 4.5 and 4.6 families.</p>
+                    <div class="link-group">
+                        <a href="sublime-strategic-plan-opus46.html" class="doc-link" target="_blank">
+                            Opus 4.6 - Strategic Core <span class="file-type">HTML</span>
+                        </a>
+                        <a href="sublime-strategic-plan-opus46-LMA.html" class="doc-link" target="_blank">
+                            Opus 4.6 - LMA Optimized <span class="file-type">HTML</span>
+                        </a>
+                        <a href="sublime-strategic-plan-son46.html" class="doc-link" target="_blank">
+                            Sonnet 4.6 - Execution Focus <span class="file-type">HTML</span>
+                        </a>
+                        <a href="sublime-strategic-plan-haiuku45.html" class="doc-link" target="_blank">
+                            Haiku 4.5 - Rapid Insights <span class="file-type">HTML</span>
+                        </a>
+                        <a href="sublime-strategic-plan-haiku45.pdf" class="doc-link" target="_blank">
+                            Haiku 4.5 - Report View <span class="file-type">PDF</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Google Gemini Collection -->
+            <div class="card">
+                <div class="card-header">
+                    <h3>Google Gemini Series</h3>
+                </div>
+                <div class="card-body">
+                    <p>Multi-modal strategic assessments leveraging Google's Gemini 3 architecture.</p>
+                    <div class="link-group">
+                        <a href="sublime-strategic-plan-gemini3 pro.html" class="doc-link" target="_blank">
+                            Gemini 3 Pro - Full Strategy <span class="file-type">HTML</span>
+                        </a>
+                        <a href="sublime-strategic-plan-gem3flash.pdf" class="doc-link" target="_blank">
+                            Gemini 3 Flash - Rapid Response <span class="file-type">PDF</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- OpenAI & xAI Series -->
+            <div class="card">
+                <div class="card-header">
+                    <h3>OpenAI & xAI Analysis</h3>
+                </div>
+                <div class="card-body">
+                    <p>Advanced predictive strategy and fast-reasoning analysis from the industry leaders.</p>
+                    <div class="link-group">
+                        <a href="sublime-strategic-plan-gpt52.pdf" class="doc-link" target="_blank">
+                            GPT 5.2 - Growth Strategy <span class="file-type">PDF</span>
+                        </a>
+                        <a href="sublime-strategic-plan-grok41.pdf" class="doc-link" target="_blank">
+                            Grok 4.1 - Tactical Analysis <span class="file-type">PDF</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Microsoft Series -->
+            <div class="card">
+                <div class="card-header">
+                    <h3>Microsoft Copilot</h3>
+                </div>
+                <div class="card-body">
+                    <p>Enterprise-integrated business planning and operational roadmap.</p>
+                    <div class="link-group">
+                        <a href="sublime-strategic-plan-copilot.html" class="doc-link" target="_blank">
+                            Copilot - Business Roadmap <span class="file-type">HTML</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p><strong>Sublime Laser, Inc.</strong></p>
+            <p>1785 S 4130 W, Suite M, Salt Lake Lake City, UT 84104</p>
+            <p><a href="mailto:sales@sublimelaser.com" style="color: white; text-decoration: none;">sales@sublimelaser.com</a> | 801.441.3400</p>
+            <div class="footer-legal">
+                &copy; 2026 Sublime Laser, Inc. | ISO 13485 Certified | Internal Strategy Documents
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
