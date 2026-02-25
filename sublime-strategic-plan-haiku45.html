@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sublime Laser - 3-Year Strategic Business Plan (Claude 4.5 Haiku)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2c3e50;
+            --secondary: #e74c3c;
+            --accent: #3498db;
+            --light: #ecf0f1;
+            --text: #2c3e50;
+            --success: #27ae60;
+            --warning: #f39c12;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: #f5f7fa;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        nav {
+            background: var(--primary);
+            padding: 1rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: sticky;
+            top: 100px;
+            z-index: 99;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        nav button {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 0.9rem;
+            padding: 0.5rem 0.8rem;
+            border-radius: 4px;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        nav button:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        nav button.active {
+            background: var(--secondary);
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        section {
+            display: none;
+        }
+
+        section.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--secondary);
+        }
+
+        .subsection-title {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--secondary);
+            transition: all 0.3s;
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transform: translateY(-2px);
+        }
+
+        .card.accent {
+            border-left-color: var(--accent);
+        }
+
+        .card.success {
+            border-left-color: var(--success);
+        }
+
+        .card.warning {
+            border-left-color: var(--warning);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        th {
+            background: var(--primary);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        tr:hover {
+            background: #f9f9f9;
+        }
+
+        .metric {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--secondary);
+        }
+
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .kpi-card {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .kpi-value {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 0.5rem 0;
+        }
+
+        .kpi-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        ul {
+            margin-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(231, 76, 60, 0.1));
+            border-left: 4px solid var(--secondary);
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin: 1.5rem 0;
+        }
+
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            nav button {
+                width: 100%;
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Sublime Laser, Inc.</h1>
+        <p>3-Year Strategic Business Plan (Claude 4.5 Haiku)</p>
+    </header>
+
+    <nav>
+        <button onclick="showSection('executive')" class="nav-btn active">Executive Summary</button>
+        <button onclick="showSection('current-state')" class="nav-btn">Current State</button>
+        <button onclick="showSection('strategy')" class="nav-btn">3-Year Strategy</button>
+        <button onclick="showSection('innovation')" class="nav-btn">Innovation</button>
+        <button onclick="showSection('financial')" class="nav-btn">Financials</button>
+        <button onclick="showSection('roadmap')" class="nav-btn">Roadmap</button>
+        <button onclick="showSection('risks')" class="nav-btn">Risks & Success</button>
+        <button onclick="showSection('org-partners')" class="nav-btn">Org & Partners</button>
+    </nav>
+
+    <div class="container">
+        <!-- EXECUTIVE SUMMARY -->
+        <section id="executive" class="active">
+            <h2 class="section-title">Executive Summary</h2>
+            
+            <div class="highlight-box">
+                <strong>Vision:</strong> Become the preferred precision laser manufacturing partner for medical devices globally, while expanding into adjacent high-margin markets.
+            </div>
+
+            <div class="card">
+                <p>Sublime Laser holds a unique position in precision medical device manufacturing with proprietary femtosecond laser technology that delivers superior precision and speed. This plan charts a course to transform from a specialized contract manufacturer into a diversified laser technology company with expanded market reach, product lines, and innovative service offerings.</p>
+            </div>
+        </section>
+
+        <!-- SECTION 1: CURRENT STATE ANALYSIS -->
+        <section id="current-state">
+            <h2 class="section-title">Current State Analysis</h2>
+
+            <div class="card">
+                <h4>Business Overview</h4>
+                <ul>
+                    <li><strong>Core Competency:</strong> Femtosecond and fiber laser machining of tubular medical components</li>
+                    <li><strong>Primary Markets:</strong> Neurovascular, cardiovascular, and peripheral vascular device manufacturers</li>
+                    <li><strong>Revenue Model:</strong> Contract manufacturing, laser rental, engineering services</li>
+                    <li><strong>Team Size:</strong> 4 core staff (founder, principal engineer, supervisor, technician)</li>
+                </ul>
+            </div>
+
+            <div class="card accent">
+                <h4>Key Differentiators</h4>
+                <ul>
+                    <li>Ultra-fast turnaround (days vs. weeks/months)</li>
+                    <li>Minimal heat-affected zone (HAZ) with femtosecond technology</li>
+                    <li>ISO 13485 certified medical device manufacturing</li>
+                    <li>Deep expertise in nitinol and stainless steel</li>
+                </ul>
+            </div>
+
+            <div class="grid grid-2">
+                <div class="card success">
+                    <h4>Strengths</h4>
+                    <ul>
+                        <li>Technical Excellence: Proprietary femtosecond laser capabilities (12-micron features)</li>
+                        <li>Agility: Small team enables rapid prototyping and customization</li>
+                        <li>Medical Device Expertise: ISO certification and deep domain knowledge</li>
+                        <li>Relationship-Based: Long-standing R&D partnerships</li>
+                        <li>Location Advantage: Salt Lake City medical device cluster</li>
+                    </ul>
+                </div>
+                <div class="card warning">
+                    <h4>Weaknesses</h4>
+                    <ul>
+                        <li>Limited Scale: 4-person team constrains revenue and growth</li>
+                        <li>Single Market Focus: Heavy dependence on vascular device manufacturers</li>
+                        <li>Service-Based Model: Labor-intensive, limited scalability</li>
+                        <li>Low Digital Presence: Minimal blog content; outdated website</li>
+                        <li>No Products: Pure services/contract manufacturing with no proprietary products</li>
+                        <li>Capital Intensity: High equipment costs limit rapid expansion</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="grid grid-2">
+                <div class="card accent">
+                    <h4>Market Opportunities</h4>
+                    <ul>
+                        <li>Orthopedic Devices: Expanding use of precision-machined components</li>
+                        <li>Ophthalmology: Precision micro-machining for lens implants, catheters</li>
+                        <li>Dental Implants: Growing customization trend</li>
+                        <li>Non-Medical Markets: Electronics, optics, aerospace precision machining</li>
+                        <li>Geographic Expansion: Limited international presence</li>
+                        <li>Automation: Minimal automation in current workflows</li>
+                        <li>Direct-to-Market Products: White-label or branded component lines</li>
+                        <li>Licensing Model: License technology to larger contract manufacturers</li>
+                    </ul>
+                </div>
+                <div class="card warning">
+                    <h4>Competitive Threats</h4>
+                    <ul>
+                        <li>Larger Contract Manufacturers: Precision Castparts, Medtronic internal manufacturing</li>
+                        <li>Traditional Machining: CNC, EDM alternatives improving</li>
+                        <li>Emerging Laser Companies: New entrants with cheaper fiber laser systems</li>
+                        <li>Insourcing Pressure: Device makers developing internal capabilities</li>
+                        <li>Consolidation: Larger firms acquiring specialized capabilities</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: 3-YEAR STRATEGIC PLAN -->
+        <section id="strategy">
+            <h2 class="section-title">3-Year Strategic Plan</h2>
+
+            <div class="subsection-title">Phase 1: Years 1-2 - Foundation & Market Expansion</div>
+            
+            <div class="card">
+                <h4>GOAL 1.1: Scale Core Business Strategically</h4>
+                <p><strong>Objective:</strong> Increase revenue 150-200% while maintaining quality</p>
+                <br>
+                <strong>Initiatives:</strong>
+                <ul>
+                    <li>Hire 2-3 additional technicians to increase manufacturing capacity</li>
+                    <li>Implement Production Management Software (MES system) to optimize scheduling and reduce lead times</li>
+                    <li>Develop Standardized Workflows for high-volume components to improve margins</li>
+                    <li>Establish Volume Pricing Tiers to incentivize larger contracts</li>
+                    <li><strong>Target:</strong> $500K-$750K additional revenue from core business by end of Year 2</li>
+                </ul>
+                <br>
+                <strong>KPIs:</strong>
+                <ul>
+                    <li>Turnaround time reduction to <5 days for standard orders</li>
+                    <li>Production capacity increase to 60% of equipment capability</li>
+                    <li>Customer retention rate >95%</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h4>GOAL 1.2: Expand Market Verticals (Medical)</h4>
+                <p><strong>Objective:</strong> Reduce dependence on vascular devices; enter 2 new medical markets</p>
+                <br>
+                <strong>A. Orthopedic & Spine Market Entry:</strong> Identify top 20 orthopedic device manufacturers; develop case studies; partner with 3-5 OEMs. Target: 20% of revenue by Year 2.
+                <br><br>
+                <strong>B. Ophthalmic Device Market Entry:</strong> Focus on precision IOL components; highlight minimal HAZ advantage. Target: 10% of revenue by Year 2.
+                <br><br>
+                <strong>C. Dental Implant Components:</strong> License technology discussions; partner on precision-machined prosthetic components.
+                <br><br>
+                <strong>Investment:</strong> $50K-75K marketing and business development
+            </div>
+
+            <div class="card">
+                <h4>GOAL 1.3: Digital Transformation & Market Presence</h4>
+                <p><strong>Objective:</strong> Establish thought leadership and improve lead generation</p>
+                <ul>
+                    <li>Rebrand Blog: "From Concept to Production in 10 Days", technical deep dives</li>
+                    <li>SEO optimization for "medical device laser machining"</li>
+                    <li>Publish White Paper: "Minimizing Heat-Affected Zone"</li>
+                    <li>LinkedIn Strategy: CEO thought leadership, 1-2 posts/week</li>
+                    <li>Webinar Series: Quarterly technical webinars</li>
+                    <li>Website Overhaul: Improve UX, portfolio gallery</li>
+                </ul>
+                <p><strong>Target:</strong> 3x increase in qualified inbound leads | <strong>Investment:</strong> $30K-50K</p>
+            </div>
+
+            <div class="card">
+                <h4>GOAL 1.4: Operational Excellence</h4>
+                <ul>
+                    <li>Quality Management System: Documented procedures</li>
+                    <li>Equipment Optimization: Analysis on laser parameters</li>
+                    <li>Supply Chain: Establish preferred vendor relationships</li>
+                    <li>Cost Analysis: Reduce material waste</li>
+                    <li><strong>Target:</strong> Gross margin improvement from ~55% to 62-65%</li>
+                </ul>
+            </div>
+
+            <div class="subsection-title">Phase 2: Years 2-3 - Innovation & Product Development</div>
+            
+            <div class="card">
+                <h4>GOAL 2.1: Enter Non-Medical Precision Markets</h4>
+                <p><strong>Objective:</strong> Diversify revenue base beyond medical devices</p>
+                <ul>
+                    <li><strong>Electronics & Semiconductors:</strong> Thermal management systems, micro-channel heat sinks. Target: $200K-300K.</li>
+                    <li><strong>Aerospace & Defense:</strong> Fuel system components, sensor housings. Target: $150K-250K.</li>
+                    <li><strong>R&D Equipment:</strong> "Laser and Engineer for a Day" rental model. Target: $100K+.</li>
+                </ul>
+                <p><strong>Investment:</strong> $75K-150K for market research, certifications</p>
+            </div>
+
+            <div class="card">
+                <h4>GOAL 2.2: Develop Proprietary Product Line</h4>
+                <p><strong>Objective:</strong> Create higher-margin products leveraging core technology</p>
+                <ul>
+                    <li><strong>Precision Component Library:</strong> 20-30 standardized components (tubes, stents). Target: $300K-500K recurring.</li>
+                    <li><strong>Micro-Featured Component Kits:</strong> "Ready-for-assembly" kits for contract manufacturers. Target: $200K-400K.</li>
+                    <li><strong>Licensing & IP Strategy:</strong> Patent applications, technology licensing. Target: $100K-200K licensing revenue.</li>
+                </ul>
+                <p><strong>Investment:</strong> $100K-150K R&D, IP protection</p>
+            </div>
+
+            <div class="card">
+                <h4>GOAL 2.3: Expand Service Offerings</h4>
+                <ul>
+                    <li><strong>Advanced Design Services:</strong> Consulting ($150-200/hr). Target: $100K+.</li>
+                    <li><strong>On-Site Manufacturing Partnerships:</strong> "Laser and Engineer on-site" for major OEMs. Target: $200K+.</li>
+                    <li><strong>Training & Certification:</strong> "Precision Laser Machining Fundamentals" course. Target: $75K-150K.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h4>GOAL 2.4: Build Strategic Partnerships & Distribution</h4>
+                <ul>
+                    <li><strong>Distribution Partnerships:</strong> Partner with component distributors. Target: $250K-500K.</li>
+                    <li><strong>OEM Partnerships:</strong> 5-7 major medical device OEMs as preferred suppliers. Target: $1M+ agreements.</li>
+                    <li><strong>Technology Partnerships:</strong> Explore partnerships with laser equipment manufacturers.</li>
+                </ul>
+            </div>
+
+            <div class="subsection-title">Phase 3: Years 3+ - Scaling & Optimization</div>
+            
+            <div class="card">
+                <h4>GOAL 3.1: Revenue & Profitability Targets</h4>
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-label">Year 3 Revenue</div>
+                        <div class="kpi-value">$2.5M-$3.5M</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-label">Gross Margin</div>
+                        <div class="kpi-value">65%</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-label">EBITDA Margin</div>
+                        <div class="kpi-value">45%</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: INNOVATIVE BUSINESS MODEL EXTENSIONS -->
+        <section id="innovation">
+            <h2 class="section-title">Innovative Business Model Extensions</h2>
+            
+            <div class="grid grid-2">
+                <div class="card accent">
+                    <h4>Innovation Pillar 1: Platform-Based Model</h4>
+                    <p><strong>"LaserNet" - Cloud-Enabled Manufacturing Platform</strong></p>
+                    <ul>
+                        <li>Design Upload Portal with AI/ML instant quotes</li>
+                        <li>Virtual Prototyping simulation</li>
+                        <li>Real-Time Tracking dashboard</li>
+                        <li>Marketplace for smaller manufacturers</li>
+                    </ul>
+                    <p><strong>Revenue:</strong> Subscription ($5K-10K/mo) + Fees. Target: $200K+.</p>
+                </div>
+
+                <div class="card accent">
+                    <h4>Innovation Pillar 2: Custom Component Subscription</h4>
+                    <p><strong>"Precision-as-a-Service" (PaaS)</strong></p>
+                    <ul>
+                        <li>Reserved production slots ("100 components/month")</li>
+                        <li>Priority access to design engineering</li>
+                        <li>Tiered pricing based on volume</li>
+                    </ul>
+                    <p><strong>Revenue:</strong> $10K-25K/mo per customer. Target: $600K-$1.8M.</p>
+                </div>
+
+                <div class="card accent">
+                    <h4>Innovation Pillar 3: Spin-Out Equipment Rental</h4>
+                    <p><strong>"LaserShare" - Regional Equipment Rental & Services</strong></p>
+                    <ul>
+                        <li>Lease equipment to universities, small manufacturers</li>
+                        <li>Provide on-site technician support</li>
+                        <li>Expand to 3-5 regional locations</li>
+                    </ul>
+                    <p><strong>Revenue:</strong> $600K-$1.2M annual revenue target.</p>
+                </div>
+
+                <div class="card accent">
+                    <h4>Innovation Pillar 4: Materials Science Partnership</h4>
+                    <p><strong>Precision Alloy Development Collaboration</strong></p>
+                    <ul>
+                        <li>Partner with university labs (U of U, BYU)</li>
+                        <li>Develop new nitinol formulations</li>
+                        <li>Create "application-specific" alloy specifications</li>
+                    </ul>
+                    <p><strong>Revenue:</strong> Royalty on sales, premium pricing. Target: $100K-300K.</p>
+                </div>
+
+                <div class="card accent">
+                    <h4>Innovation Pillar 5: Digital Twin & Predictive Mfg</h4>
+                    <p><strong>AI-Powered Precision Optimization Engine</strong></p>
+                    <ul>
+                        <li>Camera-based inspection with AI</li>
+                        <li>Predictive modeling of equipment wear</li>
+                        <li>Automated parameter optimization</li>
+                    </ul>
+                    <p><strong>Revenue:</strong> Software licensing ($2K-5K/mo). Target: $150K-300K.</p>
+                </div>
+
+                <div class="card accent">
+                    <h4>Innovation Pillar 6: Medical Device Accelerator</h4>
+                    <p><strong>"LaserStart" - Incubation for MedTech Startups</strong></p>
+                    <ul>
+                        <li>Subsidized manufacturing ($50K-100K per company)</li>
+                        <li>Regulatory pathway guidance</li>
+                        <li>Connections to investors</li>
+                    </ul>
+                    <p><strong>Revenue:</strong> Equity stake (5-10%), future contracts. Value: $2M-5M.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: FINANCIAL PROJECTIONS -->
+        <section id="financial">
+            <h2 class="section-title">Financial Projections</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Year 1 (Current)</th>
+                        <th>Year 2</th>
+                        <th>Year 3</th>
+                        <th>Year 4</th>
+                        <th>Year 5</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Revenue</td>
+                        <td>$900K</td>
+                        <td>$1.8M</td>
+                        <td>$3.0M</td>
+                        <td>$4.5M</td>
+                        <td>$6.0M</td>
+                    </tr>
+                    <tr>
+                        <td>Core Manufacturing</td>
+                        <td>72%</td>
+                        <td>45%</td>
+                        <td>35%</td>
+                        <td>30%</td>
+                        <td>25%</td>
+                    </tr>
+                    <tr>
+                        <td>New Medical Markets</td>
+                        <td>12%</td>
+                        <td>25%</td>
+                        <td>30%</td>
+                        <td>32%</td>
+                        <td>32%</td>
+                    </tr>
+                    <tr>
+                        <td>Non-Medical Markets</td>
+                        <td>8%</td>
+                        <td>15%</td>
+                        <td>20%</td>
+                        <td>22%</td>
+                        <td>23%</td>
+                    </tr>
+                    <tr>
+                        <td>Products/Services</td>
+                        <td>8%</td>
+                        <td>15%</td>
+                        <td>15%</td>
+                        <td>16%</td>
+                        <td>20%</td>
+                    </tr>
+                    <tr>
+                        <td>Gross Margin</td>
+                        <td>55%</td>
+                        <td>60%</td>
+                        <td>65%</td>
+                        <td>67%</td>
+                        <td>68%</td>
+                    </tr>
+                    <tr>
+                        <td>EBITDA</td>
+                        <td>$200K</td>
+                        <td>$550K</td>
+                        <td>$1.2M</td>
+                        <td>$1.8M</td>
+                        <td>$2.4M</td>
+                    </tr>
+                    <tr>
+                        <td>Capital Investment</td>
+                        <td>$100K</td>
+                        <td>$200K</td>
+                        <td>$300K</td>
+                        <td>$200K</td>
+                        <td>$150K</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="card success">
+                <h4>Cumulative 5-Year Metrics</h4>
+                <ul>
+                    <li><strong>Total Revenue:</strong> $15.3M</li>
+                    <li><strong>Cumulative EBITDA:</strong> $5.75M</li>
+                    <li><strong>Total Capital Investment:</strong> $950K</li>
+                    <li><strong>Implied Exit Multiple (3-4x EBITDA):</strong> $17M-$23M enterprise value by Year 5</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- SECTION 5: IMPLEMENTATION ROADMAP -->
+        <section id="roadmap">
+            <h2 class="section-title">Implementation Roadmap</h2>
+            
+            <div class="card">
+                <h4>Year 1 (Months 1-12): Foundation</h4>
+                <p><strong>Q1:</strong> Hire 2 techs, Website redesign, LinkedIn program, Identify top 20 orthopedic OEMs.</p>
+                <p><strong>Q2:</strong> Complete website, Publish white paper, Orthopedic outreach, Implement production software.</p>
+                <p><strong>Q3:</strong> Secure 2-3 pilot projects, Quarterly webinars, Efficiency analysis, ISO improvements.</p>
+                <p><strong>Q4:</strong> Complete Year 1 revenue target ($900K-$1M), Plan Year 2 hiring, Develop product concepts.</p>
+                <p><em>Year 1 Investment: ~$200K</em></p>
+            </div>
+
+            <div class="card">
+                <h4>Year 2 (Months 13-24): Expansion & Innovation</h4>
+                <p><strong>Q1-Q2:</strong> Launch "Laser & Engineer for a Day", Distribution partnership candidates, Non-medical market research, Component library dev, Hire 1-2 techs.</p>
+                <p><strong>Q3-Q4:</strong> Secure first non-medical pilot, Launch product line, Finalize OEM partnerships, IP strategy, Year 2 revenue target ($1.5M-$2M).</p>
+                <p><em>Year 2 Investment: ~$400K</em></p>
+            </div>
+
+            <div class="card">
+                <h4>Year 3 (Months 25-36): Scaling & Platform Development</h4>
+                <p><strong>Q1-Q2:</strong> Launch "Precision-as-a-Service", "LaserShare" planning, 4-6 recurring customers, Expand product line, AI/ML software MVP.</p>
+                <p><strong>Q3-Q4:</strong> Launch "LaserStart" accelerator, Achieve $2.5M-$3.5M revenue, Strategic funding (Series A), Plan Year 4 expansion.</p>
+                <p><em>Year 3 Investment: ~$600K</em></p>
+            </div>
+        </section>
+
+        <!-- SECTION 6: RISKS & SUCCESS FACTORS -->
+        <section id="risks">
+            <h2 class="section-title">Critical Success Factors & Risks</h2>
+            
+            <div class="grid grid-2">
+                <div class="card success">
+                    <h4>Critical Success Factors</h4>
+                    <ol style="margin-left: 1.5rem;">
+                        <li><strong>Talent Acquisition:</strong> Attracting experienced technicians.</li>
+                        <li><strong>Market Expansion:</strong> Entering new markets while maintaining quality.</li>
+                        <li><strong>Product Development:</strong> Developing products that gain traction.</li>
+                        <li><strong>Capital Management:</strong> Funding growth without overextending.</li>
+                        <li><strong>Operational Excellence:</strong> Scaling quality with volume.</li>
+                    </ol>
+                </div>
+                
+                <div class="card warning">
+                    <h4>Key Risks & Mitigation</h4>
+                    <p><strong>Device manufacturers insource:</strong> Revenue loss 20-30%. <em>Mitigation: Diversify markets.</em></p>
+                    <p><strong>Competitive pricing pressure:</strong> Margin compression. <em>Mitigation: Differentiate on quality/speed.</em></p>
+                    <p><strong>Hiring/retention challenges:</strong> Growth limitations. <em>Mitigation: Equity incentives, training.</em></p>
+                    <p><strong>Product failure:</strong> Capital waste. <em>Mitigation: Phased approach, validation.</em></p>
+                    <p><strong>Market downturn:</strong> Revenue decline. <em>Mitigation: Build recurring revenue.</em></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7 & 8: ORG & PARTNERSHIPS -->
+        <section id="org-partners">
+            <h2 class="section-title">Org Development & Partnerships</h2>
+            
+            <div class="card">
+                <h4>Organization Build (Year 1-3)</h4>
+                <p><strong>Current (4 employees):</strong> CEO, Principal Engineer, Production Supervisor, Technician</p>
+                <br>
+                <p><strong>Additions by Year 3:</strong></p>
+                <ul>
+                    <li>Manufacturing (2 technicians)</li>
+                    <li>Business Development Manager</li>
+                    <li>Sales Engineer / Application Engineer</li>
+                    <li>Product Manager</li>
+                    <li>Operations Manager</li>
+                    <li>Marketing/Comms Specialist</li>
+                    <li>Design Engineer</li>
+                    <li>Quality Manager</li>
+                </ul>
+                <p><strong>Target Headcount:</strong> 12-14 employees</p>
+            </div>
+
+            <div class="card">
+                <h4>Strategic Ecosystem</h4>
+                <ul>
+                    <li><strong>Technology Partners:</strong> Coherent, Spectra-Physics, Amada, SolidCAM</li>
+                    <li><strong>Market Partners:</strong> Arrow, Henry Schein, AdvaMedDx</li>
+                    <li><strong>Research Partners:</strong> University of Utah, BYU</li>
+                    <li><strong>Investor Network:</strong> Utah venture capital, Strategic corporate investors</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Sublime Laser, Inc. - Confidential Strategic Plan</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            const navButtons = document.querySelectorAll('.nav-btn');
+            navButtons.forEach(button => {
+                button.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+            event.target.classList.add('active');
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>

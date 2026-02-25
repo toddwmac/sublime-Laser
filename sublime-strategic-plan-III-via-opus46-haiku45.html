@@ -1,0 +1,2438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sublime Laser, Inc. — 3-Year Strategic Business Plan</title>
+    <style>
+        :root {
+            --primary: #0f2b46;
+            --primary-light: #1a3d5c;
+            --accent: #00a8e8;
+            --accent-light: #e8f7fd;
+            --gold: #d4a843;
+            --text: #2c3e50;
+            --text-light: #5a6c7d;
+            --bg: #f8f9fb;
+            --white: #ffffff;
+            --border: #e2e8f0;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.06);
+            --shadow-lg: 0 10px 15px rgba(0,0,0,0.07), 0 4px 6px rgba(0,0,0,0.05);
+            --radius: 8px;
+            --radius-lg: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.65;
+            font-size: 15px;
+        }
+
+        /* ── Top Navigation ── */
+        .top-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 64px;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .top-nav .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--white);
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+        }
+
+        .top-nav .logo .icon {
+            width: 36px;
+            height: 36px;
+            background: var(--accent);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 24px;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+
+        .menu-toggle:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* ── Sidebar ── */
+        .sidebar {
+            position: fixed;
+            top: 64px;
+            left: 0;
+            bottom: 0;
+            width: 280px;
+            background: var(--white);
+            border-right: 1px solid var(--border);
+            overflow-y: auto;
+            z-index: 900;
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar-inner {
+            padding: 16px 0;
+        }
+
+        .sidebar .nav-group {
+            margin-bottom: 4px;
+        }
+
+        .sidebar .nav-group-title {
+            padding: 10px 20px 6px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: var(--text-light);
+        }
+
+        .sidebar .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 20px;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 13.5px;
+            font-weight: 500;
+            border-left: 3px solid transparent;
+            transition: all 0.15s;
+        }
+
+        .sidebar .nav-link:hover {
+            background: var(--accent-light);
+            color: var(--accent);
+        }
+
+        .sidebar .nav-link.active {
+            background: var(--accent-light);
+            color: var(--accent);
+            border-left-color: var(--accent);
+            font-weight: 600;
+        }
+
+        .sidebar .nav-link .nav-icon {
+            width: 20px;
+            text-align: center;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .sidebar .nav-link .nav-label {
+            flex: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .sidebar .sub-link {
+            padding-left: 52px;
+            font-size: 12.5px;
+            font-weight: 400;
+            color: var(--text-light);
+        }
+
+        .sidebar .sub-link:hover, .sidebar .sub-link.active {
+            color: var(--accent);
+        }
+
+        /* ── Main Content ── */
+        .main {
+            margin-left: 280px;
+            margin-top: 64px;
+            min-height: calc(100vh - 64px);
+        }
+
+        .content {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 32px 40px 60px;
+        }
+
+        /* ── Sections ── */
+        .section {
+            margin-bottom: 48px;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ── Hero / Executive Summary ── */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 40px 44px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(0, 168, 232, 0.08);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: -60px;
+            right: 80px;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: rgba(212, 168, 67, 0.06);
+        }
+
+        .hero h1 {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 4px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero .subtitle {
+            font-size: 15px;
+            opacity: 0.7;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .hero p {
+            font-size: 15px;
+            line-height: 1.7;
+            opacity: 0.92;
+            max-width: 700px;
+        }
+
+        .vision-box {
+            margin-top: 24px;
+            padding: 16px 20px;
+            background: rgba(0, 168, 232, 0.12);
+            border-left: 4px solid var(--accent);
+            border-radius: 0 var(--radius) var(--radius) 0;
+            font-size: 14.5px;
+            font-weight: 500;
+            position: relative;
+            z-index: 1;
+        }
+
+        .vision-box strong {
+            color: var(--gold);
+        }
+
+        /* ── Section Headers ── */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 24px;
+            padding-bottom: 14px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .section-header .section-number {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        .section-header h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.3px;
+        }
+
+        /* ── Cards ── */
+        .card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            padding: 28px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .card h3 {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+
+        .card h4 {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--primary-light);
+            margin-top: 18px;
+            margin-bottom: 8px;
+        }
+
+        .card .objective {
+            font-size: 14px;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+
+        /* ── Grid Layouts ── */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 16px;
+        }
+
+        /* ── Lists ── */
+        .item-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .item-list li {
+            padding: 7px 0 7px 22px;
+            position: relative;
+            font-size: 14px;
+            line-height: 1.55;
+        }
+
+        .item-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 14px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+
+        .item-list.gold li::before {
+            background: var(--gold);
+        }
+
+        .item-list.success li::before {
+            background: var(--success);
+        }
+
+        .item-list.warning li::before {
+            background: var(--warning);
+        }
+
+        .item-list.danger li::before {
+            background: var(--danger);
+        }
+
+        .sub-list {
+            list-style: none;
+            padding: 4px 0 4px 18px;
+        }
+
+        .sub-list li {
+            padding: 3px 0 3px 16px;
+            font-size: 13.5px;
+            color: var(--text-light);
+        }
+
+        .sub-list li::before {
+            width: 5px;
+            height: 5px;
+            top: 11px;
+            background: var(--border);
+            border: 1px solid var(--text-light);
+        }
+
+        /* ── Numbered List ── */
+        .numbered-list {
+            list-style: none;
+            padding: 0;
+            counter-reset: item;
+        }
+
+        .numbered-list li {
+            padding: 8px 0 8px 36px;
+            position: relative;
+            font-size: 14px;
+            counter-increment: item;
+        }
+
+        .numbered-list li::before {
+            content: counter(item);
+            position: absolute;
+            left: 0;
+            top: 7px;
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
+            background: var(--accent-light);
+            color: var(--accent);
+            font-size: 12px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ── Tags / Badges ── */
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-blue { background: var(--accent-light); color: var(--accent); }
+        .badge-gold { background: #fef3c7; color: #92400e; }
+        .badge-green { background: #d1fae5; color: #065f46; }
+        .badge-red { background: #fee2e2; color: #991b1b; }
+
+        /* ── Phase Banner ── */
+        .phase-banner {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 20px 28px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .phase-banner .phase-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(255,255,255,0.12);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+
+        .phase-banner h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .phase-banner p {
+            font-size: 13px;
+            opacity: 0.75;
+            margin-top: 2px;
+        }
+
+        /* ── Goal Card ── */
+        .goal-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .goal-header {
+            padding: 20px 28px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            user-select: none;
+            transition: background 0.15s;
+        }
+
+        .goal-header:hover {
+            background: var(--accent-light);
+        }
+
+        .goal-header-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex: 1;
+        }
+
+        .goal-id {
+            font-size: 12px;
+            font-weight: 800;
+            color: var(--accent);
+            background: var(--accent-light);
+            padding: 4px 10px;
+            border-radius: 6px;
+            white-space: nowrap;
+        }
+
+        .goal-header h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .goal-toggle {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: var(--text-light);
+            transition: transform 0.3s, background 0.2s;
+            flex-shrink: 0;
+        }
+
+        .goal-card.open .goal-toggle {
+            transform: rotate(180deg);
+            background: var(--accent-light);
+            color: var(--accent);
+        }
+
+        .goal-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .goal-card.open .goal-body {
+            max-height: 3000px;
+        }
+
+        .goal-content {
+            padding: 0 28px 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .goal-content .objective {
+            margin-top: 16px;
+        }
+
+        /* ── KPI Boxes ── */
+        .kpi-row {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+        }
+
+        .kpi-box {
+            flex: 1;
+            min-width: 140px;
+            background: var(--bg);
+            border-radius: var(--radius);
+            padding: 14px 16px;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+
+        .kpi-box .kpi-value {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .kpi-box .kpi-label {
+            font-size: 11px;
+            color: var(--text-light);
+            margin-top: 2px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            font-weight: 600;
+        }
+
+        /* ── Investment Tag ── */
+        .investment-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 14px;
+            padding: 8px 14px;
+            background: #fef9ee;
+            border: 1px solid #fde68a;
+            border-radius: var(--radius);
+            font-size: 13px;
+            font-weight: 600;
+            color: #92400e;
+        }
+
+        .target-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 8px;
+            padding: 8px 14px;
+            background: #ecfdf5;
+            border: 1px solid #a7f3d0;
+            border-radius: var(--radius);
+            font-size: 13px;
+            font-weight: 600;
+            color: #065f46;
+        }
+
+        /* ── Tables ── */
+        .table-wrapper {
+            overflow-x: auto;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            margin-top: 16px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13.5px;
+        }
+
+        thead {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        th {
+            padding: 12px 16px;
+            font-weight: 600;
+            text-align: left;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+
+        td {
+            padding: 10px 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody tr:nth-child(even) {
+            background: var(--bg);
+        }
+
+        tbody tr:hover {
+            background: var(--accent-light);
+        }
+
+        /* ── Timeline ── */
+        .timeline {
+            position: relative;
+            padding-left: 28px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 4px;
+            bottom: 4px;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 24px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -24px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--white);
+            border: 3px solid var(--accent);
+        }
+
+        .timeline-item h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        /* ── Innovation Pillar ── */
+        .pillar-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .pillar-header {
+            padding: 20px 28px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            user-select: none;
+            transition: background 0.15s;
+        }
+
+        .pillar-header:hover {
+            background: var(--accent-light);
+        }
+
+        .pillar-number {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--accent), #0077b6);
+            color: var(--white);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        .pillar-header-text {
+            flex: 1;
+        }
+
+        .pillar-header-text h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .pillar-header-text .pillar-subtitle {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-top: 2px;
+        }
+
+        .pillar-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .pillar-card.open .pillar-body {
+            max-height: 3000px;
+        }
+
+        .pillar-content {
+            padding: 0 28px 24px;
+            border-top: 1px solid var(--border);
+            padding-top: 20px;
+        }
+
+        .pillar-card .goal-toggle {
+            flex-shrink: 0;
+        }
+
+        .pillar-card.open .goal-toggle {
+            transform: rotate(180deg);
+            background: var(--accent-light);
+            color: var(--accent);
+        }
+
+        /* ── Team Member ── */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 12px;
+        }
+
+        .team-member {
+            background: var(--bg);
+            border-radius: var(--radius);
+            padding: 14px 16px;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .team-member .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 700;
+            margin: 0 auto 8px;
+        }
+
+        .team-member .name {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .team-member .role {
+            font-size: 11.5px;
+            color: var(--text-light);
+        }
+
+        /* ── Partner Category ── */
+        .partner-category {
+            margin-bottom: 20px;
+        }
+
+        .partner-category h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* ── Risk Table Colors ── */
+        .risk-low { color: var(--success); font-weight: 600; }
+        .risk-medium { color: var(--warning); font-weight: 600; }
+        .risk-high { color: var(--danger); font-weight: 600; }
+
+        /* ── Conclusion Box ── */
+        .conclusion-box {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 36px 40px;
+            margin-top: 32px;
+        }
+
+        .conclusion-box h2 {
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .conclusion-box p {
+            font-size: 14.5px;
+            line-height: 1.7;
+            opacity: 0.92;
+            margin-bottom: 12px;
+        }
+
+        .conclusion-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .conclusion-stat {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: var(--radius);
+            padding: 16px;
+            text-align: center;
+        }
+
+        .conclusion-stat .label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            opacity: 0.65;
+            font-weight: 600;
+        }
+
+        .conclusion-stat .from-to {
+            font-size: 15px;
+            font-weight: 700;
+            margin-top: 4px;
+        }
+
+        .conclusion-stat .arrow {
+            color: var(--gold);
+            margin: 0 6px;
+        }
+
+        .conclusion-callout {
+            margin-top: 24px;
+            padding: 16px 20px;
+            background: rgba(0,168,232,0.12);
+            border-left: 4px solid var(--accent);
+            border-radius: 0 var(--radius) var(--radius) 0;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* ── Scroll to Top ── */
+        .scroll-top {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.3s, transform 0.3s;
+            z-index: 800;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scroll-top:hover {
+            background: var(--accent);
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 900px) {
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.open {
+                transform: translateX(0);
+                box-shadow: 4px 0 20px rgba(0,0,0,0.15);
+            }
+
+            .sidebar-overlay {
+                display: none;
+                position: fixed;
+                inset: 0;
+                top: 64px;
+                background: rgba(0,0,0,0.3);
+                z-index: 899;
+            }
+
+            .sidebar-overlay.active {
+                display: block;
+            }
+
+            .main {
+                margin-left: 0;
+            }
+
+            .content {
+                padding: 24px 20px 48px;
+            }
+
+            .hero {
+                padding: 28px 24px;
+            }
+
+            .hero h1 {
+                font-size: 22px;
+            }
+
+            .conclusion-box {
+                padding: 28px 24px;
+            }
+
+            .kpi-row {
+                flex-direction: column;
+            }
+
+            .phase-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* ── Print ── */
+        @media print {
+            .sidebar, .top-nav, .scroll-top, .menu-toggle {
+                display: none !important;
+            }
+            .main {
+                margin-left: 0 !important;
+                margin-top: 0 !important;
+            }
+            .goal-body, .pillar-body {
+                max-height: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Top Navigation -->
+<nav class="top-nav">
+    <div class="logo">
+        <div class="icon">⚡</div>
+        <span>Sublime Laser, Inc.</span>
+    </div>
+    <button class="menu-toggle" onclick="toggleSidebar()" aria-label="Toggle navigation">☰</button>
+</nav>
+
+<!-- Sidebar Overlay -->
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+<!-- Sidebar Navigation -->
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-inner">
+        <div class="nav-group">
+            <div class="nav-group-title">Overview</div>
+            <a href="#executive-summary" class="nav-link active" data-section="executive-summary">
+                <span class="nav-icon">📋</span>
+                <span class="nav-label">Executive Summary</span>
+            </a>
+        </div>
+
+        <div class="nav-group">
+            <div class="nav-group-title">Section 1</div>
+            <a href="#current-state" class="nav-link" data-section="current-state">
+                <span class="nav-icon">📊</span>
+                <span class="nav-label">Current State Analysis</span>
+            </a>
+            <a href="#swot" class="nav-link sub-link" data-section="swot">
+                <span class="nav-label">Strengths & Weaknesses</span>
+            </a>
+            <a href="#opportunities" class="nav-link sub-link" data-section="opportunities">
+                <span class="nav-label">Opportunities & Threats</span>
+            </a>
+        </div>
+
+        <div class="nav-group">
+            <div class="nav-group-title">Section 2 — Strategic Plan</div>
+            <a href="#phase1" class="nav-link" data-section="phase1">
+                <span class="nav-icon">🏗️</span>
+                <span class="nav-label">Phase 1: Foundation (Yr 1-2)</span>
+            </a>
+            <a href="#phase2" class="nav-link" data-section="phase2">
+                <span class="nav-icon">🚀</span>
+                <span class="nav-label">Phase 2: Innovation (Yr 2-3)</span>
+            </a>
+            <a href="#phase3" class="nav-link" data-section="phase3">
+                <span class="nav-icon">📈</span>
+                <span class="nav-label">Phase 3: Scaling (Yr 3+)</span>
+            </a>
+        </div>
+
+        <div class="nav-group">
+            <div class="nav-group-title">Section 3</div>
+            <a href="#innovation" class="nav-link" data-section="innovation">
+                <span class="nav-icon">💡</span>
+                <span class="nav-label">Innovative Business Models</span>
+            </a>
+        </div>
+
+        <div class="nav-group">
+            <div class="nav-group-title">Section 4</div>
+            <a href="#financials" class="nav-link" data-section="financials">
+                <span class="nav-icon">💰</span>
+                <span class="nav-label">Financial Projections</span>
+            </a>
+        </div>
+
+        <div class="nav-group">
+            <div class="nav-group-title">Section 5</div>
+            <a href="#roadmap" class="nav-link" data-section="roadmap">
+                <span class="nav-icon">🗺️</span>
+                <span class="nav-label">Implementation Roadmap</span>
+            </a>
+        </div>
+
+        <div class="nav-group">
+            <div class="nav-group-title">Section 6</div>
+            <a href="#risks" class="nav-link" data-section="risks">
+                <span class="nav-icon">⚠️</span>
+                <span class="nav-label">Success Factors & Risks</span>
+            </a>
+        </div>
+
+        <div class="nav-group">
+            <div class="nav-group-title">Section 7</div>
+            <a href="#organization" class="nav-link" data-section="organization">
+                <span class="nav-icon">👥</span>
+                <span class="nav-label">Organizational Development</span>
+            </a>
+        </div>
+
+        <div class="nav-group">
+            <div class="nav-group-title">Section 8</div>
+            <a href="#partnerships" class="nav-link" data-section="partnerships">
+                <span class="nav-icon">🤝</span>
+                <span class="nav-label">Partnerships & Ecosystem</span>
+            </a>
+        </div>
+
+        <div class="nav-group">
+            <div class="nav-group-title">Section 9</div>
+            <a href="#metrics" class="nav-link" data-section="metrics">
+                <span class="nav-icon">🎯</span>
+                <span class="nav-label">Success Metrics</span>
+            </a>
+        </div>
+
+        <div class="nav-group">
+            <div class="nav-group-title">Summary</div>
+            <a href="#conclusion" class="nav-link" data-section="conclusion">
+                <span class="nav-icon">✅</span>
+                <span class="nav-label">Conclusion</span>
+            </a>
+        </div>
+    </div>
+</aside>
+
+<!-- Main Content -->
+<main class="main">
+    <div class="content">
+
+        <!-- Executive Summary -->
+        <section id="executive-summary" class="section">
+            <div class="hero">
+                <h1>3-Year Strategic Business Plan</h1>
+                <div class="subtitle">Sublime Laser, Inc. — Precision Medical Device Manufacturing</div>
+                <p>Sublime Laser holds a unique position in precision medical device manufacturing with proprietary femtosecond laser technology that delivers superior precision and speed. This plan charts a course to transform from a specialized contract manufacturer into a diversified laser technology company with expanded market reach, product lines, and innovative service offerings.</p>
+                <div class="vision-box">
+                    <strong>Vision:</strong> Become the preferred precision laser manufacturing partner for medical devices globally, while expanding into adjacent high-margin markets.
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 1: Current State Analysis -->
+        <section id="current-state" class="section">
+            <div class="section-header">
+                <div class="section-number">1</div>
+                <h2>Current State Analysis</h2>
+            </div>
+
+            <div class="card">
+                <h3>Business Overview</h3>
+                <ul class="item-list" style="margin-top:12px">
+                    <li><strong>Core Competency:</strong> Femtosecond and fiber laser machining of tubular medical components</li>
+                    <li><strong>Primary Markets:</strong> Neurovascular, cardiovascular, and peripheral vascular device manufacturers</li>
+                    <li><strong>Key Differentiators:</strong>
+                        <ul class="sub-list">
+                            <li>Ultra-fast turnaround (days vs. weeks/months)</li>
+                            <li>Minimal heat-affected zone (HAZ) with femtosecond technology</li>
+                            <li>ISO 13485 certified medical device manufacturing</li>
+                            <li>Deep expertise in nitinol and stainless steel</li>
+                        </ul>
+                    </li>
+                    <li><strong>Revenue Model:</strong> Contract manufacturing, laser rental, engineering services</li>
+                    <li><strong>Team Size:</strong> 4 core staff (founder, principal engineer, supervisor, technician)</li>
+                </ul>
+            </div>
+
+            <div id="swot" class="grid-2">
+                <div class="card">
+                    <h3>💪 Strengths</h3>
+                    <ol class="numbered-list" style="margin-top:12px">
+                        <li><strong>Technical Excellence:</strong> Proprietary femtosecond laser capabilities for precision work (12-micron features)</li>
+                        <li><strong>Agility:</strong> Small team enables rapid prototyping and customization</li>
+                        <li><strong>Medical Device Expertise:</strong> ISO certification and deep domain knowledge</li>
+                        <li><strong>Relationship-Based:</strong> Long-standing R&D partnerships with device manufacturers</li>
+                        <li><strong>Location Advantage:</strong> Salt Lake City medical device cluster</li>
+                    </ol>
+                </div>
+                <div class="card">
+                    <h3>⚡ Weaknesses</h3>
+                    <ol class="numbered-list" style="margin-top:12px">
+                        <li><strong>Limited Scale:</strong> 4-person team constrains revenue and growth</li>
+                        <li><strong>Single Market Focus:</strong> Heavy dependence on vascular device manufacturers</li>
+                        <li><strong>Service-Based Model:</strong> Labor-intensive, limited scalability</li>
+                        <li><strong>Low Digital Presence:</strong> Minimal blog content; outdated website content (blog posts generic)</li>
+                        <li><strong>No Products:</strong> Pure services/contract manufacturing with no proprietary products</li>
+                        <li><strong>Capital Intensity:</strong> High equipment costs limit rapid expansion</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div id="opportunities" class="grid-2" style="margin-top:16px">
+                <div class="card">
+                    <h3>🌟 Market Opportunities</h3>
+                    <ol class="numbered-list" style="margin-top:12px">
+                        <li><strong>Orthopedic Devices:</strong> Expanding use of precision-machined components</li>
+                        <li><strong>Ophthalmology:</strong> Precision micro-machining for lens implants, catheters</li>
+                        <li><strong>Dental Implants:</strong> Growing customization trend</li>
+                        <li><strong>Non-Medical Markets:</strong> Electronics, optics, aerospace precision machining</li>
+                        <li><strong>Geographic Expansion:</strong> Limited international presence</li>
+                        <li><strong>Automation:</strong> Minimal automation in current workflows</li>
+                        <li><strong>Direct-to-Market Products:</strong> White-label or branded component lines</li>
+                        <li><strong>Licensing Model:</strong> License technology to larger contract manufacturers</li>
+                    </ol>
+                </div>
+                <div class="card">
+                    <h3>🔴 Competitive Threats</h3>
+                    <ol class="numbered-list" style="margin-top:12px">
+                        <li><strong>Larger Contract Manufacturers:</strong> Precision Castparts, Medtronic internal manufacturing</li>
+                        <li><strong>Traditional Machining:</strong> CNC, EDM alternatives improving</li>
+                        <li><strong>Emerging Laser Companies:</strong> New entrants with cheaper fiber laser systems</li>
+                        <li><strong>Insourcing Pressure:</strong> Device makers developing internal capabilities</li>
+                        <li><strong>Consolidation:</strong> Larger firms acquiring specialized capabilities</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: 3-Year Strategic Plan -->
+        <!-- Phase 1 -->
+        <section id="phase1" class="section">
+            <div class="section-header">
+                <div class="section-number">2</div>
+                <h2>3-Year Strategic Plan</h2>
+            </div>
+
+            <div class="phase-banner">
+                <div class="phase-icon">🏗️</div>
+                <div>
+                    <h3>Phase 1: Foundation & Market Expansion</h3>
+                    <p>Years 1–2 — Build capacity, enter new markets, establish digital presence</p>
+                </div>
+            </div>
+
+            <!-- Goal 1.1 -->
+            <div class="goal-card open" id="goal-1-1">
+                <div class="goal-header" onclick="toggleGoal('goal-1-1')">
+                    <div class="goal-header-left">
+                        <span class="goal-id">GOAL 1.1</span>
+                        <h3>Scale Core Business Strategically</h3>
+                    </div>
+                    <div class="goal-toggle">▼</div>
+                </div>
+                <div class="goal-body">
+                    <div class="goal-content">
+                        <div class="objective">Objective: Increase revenue 150-200% while maintaining quality</div>
+                        <h4>Initiatives</h4>
+                        <ul class="item-list">
+                            <li>Hire 2-3 additional technicians to increase manufacturing capacity</li>
+                            <li>Implement Production Management Software (MES system) to optimize scheduling and reduce lead times further</li>
+                            <li>Develop Standardized Workflows for high-volume components to improve margins on repeat orders</li>
+                            <li>Establish Volume Pricing Tiers to incentivize larger contracts</li>
+                        </ul>
+                        <div class="target-tag">🎯 Target: $500K-$750K additional revenue from core business by end of Year 2</div>
+
+                        <h4>Key Performance Indicators</h4>
+                        <div class="kpi-row">
+                            <div class="kpi-box">
+                                <div class="kpi-value">&lt;5 days</div>
+                                <div class="kpi-label">Turnaround Time</div>
+                            </div>
+                            <div class="kpi-box">
+                                <div class="kpi-value">60%</div>
+                                <div class="kpi-label">Equipment Capacity</div>
+                            </div>
+                            <div class="kpi-box">
+                                <div class="kpi-value">&gt;95%</div>
+                                <div class="kpi-label">Customer Retention</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Goal 1.2 -->
+            <div class="goal-card" id="goal-1-2">
+                <div class="goal-header" onclick="toggleGoal('goal-1-2')">
+                    <div class="goal-header-left">
+                        <span class="goal-id">GOAL 1.2</span>
+                        <h3>Expand Market Verticals (Medical)</h3>
+                    </div>
+                    <div class="goal-toggle">▼</div>
+                </div>
+                <div class="goal-body">
+                    <div class="goal-content">
+                        <div class="objective">Objective: Reduce dependence on vascular devices; enter 2 new medical markets</div>
+
+                        <h4>A. Orthopedic & Spine Market Entry</h4>
+                        <ul class="item-list">
+                            <li>Identify top 20 orthopedic device manufacturers (Zimmer Biomet, Smith & Nephew, etc.)</li>
+                            <li>Develop case studies for precision orthopedic components (porous scaffolds, spinal implants)</li>
+                            <li>Partner with 3-5 orthopedic OEMs for pilot projects</li>
+                        </ul>
+                        <div class="target-tag">🎯 Target: 20% of revenue from orthopedic by end of Year 2</div>
+
+                        <h4>B. Ophthalmic Device Market Entry</h4>
+                        <ul class="item-list">
+                            <li>Focus on precision intraocular lenses (IOL) components and cataract equipment parts</li>
+                            <li>Collaborate with ophthalmology device manufacturers</li>
+                            <li>Highlight minimal HAZ advantage for delicate eye device components</li>
+                        </ul>
+                        <div class="target-tag">🎯 Target: 10% of revenue from ophthalmology by end of Year 2</div>
+
+                        <h4>C. Dental Implant Components</h4>
+                        <ul class="item-list">
+                            <li>License technology discussions with major dental implant manufacturers (Straumann, Dentsply)</li>
+                            <li>Partner on precision-machined prosthetic components</li>
+                        </ul>
+                        <div class="target-tag">🎯 Target: Pilot projects with 2-3 dental OEMs</div>
+
+                        <div class="investment-tag">💰 Investment: $50K-75K marketing and business development</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Goal 1.3 -->
+            <div class="goal-card" id="goal-1-3">
+                <div class="goal-header" onclick="toggleGoal('goal-1-3')">
+                    <div class="goal-header-left">
+                        <span class="goal-id">GOAL 1.3</span>
+                        <h3>Digital Transformation & Market Presence</h3>
+                    </div>
+                    <div class="goal-toggle">▼</div>
+                </div>
+                <div class="goal-body">
+                    <div class="goal-content">
+                        <div class="objective">Objective: Establish thought leadership and improve lead generation</div>
+
+                        <h4>Rebrand Blog: Create original, high-value content</h4>
+                        <ul class="item-list">
+                            <li>Detailed case studies (anonymized): "From Concept to Production in 10 Days"</li>
+                            <li>Technical deep dives: femtosecond vs. fiber laser applications</li>
+                            <li>Industry trend analysis: the shift toward precision manufacturing in medical devices</li>
+                            <li>SEO optimization for "medical device laser machining," "precision tube manufacturing," etc.</li>
+                        </ul>
+
+                        <h4>Additional Initiatives</h4>
+                        <ul class="item-list">
+                            <li><strong>Publish White Paper:</strong> "Minimizing Heat-Affected Zone in Precision Medical Components"</li>
+                            <li><strong>LinkedIn Strategy:</strong> CEO Todd Turnlund as thought leader with 1-2 posts/week; company page highlighting projects and team; engagement with medical device community</li>
+                            <li><strong>Webinar Series:</strong> Quarterly technical webinars on laser technology applications</li>
+                            <li><strong>Website Overhaul:</strong> Improve UX, add customer testimonial videos, portfolio gallery</li>
+                        </ul>
+
+                        <div class="investment-tag">💰 Investment: $30K-50K (content creation, web design)</div>
+                        <div class="target-tag">🎯 Target: 3x increase in qualified inbound leads</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Goal 1.4 -->
+            <div class="goal-card" id="goal-1-4">
+                <div class="goal-header" onclick="toggleGoal('goal-1-4')">
+                    <div class="goal-header-left">
+                        <span class="goal-id">GOAL 1.4</span>
+                        <h3>Operational Excellence</h3>
+                    </div>
+                    <div class="goal-toggle">▼</div>
+                </div>
+                <div class="goal-body">
+                    <div class="goal-content">
+                        <div class="objective">Objective: Improve efficiency and profitability of core operations</div>
+                        <ul class="item-list">
+                            <li><strong>Quality Management System:</strong> Implement documented procedures to improve consistency</li>
+                            <li><strong>Equipment Optimization:</strong> Conduct engineering analysis on laser parameters to maximize precision while increasing speed</li>
+                            <li><strong>Supply Chain:</strong> Establish preferred vendor relationships for materials (nitinol tubing, stainless, precious metals)</li>
+                            <li><strong>Cost Analysis:</strong> Reduce material waste through better programming and optimization</li>
+                        </ul>
+                        <div class="target-tag">🎯 Target: Gross margin improvement from ~55% to 62-65% through efficiency gains</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phase 2 -->
+        <section id="phase2" class="section">
+            <div class="phase-banner">
+                <div class="phase-icon">🚀</div>
+                <div>
+                    <h3>Phase 2: Innovation & Product Development</h3>
+                    <p>Years 2–3 — Diversify markets, develop products, build partnerships</p>
+                </div>
+            </div>
+
+            <!-- Goal 2.1 -->
+            <div class="goal-card" id="goal-2-1">
+                <div class="goal-header" onclick="toggleGoal('goal-2-1')">
+                    <div class="goal-header-left">
+                        <span class="goal-id">GOAL 2.1</span>
+                        <h3>Enter Non-Medical Precision Markets</h3>
+                    </div>
+                    <div class="goal-toggle">▼</div>
+                </div>
+                <div class="goal-body">
+                    <div class="goal-content">
+                        <div class="objective">Objective: Diversify revenue base beyond medical devices</div>
+
+                        <h4>A. Electronics & Semiconductors</h4>
+                        <ul class="item-list">
+                            <li>Precision machining of thin-wall tubing for thermal management systems</li>
+                            <li>Micro-channel heat sinks</li>
+                            <li>Precision component manufacturing for semiconductor equipment</li>
+                        </ul>
+                        <div class="target-tag">🎯 Target: $200K-300K revenue by Year 3</div>
+
+                        <h4>B. Aerospace & Defense</h4>
+                        <ul class="item-list">
+                            <li>Precision fuel system components</li>
+                            <li>Sensor housings and precision tubing</li>
+                            <li>Work toward NADCAP certification for aerospace quality standards</li>
+                        </ul>
+                        <div class="target-tag">🎯 Target: $150K-250K revenue by Year 3</div>
+
+                        <h4>C. Research & Development Equipment</h4>
+                        <ul class="item-list">
+                            <li>Expand "Laser and Engineer for a Day" rental model</li>
+                            <li>Position as innovation partner for university labs and R&D-heavy companies</li>
+                        </ul>
+                        <div class="target-tag">🎯 Target: Steady $100K+ annual revenue stream</div>
+
+                        <div class="investment-tag">💰 Investment: $75K-150K for market research, certifications, business development</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Goal 2.2 -->
+            <div class="goal-card" id="goal-2-2">
+                <div class="goal-header" onclick="toggleGoal('goal-2-2')">
+                    <div class="goal-header-left">
+                        <span class="goal-id">GOAL 2.2</span>
+                        <h3>Develop Proprietary Product Line</h3>
+                    </div>
+                    <div class="goal-toggle">▼</div>
+                </div>
+                <div class="goal-body">
+                    <div class="goal-content">
+                        <div class="objective">Objective: Create higher-margin products leveraging core technology</div>
+
+                        <h4>A. Precision Component Library</h4>
+                        <ul class="item-list">
+                            <li>Develop 20-30 standardized high-demand components (precision tubes, stents, catheters)</li>
+                            <li>White-label or private-label for device manufacturers</li>
+                            <li>Offer "off-the-shelf" configurations with 3-5 day delivery</li>
+                        </ul>
+                        <div class="target-tag">🎯 Target: $300K-500K annual recurring revenue by Year 3</div>
+
+                        <h4>B. Micro-Featured Component Kits</h4>
+                        <ul class="item-list">
+                            <li>Package precision-machined tubes with precision-machined features as "ready-for-assembly" kits</li>
+                            <li>Target contract manufacturers seeking to reduce in-house precision machining</li>
+                            <li>Example: Pre-fabricated stent designs, ready for crimping and packaging</li>
+                        </ul>
+                        <div class="target-tag">🎯 Target: $200K-400K revenue by Year 3</div>
+
+                        <h4>C. Licensing & IP Strategy</h4>
+                        <ul class="item-list">
+                            <li>Develop patent applications for proprietary femtosecond applications</li>
+                            <li>License technology to larger contract manufacturers unable to justify equipment investment</li>
+                            <li>Royalty-based revenue model</li>
+                        </ul>
+                        <div class="target-tag">🎯 Target: $100K-200K annual licensing revenue by Year 3</div>
+
+                        <div class="investment-tag">💰 Investment: $100K-150K R&D, IP protection, marketing</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Goal 2.3 -->
+            <div class="goal-card" id="goal-2-3">
+                <div class="goal-header" onclick="toggleGoal('goal-2-3')">
+                    <div class="goal-header-left">
+                        <span class="goal-id">GOAL 2.3</span>
+                        <h3>Expand Service Offerings</h3>
+                    </div>
+                    <div class="goal-toggle">▼</div>
+                </div>
+                <div class="goal-body">
+                    <div class="goal-content">
+                        <div class="objective">Objective: Create new high-margin service revenue streams</div>
+
+                        <h4>A. Advanced Design Services</h4>
+                        <ul class="item-list">
+                            <li>Offer comprehensive design consulting for manufacturers wanting to optimize laser-machined components</li>
+                            <li>Feasibility studies, design iteration support</li>
+                            <li>Target: $150-200/hour consulting rates</li>
+                        </ul>
+                        <div class="target-tag">🎯 Target: $100K+ annual revenue by Year 3</div>
+
+                        <h4>B. On-Site Manufacturing Partnerships</h4>
+                        <ul class="item-list">
+                            <li>Offer extended "Laser and Engineer on-site" arrangements for major OEMs</li>
+                            <li>Dedicate resources to customer location for 3-6 month innovation projects</li>
+                            <li>Recurring contracts</li>
+                        </ul>
+                        <div class="target-tag">🎯 Target: $200K+ annual revenue</div>
+
+                        <h4>C. Training & Certification Program</h4>
+                        <ul class="item-list">
+                            <li>Develop "Precision Laser Machining Fundamentals" course</li>
+                            <li>Offer certifications for manufacturing professionals</li>
+                            <li>Online and in-person formats</li>
+                        </ul>
+                        <div class="target-tag">🎯 Target: $75K-150K annual revenue by Year 3</div>
+
+                        <div class="investment-tag">💰 Investment: $50K-75K curriculum development, online platform</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Goal 2.4 -->
+            <div class="goal-card" id="goal-2-4">
+                <div class="goal-header" onclick="toggleGoal('goal-2-4')">
+                    <div class="goal-header-left">
+                        <span class="goal-id">GOAL 2.4</span>
+                        <h3>Build Strategic Partnerships & Distribution</h3>
+                    </div>
+                    <div class="goal-toggle">▼</div>
+                </div>
+                <div class="goal-body">
+                    <div class="goal-content">
+                        <div class="objective">Objective: Extend market reach without major capital expenditure</div>
+
+                        <h4>A. Distribution Partnerships</h4>
+                        <ul class="item-list">
+                            <li>Partner with precision component distributors and medical device supply chains</li>
+                            <li>White-label arrangement allowing distributors to resell as their own</li>
+                            <li>Target: 2-3 distribution partnerships by end of Year 3</li>
+                        </ul>
+                        <div class="target-tag">🎯 Target: $250K-500K additional revenue</div>
+
+                        <h4>B. OEM Partnerships</h4>
+                        <ul class="item-list">
+                            <li>Establish partnerships with 5-7 major medical device OEMs as preferred suppliers</li>
+                            <li>Develop joint go-to-market strategies</li>
+                            <li>Co-developed product specifications</li>
+                        </ul>
+                        <div class="target-tag">🎯 Target: Multi-year supply agreements totaling $1M+</div>
+
+                        <h4>C. Technology Partnerships</h4>
+                        <ul class="item-list">
+                            <li>Explore partnerships with laser equipment manufacturers (Coherent, Spectra-Physics)</li>
+                            <li>Co-market solutions</li>
+                            <li>Become preferred service partner for their medical device customers</li>
+                        </ul>
+
+                        <div class="investment-tag">💰 Investment: $50K-100K business development</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Goal 2.5 -->
+            <div class="goal-card" id="goal-2-5">
+                <div class="goal-header" onclick="toggleGoal('goal-2-5')">
+                    <div class="goal-header-left">
+                        <span class="goal-id">GOAL 2.5</span>
+                        <h3>Selective Equipment & Capacity Expansion</h3>
+                    </div>
+                    <div class="goal-toggle">▼</div>
+                </div>
+                <div class="goal-body">
+                    <div class="goal-content">
+                        <div class="objective">Objective: Support growth without overextending capital</div>
+
+                        <h4>A. Equipment Strategy</h4>
+                        <ul class="item-list">
+                            <li>Rather than purchase, explore equipment leasing models</li>
+                            <li>Negotiate volume discounts with laser manufacturers based on growth projections</li>
+                            <li>Evaluate used/refurbished equipment for secondary capabilities</li>
+                        </ul>
+                        <div class="target-tag">🎯 Target: 2x production capacity by end of Year 3</div>
+
+                        <h4>B. Facility Expansion</h4>
+                        <ul class="item-list">
+                            <li>Current: 1,785 S 4130 W, Suite M (modest facility)</li>
+                            <li>Year 2-3: Evaluate expansion within Salt Lake City cluster</li>
+                            <li>Consider modular approach: sub-lease space to align with demand</li>
+                        </ul>
+
+                        <h4>C. Automation Investment</h4>
+                        <ul class="item-list">
+                            <li>Invest in robotic material handling and automated fixture changing</li>
+                            <li>Target: Reduce manual labor by 30-40%</li>
+                            <li>Improve consistency and safety</li>
+                            <li>Investment: $150K-250K</li>
+                        </ul>
+
+                        <div class="investment-tag">💰 Total Investment: $400K-600K total capital expenditure over 2 years</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phase 3 -->
+        <section id="phase3" class="section">
+            <div class="phase-banner">
+                <div class="phase-icon">📈</div>
+                <div>
+                    <h3>Phase 3: Scaling & Optimization</h3>
+                    <p>Years 3+ — Revenue targets, profitability optimization, and market leadership</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Revenue & Profitability Targets</h3>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Metric</th>
+                                <th>Year 1 (Current)</th>
+                                <th>Year 2</th>
+                                <th>Year 3</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Estimated Revenue</strong></td><td>$800K-$1M</td><td>$1.5M-$2M</td><td>$2.5M-$3.5M</td></tr>
+                            <tr><td>Core Manufacturing</td><td>70%</td><td>50%</td><td>35%</td></tr>
+                            <tr><td>New Medical Markets</td><td>15%</td><td>25%</td><td>30%</td></tr>
+                            <tr><td>Non-Medical Markets</td><td>5%</td><td>15%</td><td>20%</td></tr>
+                            <tr><td>Products/Licensing</td><td>10%</td><td>10%</td><td>15%</td></tr>
+                            <tr><td><strong>Gross Margin</strong></td><td>~55%</td><td>60%</td><td>65%</td></tr>
+                            <tr><td><strong>EBITDA Margin</strong></td><td>~25%</td><td>35%</td><td>45%</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Innovative Business Model Extensions -->
+        <section id="innovation" class="section">
+            <div class="section-header">
+                <div class="section-number">3</div>
+                <h2>Innovative Business Model Extensions</h2>
+            </div>
+
+            <!-- Pillar 1 -->
+            <div class="pillar-card" id="pillar-1">
+                <div class="pillar-header" onclick="togglePillar('pillar-1')">
+                    <div class="pillar-number">1</div>
+                    <div class="pillar-header-text">
+                        <h3>Platform-Based Model</h3>
+                        <div class="pillar-subtitle">"LaserNet" — Cloud-Enabled Manufacturing Platform</div>
+                    </div>
+                    <div class="goal-toggle">▼</div>
+                </div>
+                <div class="pillar-body">
+                    <div class="pillar-content">
+                        <p style="margin-bottom:14px;font-size:14px;color:var(--text-light)"><strong>Concept:</strong> Build a B2B platform connecting device manufacturers with precision laser capabilities</p>
+
+                        <h4>Features</h4>
+                        <ul class="item-list">
+                            <li><strong>Design Upload Portal:</strong> Customers submit designs; instant quote generation using AI/ML</li>
+                            <li><strong>Virtual Prototyping:</strong> Simulate laser machining results before production</li>
+                            <li><strong>Real-Time Tracking:</strong> Live dashboard of production progress</li>
+                            <li><strong>Quality Verification:</strong> Automated inspection data integration (SEM imaging, dimensional verification)</li>
+                            <li><strong>Marketplace:</strong> Connect smaller contract manufacturers with outsourced precision work</li>
+                        </ul>
+
+                        <h4>Revenue Model</h4>
+                        <ul class="item-list">
+                            <li>Platform subscription ($5K-10K/month per user)</li>
+                            <li>Transaction fees (5-8% of component orders)</li>
+                        </ul>
+                        <div class="target-tag">🎯 Target: $200K+ annual revenue by Year 3</div>
+                        <div class="investment-tag">💰 Investment: $150K-250K software development</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pillar 2 -->
+            <div class="pillar-card" id="pillar-2">
+                <div class="pillar-header" onclick="togglePillar('pillar-2')">
+                    <div class="pillar-number">2</div>
+                    <div class="pillar-header-text">
+                        <h3>Custom Component Subscription Model</h3>
+                        <div class="pillar-subtitle">"Precision-as-a-Service" (PaaS) Model</div>
+                    </div>
+                    <div class="goal-toggle">▼</div>
+                </div>
+                <div class="pillar-body">
+                    <div class="pillar-content">
+                        <p style="margin-bottom:14px;font-size:14px;color:var(--text-light)"><strong>Concept:</strong> Device manufacturers pay monthly for access to precision manufacturing capacity and pre-developed component library</p>
+
+                        <h4>Offering</h4>
+                        <ul class="item-list">
+                            <li>Reserved production slots (e.g., "100 components/month")</li>
+                            <li>Priority access to design engineering team</li>
+                            <li>Tiered pricing based on volume and complexity</li>
+                            <li>Flexible contracts (3-36 months)</li>
+                        </ul>
+                        <p style="margin-top:12px;font-size:13px;color:var(--text-light)"><strong>Target Customers:</strong> Mid-size medical device companies lacking in-house precision capabilities</p>
+
+                        <h4>Revenue Model</h4>
+                        <ul class="item-list">
+                            <li>Monthly recurring revenue: $10K-25K per customer</li>
+                            <li>Target: 4-6 PaaS customers by Year 3</li>
+                        </ul>
+                        <div class="target-tag">🎯 Target: $600K-$1.8M annual recurring revenue</div>
+                        <div class="investment-tag">💰 Investment: $50K (system setup, customer onboarding)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pillar 3 -->
+            <div class="pillar-card" id="pillar-3">
+                <div class="pillar-header" onclick="togglePillar('pillar-3')">
+                    <div class="pillar-number">3</div>
+                    <div class="pillar-header-text">
+                        <h3>Spin-Out: Equipment Rental Network</h3>
+                        <div class="pillar-subtitle">"LaserShare" — Regional Equipment Rental & Services</div>
+                    </div>
+                    <div class="goal-toggle">▼</div>
+                </div>
+                <div class="pillar-body">
+                    <div class="pillar-content">
+                        <p style="margin-bottom:14px;font-size:14px;color:var(--text-light)"><strong>Concept:</strong> Create a sister company offering femtosecond laser equipment rental and support</p>
+
+                        <h4>Model</h4>
+                        <ul class="item-list">
+                            <li>Purchase 2-3 additional femtosecond laser systems</li>
+                            <li>Lease equipment to universities, research institutions, and smaller manufacturers</li>
+                            <li>Provide on-site technician support</li>
+                            <li>Expand to 3-5 regional locations (Mountain West, potentially West Coast)</li>
+                        </ul>
+
+                        <h4>Revenue Potential</h4>
+                        <ul class="item-list">
+                            <li>Equipment rental: $5K-10K/month per unit</li>
+                            <li>Support services: 20% upcharge</li>
+                            <li>Training: $200-500/person</li>
+                            <li>Target: 6-10 units leased by Year 3</li>
+                        </ul>
+                        <div class="target-tag">🎯 Target: $600K-$1.2M annual revenue</div>
+                        <div class="investment-tag">💰 Investment: $400K-600K (equipment purchase)</div>
+                        <p style="margin-top:8px;font-size:13px;color:var(--text-light)"><strong>Funding:</strong> Potential venture capital or private equity to fund expansion</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pillar 4 -->
+            <div class="pillar-card" id="pillar-4">
+                <div class="pillar-header" onclick="togglePillar('pillar-4')">
+                    <div class="pillar-number">4</div>
+                    <div class="pillar-header-text">
+                        <h3>Materials Science Partnership</h3>
+                        <div class="pillar-subtitle">Precision Alloy Development Collaboration</div>
+                    </div>
+                    <div class="goal-toggle">▼</div>
+                </div>
+                <div class="pillar-body">
+                    <div class="pillar-content">
+                        <p style="margin-bottom:14px;font-size:14px;color:var(--text-light)"><strong>Concept:</strong> Partner with material science labs and alloy manufacturers to develop next-generation materials optimized for precision laser machining</p>
+
+                        <h4>Initiatives</h4>
+                        <ul class="item-list">
+                            <li>Collaborate with university research (University of Utah, BYU)</li>
+                            <li>Develop new nitinol formulations with enhanced properties</li>
+                            <li>Create "application-specific" alloy specifications</li>
+                            <li>Position Sublime as the manufacturing partner for new materials</li>
+                        </ul>
+
+                        <h4>Revenue Model</h4>
+                        <ul class="item-list">
+                            <li>Royalty on alloy sales</li>
+                            <li>First-mover manufacturing advantage</li>
+                            <li>Premium pricing for specialty materials</li>
+                        </ul>
+                        <div class="target-tag">🎯 Target: $100K-300K annual revenue by Year 3</div>
+                        <div class="investment-tag">💰 Investment: $50K-100K R&D partnerships</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pillar 5 -->
+            <div class="pillar-card" id="pillar-5">
+                <div class="pillar-header" onclick="togglePillar('pillar-5')">
+                    <div class="pillar-number">5</div>
+                    <div class="pillar-header-text">
+                        <h3>Digital Twin & Predictive Manufacturing</h3>
+                        <div class="pillar-subtitle">AI-Powered Precision Optimization Engine</div>
+                    </div>
+                    <div class="goal-toggle">▼</div>
+                </div>
+                <div class="pillar-body">
+                    <div class="pillar-content">
+                        <p style="margin-bottom:14px;font-size:14px;color:var(--text-light)"><strong>Concept:</strong> Develop proprietary software using machine learning to optimize laser parameters in real-time</p>
+
+                        <h4>Technology</h4>
+                        <ul class="item-list">
+                            <li>Camera-based inspection with AI quality assessment</li>
+                            <li>Predictive modeling of equipment wear and maintenance</li>
+                            <li>Automated parameter optimization based on material batch properties</li>
+                            <li>Anomaly detection for defect prevention</li>
+                        </ul>
+
+                        <h4>Applications</h4>
+                        <ul class="item-list">
+                            <li>Internal use: Improve consistency and reduce scrap by 30-40%</li>
+                            <li>Software licensing: Offer to other contract manufacturers</li>
+                            <li>Consulting: Optimize customer designs for manufacturability</li>
+                        </ul>
+
+                        <h4>Revenue Model</h4>
+                        <ul class="item-list">
+                            <li>Software licensing: $2K-5K/month per user</li>
+                            <li>SaaS platform: $10K+/month</li>
+                        </ul>
+                        <div class="target-tag">🎯 Target: $150K-300K annual revenue by Year 3</div>
+                        <div class="investment-tag">💰 Investment: $200K-300K software development (consider partnerships with tech companies)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pillar 6 -->
+            <div class="pillar-card" id="pillar-6">
+                <div class="pillar-header" onclick="togglePillar('pillar-6')">
+                    <div class="pillar-number">6</div>
+                    <div class="pillar-header-text">
+                        <h3>Medical Device Accelerator Program</h3>
+                        <div class="pillar-subtitle">"LaserStart" — Incubation for Medical Device Startups</div>
+                    </div>
+                    <div class="goal-toggle">▼</div>
+                </div>
+                <div class="pillar-body">
+                    <div class="pillar-content">
+                        <p style="margin-bottom:14px;font-size:14px;color:var(--text-light)"><strong>Concept:</strong> Create an accelerator program for early-stage medical device companies</p>
+
+                        <h4>Offering</h4>
+                        <ul class="item-list">
+                            <li>Subsidized manufacturing ($50K-100K per company)</li>
+                            <li>Design and engineering consultation</li>
+                            <li>Regulatory pathway guidance (FDA, ISO)</li>
+                            <li>Connections to investors and supply chain partners</li>
+                            <li>3-6 month program, 2-3 cohorts/year</li>
+                        </ul>
+
+                        <h4>Revenue Model</h4>
+                        <ul class="item-list">
+                            <li>Equity stake: 5-10% in participating startups</li>
+                            <li>Upside participation in future manufacturing contracts (preferred rates)</li>
+                            <li>Consulting fees: $10K-20K per company</li>
+                            <li>Target: 6-10 companies per year by Year 3</li>
+                        </ul>
+                        <div class="target-tag">🎯 Expected portfolio value: $2M-5M by Year 3</div>
+                        <div class="investment-tag">💰 Investment: $50K-100K annual (mentor time, program infrastructure)</div>
+                        <p style="margin-top:8px;font-size:13px;color:var(--text-light)"><strong>Strategic Value:</strong> Deal flow, equity upside, market insights, recruitment pipeline</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Financial Projections -->
+        <section id="financials" class="section">
+            <div class="section-header">
+                <div class="section-number">4</div>
+                <h2>Financial Projections</h2>
+            </div>
+
+            <div class="card">
+                <h3>5-Year Summary Projections</h3>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Metric</th>
+                                <th>Year 1</th>
+                                <th>Year 2</th>
+                                <th>Year 3</th>
+                                <th>Year 4</th>
+                                <th>Year 5</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Revenue</strong></td><td>$900K</td><td>$1.8M</td><td>$3.0M</td><td>$4.5M</td><td>$6.0M</td></tr>
+                            <tr><td>Core Manufacturing</td><td>72%</td><td>45%</td><td>35%</td><td>30%</td><td>25%</td></tr>
+                            <tr><td>New Medical Markets</td><td>12%</td><td>25%</td><td>30%</td><td>32%</td><td>32%</td></tr>
+                            <tr><td>Non-Medical Markets</td><td>8%</td><td>15%</td><td>20%</td><td>22%</td><td>23%</td></tr>
+                            <tr><td>Products/Services</td><td>8%</td><td>15%</td><td>15%</td><td>16%</td><td>20%</td></tr>
+                            <tr><td><strong>Gross Margin</strong></td><td>55%</td><td>60%</td><td>65%</td><td>67%</td><td>68%</td></tr>
+                            <tr><td><strong>EBITDA</strong></td><td>$200K</td><td>$550K</td><td>$1.2M</td><td>$1.8M</td><td>$2.4M</td></tr>
+                            <tr><td>EBITDA Margin</td><td>22%</td><td>31%</td><td>40%</td><td>40%</td><td>40%</td></tr>
+                            <tr><td>Capital Investment</td><td>$100K</td><td>$200K</td><td>$300K</td><td>$200K</td><td>$150K</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Cumulative 5-Year Metrics</h3>
+                <div class="kpi-row">
+                    <div class="kpi-box">
+                        <div class="kpi-value">$15.3M</div>
+                        <div class="kpi-label">Total Revenue</div>
+                    </div>
+                    <div class="kpi-box">
+                        <div class="kpi-value">$5.75M</div>
+                        <div class="kpi-label">Cumulative EBITDA</div>
+                    </div>
+                    <div class="kpi-box">
+                        <div class="kpi-value">$950K</div>
+                        <div class="kpi-label">Total Capital Investment</div>
+                    </div>
+                    <div class="kpi-box">
+                        <div class="kpi-value">$17-23M</div>
+                        <div class="kpi-label">Enterprise Value (Yr 5)</div>
+                    </div>
+                </div>
+                <p style="margin-top:12px;font-size:13px;color:var(--text-light)">Implied Exit Multiple (3-4x EBITDA): $17M-$23M enterprise value by Year 5</p>
+            </div>
+        </section>
+
+        <!-- Section 5: Implementation Roadmap -->
+        <section id="roadmap" class="section">
+            <div class="section-header">
+                <div class="section-number">5</div>
+                <h2>Implementation Roadmap</h2>
+            </div>
+
+            <!-- Year 1 -->
+            <div class="card">
+                <h3>Year 1 (Months 1-12): Foundation</h3>
+                <span class="badge badge-blue" style="margin-bottom:16px;display:inline-block">Investment: ~$200K</span>
+                <p style="font-size:12px;color:var(--text-light);margin-bottom:16px">Salaries $120K, Marketing $50K, Software $30K</p>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h4>Q1</h4>
+                        <ul class="item-list">
+                            <li>Hire 2 manufacturing technicians</li>
+                            <li>Initiate website redesign and content strategy</li>
+                            <li>Launch LinkedIn thought leadership program</li>
+                            <li>Identify target orthopedic OEMs (top 20 list)</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Q2</h4>
+                        <ul class="item-list">
+                            <li>Complete website redesign with new content</li>
+                            <li>Publish first case study and technical white paper</li>
+                            <li>Begin orthopedic market outreach (10 target companies)</li>
+                            <li>Implement basic production management software</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Q3</h4>
+                        <ul class="item-list">
+                            <li>Secure 2-3 pilot projects with new medical verticals</li>
+                            <li>Launch quarterly webinar series</li>
+                            <li>Conduct manufacturing efficiency analysis</li>
+                            <li>Begin ISO 13485 documentation improvements</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Q4</h4>
+                        <ul class="item-list">
+                            <li>Complete Year 1 revenue target ($900K-$1M)</li>
+                            <li>Evaluate first-year results</li>
+                            <li>Plan Year 2 hiring (1-2 additional technicians)</li>
+                            <li>Develop Year 2 product line concepts</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Year 2 -->
+            <div class="card">
+                <h3>Year 2 (Months 13-24): Expansion & Innovation</h3>
+                <span class="badge badge-gold" style="margin-bottom:16px;display:inline-block">Investment: ~$400K</span>
+                <p style="font-size:12px;color:var(--text-light);margin-bottom:16px">Salaries $250K, Marketing $75K, R&D $50K, Software/Systems $25K</p>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h4>Q1-Q2</h4>
+                        <ul class="item-list">
+                            <li>Launch "Laser and Engineer for a Day" expanded marketing</li>
+                            <li>Identify distribution partnership candidates</li>
+                            <li>Begin non-medical market research (electronics, aerospace)</li>
+                            <li>Develop first proprietary component library (10-15 SKUs)</li>
+                            <li>Hire 1-2 additional technicians</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Q3-Q4</h4>
+                        <ul class="item-list">
+                            <li>Secure first non-medical customer pilot ($100K+ contract)</li>
+                            <li>Launch precision component product line (pre-designed, off-the-shelf)</li>
+                            <li>Finalize 2-3 OEM partnerships with recurring supply agreements</li>
+                            <li>Initiate IP strategy / patent applications</li>
+                        </ul>
+                        <div class="target-tag" style="margin-top:12px">🎯 Year 2 revenue target: $1.5M-$2M</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Year 3 -->
+            <div class="card">
+                <h3>Year 3 (Months 25-36): Scaling & Platform Development</h3>
+                <span class="badge badge-green" style="margin-bottom:16px;display:inline-block">Investment: ~$600K</span>
+                <p style="font-size:12px;color:var(--text-light);margin-bottom:16px">Salaries $300K, Marketing $100K, R&D $150K, Software/IP $50K</p>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h4>Q1-Q2</h4>
+                        <ul class="item-list">
+                            <li>Launch "Precision-as-a-Service" subscription offering</li>
+                            <li>Begin "LaserShare" equipment rental planning</li>
+                            <li>Secure 4-6 recurring subscription customers</li>
+                            <li>Expand product line to 25-30 components</li>
+                            <li>Develop AI/ML optimization software MVP</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Q3-Q4</h4>
+                        <ul class="item-list">
+                            <li>Launch "LaserStart" accelerator program (Cohort 1)</li>
+                            <li>Achieve $2.5M-$3.5M revenue target</li>
+                            <li>Finalize first 2-3 distribution partnerships</li>
+                            <li>Pursue strategic funding (Series A: $500K-$1M) for scaling</li>
+                            <li>Plan Year 4 market expansion (geographic, new verticals)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Critical Success Factors & Risks -->
+        <section id="risks" class="section">
+            <div class="section-header">
+                <div class="section-number">6</div>
+                <h2>Critical Success Factors & Risks</h2>
+            </div>
+
+            <div class="card">
+                <h3>Critical Success Factors</h3>
+                <ol class="numbered-list" style="margin-top:12px">
+                    <li><strong>Talent Acquisition & Retention</strong><br>
+                        <span style="font-size:13px;color:var(--text-light)">Key challenge: Attracting experienced laser technicians in Salt Lake City<br>
+                        Mitigation: Offer competitive salaries, equity opportunities, training programs</span>
+                    </li>
+                    <li><strong>Market Expansion Execution</strong><br>
+                        <span style="font-size:13px;color:var(--text-light)">Key challenge: Entering new markets while maintaining quality and service<br>
+                        Mitigation: Structured pilot approach, dedicated business development resources</span>
+                    </li>
+                    <li><strong>Product Development & Timing</strong><br>
+                        <span style="font-size:13px;color:var(--text-light)">Key challenge: Developing products that gain market traction<br>
+                        Mitigation: Validate concepts with customers early, iterate rapidly</span>
+                    </li>
+                    <li><strong>Capital Management</strong><br>
+                        <span style="font-size:13px;color:var(--text-light)">Key challenge: Funding growth without overextending<br>
+                        Mitigation: Prioritize recurring revenue models, consider strategic funding</span>
+                    </li>
+                    <li><strong>Operational Excellence</strong><br>
+                        <span style="font-size:13px;color:var(--text-light)">Key challenge: Scaling quality and consistency as volume increases<br>
+                        Mitigation: Invest in automation and systems early</span>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="card">
+                <h3>Key Risks & Mitigation</h3>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Risk</th>
+                                <th>Impact</th>
+                                <th>Probability</th>
+                                <th>Mitigation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Device manufacturers insource</td>
+                                <td>Revenue loss 20-30%</td>
+                                <td><span class="risk-medium">Medium</span></td>
+                                <td>Diversify markets, focus on speed/flexibility advantage</td>
+                            </tr>
+                            <tr>
+                                <td>Competitive pricing pressure</td>
+                                <td>Margin compression</td>
+                                <td><span class="risk-high">Medium-High</span></td>
+                                <td>Differentiate on quality/speed, add services</td>
+                            </tr>
+                            <tr>
+                                <td>Hiring/retention challenges</td>
+                                <td>Growth limitations</td>
+                                <td><span class="risk-medium">Medium</span></td>
+                                <td>Equity incentives, training, culture building</td>
+                            </tr>
+                            <tr>
+                                <td>Product development failure</td>
+                                <td>Capital waste, delays</td>
+                                <td><span class="risk-medium">Medium</span></td>
+                                <td>Phased approach, customer validation</td>
+                            </tr>
+                            <tr>
+                                <td>Market downturn (recession)</td>
+                                <td>Revenue decline 10-20%</td>
+                                <td><span class="risk-low">Low-Medium</span></td>
+                                <td>Build recurring revenue, diversify</td>
+                            </tr>
+                            <tr>
+                                <td>Technology obsolescence</td>
+                                <td>Equipment becomes outdated</td>
+                                <td><span class="risk-low">Low</span></td>
+                                <td>Monitor industry, invest in R&D</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: Organizational Development -->
+        <section id="organization" class="section">
+            <div class="section-header">
+                <div class="section-number">7</div>
+                <h2>Organizational Development</h2>
+            </div>
+
+            <div class="card">
+                <h3>Current Team (4 Employees)</h3>
+                <div class="team-grid" style="margin-top:14px">
+                    <div class="team-member">
+                        <div class="avatar">TT</div>
+                        <div class="name">Todd Turnlund</div>
+                        <div class="role">CEO / Founder</div>
+                    </div>
+                    <div class="team-member">
+                        <div class="avatar">DE</div>
+                        <div class="name">Dave Ewell</div>
+                        <div class="role">Principal Engineer</div>
+                    </div>
+                    <div class="team-member">
+                        <div class="avatar">SU</div>
+                        <div class="name">Sevala Uvejovic</div>
+                        <div class="role">Production Supervisor</div>
+                    </div>
+                    <div class="team-member">
+                        <div class="avatar">RY</div>
+                        <div class="name">Richie Yeomans</div>
+                        <div class="role">Technician</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Planned Additions by End of Year 3</h3>
+                <p style="font-size:13px;color:var(--text-light);margin-bottom:12px">Target Headcount by Year 3: 12-14 employees</p>
+                <ol class="numbered-list">
+                    <li><strong>Manufacturing (2 technicians)</strong> — Enable capacity increase</li>
+                    <li><strong>Business Development Manager</strong> — Market expansion, partnerships</li>
+                    <li><strong>Sales Engineer / Application Engineer</strong> — Technical sales support</li>
+                    <li><strong>Product Manager</strong> — Manage product line development</li>
+                    <li><strong>Operations Manager</strong> — Scheduling, efficiency, quality</li>
+                    <li><strong>Marketing/Communications Specialist</strong> — Content, digital marketing</li>
+                    <li><strong>Design Engineer</strong> — Advanced design services, optimization</li>
+                    <li><strong>Quality Manager</strong> — ISO compliance, process improvement</li>
+                </ol>
+            </div>
+
+            <div class="card">
+                <h3>Culture & Values</h3>
+                <ul class="item-list success" style="margin-top:12px">
+                    <li><strong>Innovation:</strong> Encourage experimentation and calculated risk-taking</li>
+                    <li><strong>Customer-Centricity:</strong> Deep partnerships with customers driving solutions</li>
+                    <li><strong>Quality First:</strong> Maintain uncompromising quality standards</li>
+                    <li><strong>Continuous Learning:</strong> Invest in employee development and industry engagement</li>
+                    <li><strong>Ownership Mentality:</strong> Create equity incentive programs aligning team with success</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 8: Strategic Partnerships & Ecosystem -->
+        <section id="partnerships" class="section">
+            <div class="section-header">
+                <div class="section-number">8</div>
+                <h2>Strategic Partnerships & Ecosystem</h2>
+            </div>
+
+            <div class="grid-2">
+                <div class="card">
+                    <div class="partner-category">
+                        <h4>🔧 Technology Partners</h4>
+                        <ul class="item-list">
+                            <li>Laser equipment manufacturers (Coherent, Spectra-Physics, Amada)</li>
+                            <li>CAD/CAM software providers (SolidCAM, Mastercam)</li>
+                            <li>Inspection/metrology firms (Alicona, Vision Research)</li>
+                        </ul>
+                    </div>
+                    <div class="partner-category">
+                        <h4>🏪 Market Partners</h4>
+                        <ul class="item-list">
+                            <li>Medical device distributors (Arrow, Henry Schein)</li>
+                            <li>Contract manufacturers seeking white-label solutions</li>
+                            <li>Industry associations (AdvaMedDx, Vascular Disease Foundation)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="partner-category">
+                        <h4>🎓 Research Partners</h4>
+                        <ul class="item-list">
+                            <li>University of Utah (Medical Innovation & Engineering)</li>
+                            <li>Brigham Young University (Engineering programs)</li>
+                            <li>Research institutions for materials science collaboration</li>
+                        </ul>
+                    </div>
+                    <div class="partner-category">
+                        <h4>💼 Investor Network</h4>
+                        <ul class="item-list">
+                            <li>Utah venture capital / private equity firms</li>
+                            <li>Medical device-focused investment groups</li>
+                            <li>Strategic corporate investors from larger device manufacturers</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 9: Success Metrics & Monitoring -->
+        <section id="metrics" class="section">
+            <div class="section-header">
+                <div class="section-number">9</div>
+                <h2>Success Metrics & Monitoring</h2>
+            </div>
+
+            <div class="grid-3">
+                <div class="card">
+                    <h3>💰 Financial KPIs</h3>
+                    <ul class="item-list" style="margin-top:12px">
+                        <li>Annual Revenue Growth Rate <span class="badge badge-blue">50-100%</span></li>
+                        <li>Gross Margin % <span class="badge badge-blue">60-68%</span></li>
+                        <li>EBITDA Margin % <span class="badge badge-blue">35-40%</span></li>
+                        <li>Customer Acquisition Cost (CAC)</li>
+                        <li>Customer Lifetime Value (LTV)</li>
+                        <li>Cash Flow Generation</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>⚙️ Operational KPIs</h3>
+                    <ul class="item-list" style="margin-top:12px">
+                        <li>Avg Turnaround Time <span class="badge badge-green">&lt;5 days</span></li>
+                        <li>Quality Defect Rate <span class="badge badge-green">&lt;0.5%</span></li>
+                        <li>On-Time Delivery <span class="badge badge-green">&gt;99%</span></li>
+                        <li>Equipment Utilization <span class="badge badge-blue">70-80%</span></li>
+                        <li>Production Yield / Scrap Rate</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>🎯 Strategic KPIs</h3>
+                    <ul class="item-list" style="margin-top:12px">
+                        <li>New Market Verticals <span class="badge badge-gold">3-5</span></li>
+                        <li>Customer Concentration <span class="badge badge-gold">&lt;15%</span></li>
+                        <li>Recurring Revenue % <span class="badge badge-gold">30-40%</span></li>
+                        <li>Market Awareness (LinkedIn, search, mentions)</li>
+                        <li>New Product Revenue <span class="badge badge-gold">15-20%</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top:16px">
+                <h3>Quarterly & Annual Reviews</h3>
+                <ul class="item-list" style="margin-top:12px">
+                    <li><strong>Monthly Dashboards:</strong> Track KPIs against targets</li>
+                    <li><strong>Quarterly Strategy Reviews:</strong> Assess progress, adjust plans, identify blockers</li>
+                    <li><strong>Annual Strategic Off-Site:</strong> Year review, strategy refinement, team planning</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Conclusion -->
+        <section id="conclusion" class="section">
+            <div class="conclusion-box">
+                <h2>Conclusion</h2>
+                <p>Sublime Laser is positioned at an inflection point. With modest but strategic investments in team, technology, and market development, the company can grow from a $1M single-service provider to a $6M+ diversified precision manufacturing platform serving multiple verticals.</p>
+                <p>The key to success is balancing growth ambitions with operational excellence—maintaining the quality and service that have built strong customer relationships while expanding into adjacent markets and innovative business models.</p>
+
+                <h3 style="font-size:17px;margin-top:24px;margin-bottom:16px">3-Year Vision</h3>
+                <div class="conclusion-stats">
+                    <div class="conclusion-stat">
+                        <div class="label">Revenue</div>
+                        <div class="from-to">$900K <span class="arrow">→</span> $3.0M+</div>
+                    </div>
+                    <div class="conclusion-stat">
+                        <div class="label">Profitability</div>
+                        <div class="from-to">$200K <span class="arrow">→</span> $1.2M+</div>
+                    </div>
+                    <div class="conclusion-stat">
+                        <div class="label">Market Position</div>
+                        <div class="from-to">Niche <span class="arrow">→</span> National</div>
+                    </div>
+                    <div class="conclusion-stat">
+                        <div class="label">Business Model</div>
+                        <div class="from-to">Services <span class="arrow">→</span> Diversified</div>
+                    </div>
+                    <div class="conclusion-stat">
+                        <div class="label">Exit Potential (Yr 5)</div>
+                        <div class="from-to">$17M<span class="arrow">–</span>$23M+</div>
+                    </div>
+                </div>
+
+                <div class="conclusion-callout">
+                    <strong>The next 12 months are critical</strong>—establishing the operational and market foundation for accelerated growth in Years 2-3.
+                </div>
+            </div>
+        </section>
+
+    </div>
+</main>
+
+<!-- Scroll to Top Button -->
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">↑</button>
+
+<script>
+    // Toggle sidebar on mobile
+    function toggleSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('sidebarOverlay');
+        sidebar.classList.toggle('open');
+        overlay.classList.toggle('active');
+    }
+
+    // Toggle collapsible goal cards
+    function toggleGoal(id) {
+        document.getElementById(id).classList.toggle('open');
+    }
+
+    // Toggle collapsible pillar cards
+    function togglePillar(id) {
+        document.getElementById(id).classList.toggle('open');
+    }
+
+    // Active sidebar link tracking
+    const navLinks = document.querySelectorAll('.sidebar .nav-link');
+    const sections = [];
+
+    navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+            const section = document.querySelector(href);
+            if (section) {
+                sections.push({ el: section, link: link });
+            }
+        }
+    });
+
+    function updateActiveLink() {
+        const scrollPos = window.scrollY + 120;
+
+        let current = sections[0];
+        for (const s of sections) {
+            if (s.el.offsetTop <= scrollPos) {
+                current = s;
+            }
+        }
+
+        navLinks.forEach(l => l.classList.remove('active'));
+        if (current) {
+            current.link.classList.add('active');
+        }
+    }
+
+    // Scroll to top button visibility
+    function updateScrollTop() {
+        const btn = document.getElementById('scrollTop');
+        if (window.scrollY > 400) {
+            btn.classList.add('visible');
+        } else {
+            btn.classList.remove('visible');
+        }
+    }
+
+    // Close sidebar on link click (mobile)
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth <= 900) {
+                document.getElementById('sidebar').classList.remove('open');
+                document.getElementById('sidebarOverlay').classList.remove('active');
+            }
+        });
+    });
+
+    window.addEventListener('scroll', () => {
+        updateActiveLink();
+        updateScrollTop();
+    });
+
+    updateActiveLink();
+</script>
+
+</body>
+</html>
+```
