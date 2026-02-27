@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategic Acquisition Briefing: Sublime Laser, Inc.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-dark: #050b14;
+            --secondary-dark: #0f1724;
+            --accent-cyan: #00f2ff;
+            --accent-blue: #0077ff;
+            --text-main: #e0e6ed;
+            --text-muted: #94a3b8;
+            --glass-bg: rgba(15, 23, 36, 0.7);
+            --border-glow: 0 0 10px rgba(0, 242, 255, 0.3);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--primary-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .brand {
+            font-family: 'Exo 2', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(5, 11, 20, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 242, 255, 0.1);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, #fff, var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: color 0.3s, text-shadow 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent-cyan);
+            text-shadow: 0 0 8px var(--accent-cyan);
+        }
+
+        /* --- Layout & Utilities --- */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-header {
+            margin-bottom: 3rem;
+            border-left: 4px solid var(--accent-cyan);
+            padding-left: 1.5rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            color: var(--accent-cyan);
+            font-weight: 600;
+        }
+
+        /* --- Hero Section --- */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: radial-gradient(circle at 50% 50%, #1a2639 0%, var(--primary-dark) 70%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Laser Effect Background */
+        .laser-beam {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+            opacity: 0.5;
+            box-shadow: 0 0 20px var(--accent-cyan);
+            animation: scan 4s infinite linear;
+        }
+
+        @keyframes scan {
+            0% { transform: translateY(-200px); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(200px); opacity: 0; }
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(0, 242, 255, 0.4);
+        }
+        
+        .hero-content h1 span {
+            font-weight: 700;
+            color: var(--accent-cyan);
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            border: 1px solid var(--accent-cyan);
+            color: var(--accent-cyan);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: rgba(0, 242, 255, 0.1);
+        }
+
+        /* --- Cards & Grid --- */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--secondary-dark);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent-cyan);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border-color: rgba(0, 242, 255, 0.3);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card h3 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .highlight-text {
+            color: var(--accent-cyan);
+            font-weight: 700;
+        }
+
+        /* --- Tables --- */
+        .tech-table-wrapper {
+            overflow-x: auto;
+            background: var(--secondary-dark);
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+
+        th, td {
+            padding: 1.2rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        th {
+            background: rgba(0, 242, 255, 0.1);
+            color: var(--accent-cyan);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        tr:hover {
+            background: rgba(255,255,255,0.02);
+        }
+
+        .advantage-col {
+            border-left: 2px solid var(--accent-cyan);
+            background: rgba(0, 242, 255, 0.02);
+        }
+
+        /* --- Lists --- */
+        ul.tech-list {
+            list-style: none;
+        }
+
+        ul.tech-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        ul.tech-list li::before {
+            content: '>';
+            position: absolute;
+            left: 0;
+            color: var(--accent-cyan);
+            font-weight: bold;
+        }
+
+        /* --- Team Section --- */
+        .team-member {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(145deg, #111a26, #0d121c);
+            border-radius: 10px;
+        }
+        
+        .avatar {
+            width: 80px;
+            height: 80px;
+            background: var(--secondary-dark);
+            border: 2px solid var(--accent-cyan);
+            border-radius: 50%;
+            margin: 0 auto 1rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--accent-cyan);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: #020406;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .footer-logo {
+            color: white;
+            font-family: 'Exo 2', sans-serif;
+            margin-bottom: 0.5rem;
+        }
+
+        .copyright-link {
+            color: var(--accent-cyan);
+            text-decoration: none;
+            opacity: 0.8;
+            font-size: 0.8rem;
+        }
+        
+        .copyright-link:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        /* --- Animations --- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Adjustments */
+        @media(max-width: 768px) {
+            .hero-content h1 { font-size: 2.5rem; }
+            .nav-links { display: none; } /* Simplified for mobile demo */
+            .section-header h2 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="brand">SUBLIME LASER</div>
+        <div class="nav-links">
+            <a href="#hero">Overview</a>
+            <a href="#company">Company</a>
+            <a href="#tech">Technology</a>
+            <a href="#market">Market</a>
+            <a href="#rationale">Rationale</a>
+            <a href="#next-steps">Next Steps</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero">
+        <div class="laser-beam"></div>
+        <div class="container hero-content">
+            <div class="status-badge">Acquisition Opportunity</div>
+            <br><br>
+            <h1>Strategic<br><span>Briefing</span></h1>
+            <p class="subtitle">ISO 13485 Certified • Ultrafast Laser Micromachining • Salt Lake City</p>
+            <p style="max-width: 600px; margin: 0 auto; color: var(--text-main);">
+                Bridging the gap between complex R&D concepts and market-ready components with industry-leading speed. 
+                <strong>Prototype delivery in 2-5 days.</strong>
+            </p>
+        </div>
+    </section>
+
+    <!-- EXECUTIVE SUMMARY -->
+    <section id="exec-summary">
+        <div class="container fade-in">
+            <div class="grid-3">
+                <div class="card">
+                    <h3>Technological Superiority</h3>
+                    <p>Immediate access to validated <span class="highlight-text">femtosecond laser</span> capabilities (12 µm feature size) with near-zero Heat Affected Zone (HAZ).</p>
+                </div>
+                <div class="card">
+                    <h3>Regulatory Readiness</h3>
+                    <p>Fully compliant and audited <span class="highlight-text">ISO 13485</span> Quality Management System, removing a 12-18 month barrier to entry.</p>
+                </div>
+                <div class="card">
+                    <h3>Strategic Location</h3>
+                    <p>Prime placement in the Utah <span class="highlight-text">"BioHive"</span>, serving the $1.2B medical micromachining market.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPANY OVERVIEW -->
+    <section id="company">
+        <div class="container fade-in">
+            <div class="section-header">
+                <h2>Company Overview</h2>
+                <p>Boutique Contract Manufacturer: Nitinol, Stainless Steel, Ceramics, Glass</p>
+            </div>
+            
+            <div class="grid-2">
+                <div>
+                    <h3 style="color:white; margin-bottom:1rem;">Core Leadership</h3>
+                    <div class="grid-3" style="grid-template-columns: 1fr;">
+                        <div class="team-member" style="text-align: left; display: flex; align-items: center; gap: 1rem;">
+                            <div class="avatar">TT</div>
+                            <div>
+                                <h4 style="color:white;">Todd Turnlund</h4>
+                                <p style="font-size: 0.9rem; color: var(--text-muted);">CEO & Founder<br>20+ Years Laser Experience</p>
+                            </div>
+                        </div>
+                        <div class="team-member" style="text-align: left; display: flex; align-items: center; gap: 1rem;">
+                            <div class="avatar">DE</div>
+                            <div>
+                                <h4 style="color:white;">Dave Ewell</h4>
+                                <p style="font-size: 0.9rem; color: var(--text-muted);">Principal Engineer<br>DFM & Parameter Tuning Expert</p>
+                            </div>
+                        </div>
+                        <div class="team-member" style="text-align: left; display: flex; align-items: center; gap: 1rem;">
+                            <div class="avatar">SU</div>
+                            <div>
+                                <h4 style="color:white;">Sevala Uvejovic</h4>
+                                <p style="font-size: 0.9rem; color: var(--text-muted);">Production Supervisor<br>ISO 13485 Compliance</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 style="color:white; margin-bottom:1rem;">Revenue Models</h3>
+                    <ul class="tech-list" style="font-size: 1.1rem;">
+                        <li><strong>R&D Project Machining:</strong> High-precision, low-volume (1-50 parts) in days. Entry point for new clients.</li>
+                        <li><strong>Design Services:</strong> DFM optimization, fatigue performance, and weight reduction.</li>
+                        <li><strong>Rent-a-Laser:</strong> Client engineers work on-site with Sublime techs. Collapses weeks of R&D into a single day.</li>
+                        <li><strong>Production-Ready Mfg:</strong> Small-to-medium volume (up to several hundred parts) under ISO 13485.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TECHNOLOGY -->
+    <section id="tech" style="background: linear-gradient(180deg, var(--primary-dark) 0%, #0d1a2b 100%);">
+        <div class="container fade-in">
+            <div class="section-header">
+                <h2>Technical Capabilities</h2>
+                <p>Dual-Laser Platform: Extreme Precision & High Throughput</p>
+            </div>
+
+            <div class="tech-table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Attribute</th>
+                            <th class="advantage-col">Femtosecond Laser (Cold Ablation)</th>
+                            <th>Fiber Laser (Ultrafast)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Primary Benefit</strong></td>
+                            <td class="advantage-col">Near-zero HAZ (Heat Affected Zone)</td>
+                            <td>Speed and Cost-efficiency</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Materials</strong></td>
+                            <td class="advantage-col">Nitinol, Precious Metals, Ceramic, Glass</td>
+                            <td>Stainless Steel, Nitinol, Metals</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Method</strong></td>
+                            <td class="advantage-col">Vaporization (No recast/cracks)</td>
+                            <td>Melt-based cutting</td>
+                        </tr>
+                        <tr>
+                            <td><strong>OD Range</strong></td>
+                            <td class="advantage-col">0.008" – 0.313"</td>
+                            <td>0.008" – 0.500"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Min Feature Size</strong></td>
+                            <td class="advantage-col">≥ 12 microns</td>
+                            <td>≥ 20 microns</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div style="margin-top: 2rem; padding: 1.5rem; border: 1px solid var(--accent-cyan); border-radius: 8px; background: rgba(0, 242, 255, 0.05);">
+                <h4 style="color: var(--accent-cyan); margin-bottom: 0.5rem;">The Femtosecond Advantage</h4>
+                <p>The "Gold Standard" for Nitinol. Ultra-short pulses ($10^{-15}$ seconds) vaporize material before heat diffuses. This preserves the super-elastic properties critical for implants like stents and heart valves.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MARKET & COMPETITION -->
+    <section id="market">
+        <div class="container fade-in">
+            <div class="section-header">
+                <h2>Market & Competition</h2>
+                <p>$1.2 Billion Market (9% CAGR)</p>
+            </div>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3>Market Drivers</h3>
+                    <ul class="tech-list">
+                        <li><strong>Miniaturization:</strong> Neurovascular demands smaller components legacy machining cannot produce.</li>
+                        <li><strong>Nitinol Adoption:</strong> Requires "cold" laser expertise to avoid degradation.</li>
+                        <li><strong>Onshoring:</strong> MedTech giants seeking domestic, ISO-certified partners to de-risk supply chains.</li>
+                        <li><strong>Accelerated NPI:</strong> Pressure to reduce New Product Introduction timelines.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Competitive Benchmarking</h3>
+                    <table style="font-size: 0.85rem; margin-top: 1rem;">
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Weakness</th>
+                                <th>Sublime Advantage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Tier-1 CMO</td>
+                                <td>Slow Prototyping (4-8 weeks)</td>
+                                <td class="highlight-text">2-5 Days</td>
+                            </tr>
+                            <tr>
+                                <td>Job Shops</td>
+                                <td>Lack MedTech QMS</td>
+                                <td class="highlight-text">ISO 13485</td>
+                            </tr>
+                            <tr>
+                                <td>Specialty Laser</td>
+                                <td>Often Broad/Non-Medical</td>
+                                <td class="highlight-text">MedTech Pure-play</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RATIONALE & RISKS -->
+    <section id="rationale" style="background-color: var(--secondary-dark);">
+        <div class="container fade-in">
+            <div class="section-header">
+                <h2>Acquisition Rationale</h2>
+                <p>Value Creation & Synergies</p>
+            </div>
+
+            <div class="grid-2">
+                <div>
+                    <h3 style="color: var(--accent-cyan);">Strategic Value</h3>
+                    <ul class="tech-list">
+                        <li><strong>Vertical Integration:</strong> Internalize critical Nitinol machining; protect IP.</li>
+                        <li><strong>Portfolio Expansion:</strong> Add "cold cutting" femtosecond tech to move up the value chain.</li>
+                        <li><strong>R&D Visibility:</strong> "Rent-a-Laser" offers early sight of blockbuster devices.</li>
+                        <li><strong>Talent:</strong> Decades of proprietary parameter knowledge.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 style="color: var(--accent-blue);">Risk Mitigation</h3>
+                    <ul class="tech-list">
+                        <li><strong>Key-Person:</strong> Retention packages & structured earn-outs.</li>
+                        <li><strong>Capacity:</strong> Asset-light model allows scalable CAPEX investment.</li>
+                        <li><strong>Concentration:</strong> Leverage buyer's sales engine to diversify.</li>
+                        <li><strong>Tech Shift:</strong> Dual-platform hedges against modality changes.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONCLUSION -->
+    <section id="next-steps" style="text-align: center; background: radial-gradient(circle at center, #162436 0%, #050b14 100%);">
+        <div class="container fade-in">
+            <h2 style="font-size: 3rem; margin-bottom: 2rem; color: white;">Conclusion</h2>
+            <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto 3rem auto;">
+                Sublime Laser, Inc. is a turnkey platform positioned at the nexus of irreversible MedTech trends. Its combination of specialized femtosecond technology, ISO 13485 certification, and a "speed-as-a-product" business model creates a formidable competitive moat.
+            </p>
+            
+            <div style="background: rgba(0,242,255,0.05); border: 1px solid var(--accent-cyan); display: inline-block; padding: 2rem; border-radius: 8px; text-align: left;">
+                <h3 style="color: var(--accent-cyan); margin-bottom: 1rem;">Recommended Actions</h3>
+                <ol style="padding-left: 1.5rem; color: white; line-height: 2;">
+                    <li>Execute NDA for full due diligence.</li>
+                    <li>On-Site Technical Review of Femtosecond ops.</li>
+                    <li>Customer Reference Calls (Tier-1 OEMs).</li>
+                    <li>Integration Workshop planning.</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo">SUBLIME LASER, INC.</div>
+        <p>Salt Lake City, Utah • ISO 13485 Certified</p>
+        <br>
+        <p>&copy; Applied AI Labs (<a href="http://www.appliedailabs.com" class="copyright-link" target="_blank">www.appliedailabs.com</a>)</p>
+    </footer>
+
+    <script>
+        // Intersection Observer for Fade-in effects
+        document.addEventListener("DOMContentLoaded", function() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(el => observer.observe(el));
+
+            // Active Nav Link highlighting
+            const sections = document.querySelectorAll("section");
+            const navLi = document.querySelectorAll("nav .nav-links a");
+
+            window.onscroll = () => {
+                var current = "";
+                sections.forEach((section) => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 150) {
+                        current = section.getAttribute("id");
+                    }
+                });
+
+                navLi.forEach((a) => {
+                    a.classList.remove("active");
+                    if (a.getAttribute("href").includes(current)) {
+                        a.classList.add("active");
+                    }
+                });
+            };
+        });
+    </script>
+</body>
+</html>
