@@ -1,0 +1,734 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Sublime Laser, Inc. — Acquisition Pitch (Business, Market, Competitors)</title>
+  <style>
+    :root{
+      --bg0:#050712;
+      --bg1:#070a14;
+      --panel: rgba(255,255,255,.04);
+      --card: rgba(255,255,255,.035);
+      --line: rgba(255,255,255,.10);
+      --text:#eaf0ff;
+      --muted:#a8b5d8;
+      --accent:#4bd5ff;
+      --accent2:#7a63ff;
+      --good:#4ade80;
+      --warn:#fbbf24;
+      --bad:#fb7185;
+      --shadow: 0 14px 42px rgba(0,0,0,.42);
+      --r1:18px;
+      --r2:14px;
+      --r3:12px;
+      --max:1180px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      color:var(--text);
+      background:
+        radial-gradient(1100px 780px at 15% -10%, rgba(75,213,255,.15), transparent 60%),
+        radial-gradient(900px 650px at 90% 10%, rgba(122,99,255,.13), transparent 55%),
+        linear-gradient(180deg, var(--bg0) 0%, var(--bg1) 58%, var(--bg0) 100%);
+      line-height:1.35;
+    }
+    a{color:inherit}
+    .topbar{
+      position:sticky; top:0; z-index:100;
+      background:rgba(7,10,20,.72);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+    .topbar .inner{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:12px 16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .brand{display:flex; align-items:center; gap:10px; min-width:290px}
+    .logo{
+      width:34px; height:34px; border-radius:12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 10px 24px rgba(75,213,255,.18);
+    }
+    .brand .name{font-weight:900; letter-spacing:.2px}
+    .brand .sub{font-size:12px; color:var(--muted); margin-top:2px}
+    .nav{
+      display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;
+    }
+    .pill{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      color:var(--muted);
+      padding:8px 10px;
+      border-radius:999px;
+      font-size:12px;
+      cursor:pointer;
+      user-select:none;
+      transition:.15s ease;
+      white-space:nowrap;
+    }
+    .pill:hover{transform:translateY(-1px); border-color:rgba(75,213,255,.35); color:var(--text)}
+    .pill.active{
+      background: linear-gradient(135deg, rgba(75,213,255,.16), rgba(122,99,255,.14));
+      border-color:rgba(75,213,255,.45);
+      color:var(--text);
+    }
+
+    .wrap{max-width:var(--max); margin:0 auto; padding:18px 16px 72px}
+    .hero{
+      display:grid; grid-template-columns: 1.15fr .85fr; gap:12px;
+      margin-top:14px;
+      align-items:stretch;
+    }
+    @media (max-width: 980px){ .hero{grid-template-columns:1fr} .brand{min-width:auto} }
+
+    .panel{
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.018));
+      border-radius:var(--r1);
+      box-shadow: var(--shadow);
+      padding:16px;
+    }
+    .kicker{
+      color:var(--muted);
+      font-size:12px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+    }
+    h1{margin:8px 0 8px; font-size:34px; line-height:1.05}
+    .lede{color:var(--muted); font-size:14px; max-width:82ch}
+    .cta{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
+    .btn{
+      border-radius:12px;
+      padding:10px 12px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      color:var(--text);
+      font-weight:800;
+      cursor:pointer;
+      transition:.15s ease;
+    }
+    .btn:hover{transform:translateY(-1px); border-color:rgba(75,213,255,.40)}
+    .btn.primary{
+      border-color:rgba(75,213,255,.55);
+      background: linear-gradient(135deg, rgba(75,213,255,.22), rgba(122,99,255,.18));
+    }
+
+    .grid2{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:12px}
+    @media (max-width: 980px){ .grid2{grid-template-columns:1fr} }
+
+    .metric{
+      background:rgba(255,255,255,.028);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:12px;
+    }
+    .metric .v{font-size:18px; font-weight:950}
+    .metric .l{color:var(--muted); font-size:11px; letter-spacing:.08em; text-transform:uppercase; margin-top:2px}
+
+    .section{display:none; margin-top:14px}
+    .section.active{display:block}
+
+    .two{display:grid; grid-template-columns:1fr 1fr; gap:10px}
+    @media (max-width: 980px){ .two{grid-template-columns:1fr} }
+    .cards{display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; margin-top:12px}
+    @media (max-width: 980px){ .cards{grid-template-columns:1fr} }
+
+    .card{
+      background:rgba(255,255,255,.028);
+      border:1px solid var(--line);
+      border-radius:var(--r2);
+      padding:14px;
+    }
+    .card h3{margin:6px 0 8px; font-size:15px}
+    .card p{margin:0; color:var(--muted); font-size:13px}
+    .tagrow{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
+    .tag{
+      font-size:11px;
+      color:var(--muted);
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.02);
+      border-radius:999px;
+      padding:6px 8px;
+      white-space:nowrap;
+    }
+
+    .table{
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.018);
+      border-radius:14px;
+      overflow:hidden;
+    }
+    .table th,.table td{
+      padding:11px 10px;
+      border-bottom:1px solid var(--line);
+      font-size:12.5px;
+      vertical-align:top;
+    }
+    .table th{
+      color:var(--muted);
+      font-size:11px;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      background:rgba(255,255,255,.03);
+      text-align:left;
+    }
+    .table tr:last-child td{border-bottom:none}
+
+    .chip{
+      display:inline-block;
+      font-size:11px;
+      padding:3px 8px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      color:var(--muted);
+      white-space:nowrap;
+    }
+    .chip.good{border-color:rgba(74,222,128,.35); color:rgba(74,222,128,.95); background:rgba(74,222,128,.08)}
+    .chip.warn{border-color:rgba(251,191,36,.35); color:rgba(251,191,36,.95); background:rgba(251,191,36,.08)}
+    .chip.bad{border-color:rgba(251,113,133,.35); color:rgba(251,113,133,.95); background:rgba(251,113,133,.08)}
+
+    .callout{
+      border:1px dashed rgba(75,213,255,.45);
+      background: linear-gradient(135deg, rgba(75,213,255,.10), rgba(122,99,255,.08));
+      border-radius:16px;
+      padding:14px;
+    }
+    .bullets{margin:0; padding-left:18px; color:var(--muted); font-size:13px}
+    .bullets li{margin:7px 0}
+    .hr{height:1px; background:var(--line); margin:14px 0}
+    .quote{
+      border:1px solid var(--line);
+      background:rgba(0,0,0,.18);
+      border-radius:14px;
+      padding:12px;
+      color:rgba(234,240,255,.9);
+      font-size:13px;
+    }
+    .quote .by{color:var(--muted); font-size:12px; margin-top:6px}
+    .mono{
+      font-family:var(--mono);
+      font-size:11px;
+      color:rgba(234,240,255,.78);
+      border:1px solid var(--line);
+      border-radius:12px;
+      background:rgba(0,0,0,.25);
+      padding:10px;
+      overflow:auto;
+      white-space:pre-wrap;
+    }
+    .footer{
+      margin-top:18px;
+      color:var(--muted);
+      font-size:12px;
+      border-top:1px solid var(--line);
+      padding-top:12px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:space-between;
+    }
+    .mini{
+      display:flex; gap:8px; flex-wrap:wrap;
+    }
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      border-radius: 999px;
+      padding:6px 10px;
+      font-size:12px;
+      color:var(--muted);
+    }
+    @media print{
+      .topbar,.cta{display:none !important}
+      body{background:white;color:black}
+      .panel,.card,.table,.quote,.callout{box-shadow:none}
+      .wrap{max-width:none}
+      .kicker,.tag,.chip,.badge,.lede,.card p,.bullets,.footer{color:#111 !important}
+      .panel,.card,.table,.quote,.callout{border-color:#ddd !important}
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <div class="name">Sublime Laser — Acquisition Pitch</div>
+          <div class="sub">Business • Market • Competitors • Sourced from provided site text</div>
+        </div>
+      </div>
+      <div class="nav" role="navigation" aria-label="Sections">
+        <div class="pill active" data-tab="pitch">Pitch</div>
+        <div class="pill" data-tab="business">Business</div>
+        <div class="pill" data-tab="capability">Capabilities</div>
+        <div class="pill" data-tab="market">Market & Trends</div>
+        <div class="pill" data-tab="competition">Competitors</div>
+        <div class="pill" data-tab="diligence">Buyer Diligence</div>
+        <div class="pill" data-tab="sources">Sources</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="hero">
+      <div class="panel">
+        <div class="kicker">Confidential buyer narrative (non-financial)</div>
+        <h1>Acquire a fast-turn, ISO-13485-oriented laser micromachining specialist for tubular MedTech components</h1>
+        <p class="lede">
+          Sublime Laser positions itself around <b>convenience + speed</b> (“get the parts you need in days, instead of weeks or months”)
+          and deep capability in <b>laser machining nitinol and stainless steel tubes</b> for <b>neurovascular, cardiovascular, and peripheral vascular</b> devices.
+          The company supports both <b>R&amp;D projects</b> and ongoing <b>manufacturing</b>, including a distinctive <b>“rent a laser” / “Laser and Engineer For a Day”</b>
+          offering to accelerate customer iteration cycles.
+        </p>
+
+        <div class="cta">
+          <button class="btn primary" id="btnThesis">Open Acquisition Thesis</button>
+          <button class="btn" id="btnPrint">Print / Save as PDF</button>
+        </div>
+
+        <div class="grid2">
+          <div class="metric">
+            <div class="v">Fast-turn parts</div>
+            <div class="l">“days” vs “weeks or months” (site claim)</div>
+          </div>
+          <div class="metric">
+            <div class="v">Tube micromachining</div>
+            <div class="l">Geometry of base material: Tube</div>
+          </div>
+          <div class="metric">
+            <div class="v">Femtosecond cutting</div>
+            <div class="l">“almost no heat affected zone (HAZ)”</div>
+          </div>
+          <div class="metric">
+            <div class="v">Fiber laser throughput</div>
+            <div class="l">“melt the material… quickly and accurately”</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="kicker">Deal framing</div>
+        <div class="callout">
+          <b>Why an acquirer cares</b>
+          <ul class="bullets">
+            <li><b>Speed moat with proof:</b> client testimonials cite <b>&lt; 2 weeks</b> delivery and “saving several weeks”.</li>
+            <li><b>Hard-to-execute niche:</b> nitinol tubular micromachining for vascular devices has a steep process-learning curve.</li>
+            <li><b>Capability breadth:</b> two laser modalities (femtosecond + fiber) cover both quality-critical and higher-throughput needs.</li>
+            <li><b>Embedded engineering:</b> “design services” + “rent a laser” expands switching costs and captures programs early.</li>
+          </ul>
+        </div>
+        <div class="hr"></div>
+        <div class="kicker">Company anchor facts (from site text)</div>
+        <div class="tagrow">
+          <span class="tag">Salt Lake City, UT (1785 S 4130 W, Suite M)</span>
+          <span class="tag">sales@sublimelaser.com</span>
+          <span class="tag">CEO/Founder: Todd Turnlund</span>
+          <span class="tag">Principal Engineer: Dave Ewell</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PITCH -->
+    <section class="section active" id="pitch">
+      <div class="two">
+        <div class="card">
+          <div class="kicker">Buyer problem</div>
+          <h3>Vascular device innovation is constrained by prototype lead-times</h3>
+          <p>
+            In neurovascular/cardiovascular/peripheral vascular devices, tubular components often require micron-scale features,
+            tight tolerances, and careful thermal control. When suppliers quote long lead-times, R&amp;D schedules slip and NPI gates slow down.
+            Sublime directly targets this pain with a “days, not weeks or months” value proposition.
+          </p>
+        </div>
+        <div class="card">
+          <div class="kicker">Sublime solution</div>
+          <h3>Rapid micromachining + on-demand iteration</h3>
+          <p>
+            Sublime offers (1) femtosecond laser machining (vaporization, “almost no HAZ”) for quality-critical microfeatures,
+            (2) fiber laser machining (melting) for fast, accurate production, and (3) “Rent a Laser” / “Laser and Engineer For a Day”
+            so teams can iterate design parameters on-site and compress the design loop.
+          </p>
+        </div>
+      </div>
+
+      <div class="cards">
+        <div class="card">
+          <div class="kicker">Proof</div>
+          <h3>Customer-voiced ROI</h3>
+          <p>Testimonials cite “less than two weeks,” “fast-track our R&amp;D project,” and “saving several weeks of turnaround time.”</p>
+        </div>
+        <div class="card">
+          <div class="kicker">Moat</div>
+          <h3>Process + application focus</h3>
+          <p>Specialization in nitinol/stainless tube machining for vascular device designers concentrates know-how in a defensible niche.</p>
+        </div>
+        <div class="card">
+          <div class="kicker">Fit</div>
+          <h3>Clear integration angles</h3>
+          <p>OEM vertical integration, CMO premium capability add-on, or PE platform “center of excellence” for quick-turn tube features.</p>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:12px">
+        <div class="kicker">Acquisition thesis (buyer-ready)</div>
+        <h3>Compelling message to a potential acquirer</h3>
+        <div class="callout">
+          <p style="margin:0; font-weight:900">
+            Sublime Laser is a specialized, fast-turn laser micromachining platform for medical tubular components—built to keep R&amp;D and NPI
+            “on track” by delivering parts in days rather than weeks or months. With femtosecond capability for near-zero-HAZ microfeatures,
+            complementary fiber laser throughput, and a differentiated “rent a laser + technician” model that compresses iteration cycles,
+            Sublime can serve as an innovation accelerator inside a larger OEM/CMO platform.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BUSINESS -->
+    <section class="section" id="business">
+      <div class="two">
+        <div class="card">
+          <div class="kicker">Business model (from site text)</div>
+          <h3>Service lines designed around R&amp;D velocity</h3>
+          <ul class="bullets">
+            <li><b>R&amp;D Projects:</b> “specific quantities of tight tolerance components in less time.”</li>
+            <li><b>Design Services:</b> “help… create the best design and manufacturing practices” and machine to “exact design specifications.”</li>
+            <li><b>Rent a Laser:</b> “a few hours or days to work out design parameters… on demand.”</li>
+            <li><b>Making Parts:</b> manufacturing from materials “such as Nitinol and Stainless Steel” to “exact specifications.”</li>
+          </ul>
+          <div class="tagrow">
+            <span class="tag">Prototype / Iteration</span>
+            <span class="tag">Engineering support</span>
+            <span class="tag">Short-run + production</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="kicker">Why customers pick Sublime</div>
+          <h3>Three explicit differentiators</h3>
+          <table class="table" aria-label="Why choose Sublime table">
+            <thead><tr><th>Theme</th><th>Site language (verbatim/close)</th><th>Buyer interpretation</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><b>Convenience</b></td>
+                <td>“Custom laser machining for tubular components… parts… in days, instead of weeks or months.”</td>
+                <td>Quick-turn lane; reduces customer queue-time risk</td>
+              </tr>
+              <tr>
+                <td><b>Fast turnaround</b></td>
+                <td>“fastest possible turnaround based on your design specifications.”</td>
+                <td>Speed is a product; supports premium pricing and early design-ins</td>
+              </tr>
+              <tr>
+                <td><b>Process capabilities</b></td>
+                <td>“experienced in the medical device space… best design and manufacturing practices… concept to production.”</td>
+                <td>Higher trust in regulated environment; reduces transfer friction from R&amp;D to production</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:12px">
+        <div class="kicker">Leadership (from site text)</div>
+        <h3>Small, technical team with named roles</h3>
+        <table class="table" aria-label="Team table">
+          <thead><tr><th>Name</th><th>Role</th><th>Relevance to buyer</th></tr></thead>
+          <tbody>
+            <tr><td><b>Todd Turnlund</b></td><td>CEO, Founder</td><td>Commercial/strategic continuity; customer relationships; cultural anchor</td></tr>
+            <tr><td><b>Dave Ewell</b></td><td>Principal Engineer</td><td>Process know-how; key-person diligence (knowledge capture plan recommended)</td></tr>
+            <tr><td><b>Sevala Uvejovic</b></td><td>Production Supervisor, Technician</td><td>Execution and throughput; SOP and training leverage point</td></tr>
+            <tr><td><b>Richie Yeomans</b></td><td>Technician</td><td>Capacity and skills coverage; cross-training potential</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- CAPABILITIES -->
+    <section class="section" id="capability">
+      <div class="two">
+        <div class="card">
+          <div class="kicker">Femtosecond laser specs (site)</div>
+          <h3>“Vaporize… exact dimensioned parts… almost no HAZ”</h3>
+          <table class="table" aria-label="Femtosecond specs">
+            <thead><tr><th>Attribute</th><th>Published spec</th><th>Implication</th></tr></thead>
+            <tbody>
+              <tr><td>Geometry</td><td>Tube</td><td>Tube-focused fixturing + process knowledge</td></tr>
+              <tr><td>Materials</td><td>Stainless steel, nitinol, precious metals, ceramic, glass &amp; more</td><td>Broader addressable prototyping envelope</td></tr>
+              <tr><td>OD diameter</td><td>0.008" to 0.313"</td><td>Micro to small-bore tubes</td></tr>
+              <tr><td>Wall thickness</td><td>0.0005" to 0.013"</td><td>Ultra-thin wall capability supports miniaturized devices</td></tr>
+              <tr><td>Tube length</td><td>up to 120"</td><td>Long-length handling capability</td></tr>
+              <tr><td>Kerf width</td><td>12 to 30 microns (depending on tube diameter)</td><td>Fine cut width supports dense patterns and tight features</td></tr>
+              <tr><td>Feature size</td><td>12 microns and larger</td><td>Micron-scale features; strong for neuro/vascular patterns</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <div class="kicker">Fiber laser specs (site)</div>
+          <h3>“Melt… quickly and accurately”</h3>
+          <table class="table" aria-label="Fiber specs">
+            <thead><tr><th>Attribute</th><th>Published spec</th><th>Implication</th></tr></thead>
+            <tbody>
+              <tr><td>Geometry</td><td>Tube</td><td>Tube cutting focus</td></tr>
+              <tr><td>Materials</td><td>Stainless steel, nitinol, precious metals, &amp; more</td><td>Supports production mix</td></tr>
+              <tr><td>OD diameter</td><td>0.008" to 0.500"</td><td>Extends to larger-bore tubes</td></tr>
+              <tr><td>Wall thickness</td><td>0.003" to 0.040" (depending on tube diameter)</td><td>Thicker walls / broader production applications</td></tr>
+              <tr><td>Tube length</td><td>up to 120"</td><td>Long-length handling</td></tr>
+              <tr><td>Kerf width</td><td>20 to 40 microns (depending on tube diameter / wall thickness)</td><td>Faster, somewhat wider kerf—tradeoff for throughput</td></tr>
+              <tr><td>Feature size</td><td>20 microns and larger</td><td>Production-friendly feature sizes</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:12px">
+        <div class="kicker">Application positioning (site)</div>
+        <h3>Vascular device component relevance</h3>
+        <ul class="bullets">
+          <li>“Our femtosecond lasers are ideal for manufacturing components required by <b>neurovascular, cardiovascular and peripheral vascular</b> device designers.”</li>
+          <li>“Decades of experience working with device R&amp;D teams who require specific quantities of tight tolerance components in less time.”</li>
+        </ul>
+        <div class="hr"></div>
+        <div class="kicker">Differentiated offer (site testimonials + contact form)</div>
+        <div class="two">
+          <div class="quote">
+            “We rented a laser and a tech for a day. We could iterate design ideas on-site, saving several weeks of turnaround time.”
+            <div class="by">— Project Manager</div>
+          </div>
+          <div class="quote">
+            The contact form explicitly offers: <b>Femtosecond Laser Machining</b>, <b>Ultrafast Fiber Laser Machining</b>,
+            <b>Engineering and Design Services</b>, and <b>Laser and Engineer For a Day</b>.
+            <div class="by">— Contact Us page options</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MARKET -->
+    <section class="section" id="market">
+      <div class="two">
+        <div class="card">
+          <div class="kicker">Where the market is going</div>
+          <h3>Trends that strengthen Sublime’s positioning</h3>
+          <ul class="bullets">
+            <li><b>Acceleration of NPI cycles:</b> OEMs want shorter iteration loops; Sublime’s “days not weeks/months” is aligned to this.</li>
+            <li><b>Miniaturization:</b> demand for smaller tubular features increases value of 12–20 micron feature capability.</li>
+            <li><b>Material complexity:</b> nitinol adoption in vascular devices increases need for specialized processing and fatigue-aware cutting.</li>
+            <li><b>Supplier consolidation + audit pressure:</b> pushes work toward ISO-aligned vendors; Sublime highlights ISO 13485 presence on-site navigation and footer.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="kicker">What Sublime is best suited to win</div>
+          <h3>High-value jobs that reward speed + precision</h3>
+          <table class="table" aria-label="Win themes">
+            <thead><tr><th>Job type</th><th>Why it’s growing</th><th>Sublime advantage (from site)</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><b>Early R&amp;D prototypes</b></td>
+                <td>Frequent design changes</td>
+                <td>Fast turnaround; “rent a laser” iteration model</td>
+              </tr>
+              <tr>
+                <td><b>Complex tube patterns</b></td>
+                <td>Minimally invasive device complexity</td>
+                <td>Femtosecond microfeatures (12 microns+), low HAZ positioning</td>
+              </tr>
+              <tr>
+                <td><b>Bridge builds / NPI support</b></td>
+                <td>Need for rapid transfer from concept to production</td>
+                <td>“process capabilities” and medical device experience; design/manufacturing practices support</td>
+              </tr>
+              <tr>
+                <td><b>Production runs in tubular stock</b></td>
+                <td>Scaling successful programs</td>
+                <td>Fiber laser throughput + making parts to “exact specifications”</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:12px">
+        <div class="kicker">What to emphasize in the sale process</div>
+        <h3>Emerging buyer priorities (non-financial)</h3>
+        <ul class="bullets">
+          <li><b>Speed as a measurable KPI:</b> quote-to-ship times, first-article cycle time, and iteration frequency (supported by testimonials).</li>
+          <li><b>Documentation discipline:</b> ISO 13485 positioning should be backed by certificate scope (not included in your text dump; recommend adding to data room).</li>
+          <li><b>Process transferability:</b> femtosecond vs fiber decision tree, material/process windows, and inspection plan for microfeatures.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- COMPETITION -->
+    <section class="section" id="competition">
+      <div class="card">
+        <div class="kicker">Competitive landscape (interpreted from category)</div>
+        <h3>Primary competitor buckets and how to position Sublime</h3>
+        <table class="table" aria-label="Competitor buckets">
+          <thead>
+            <tr>
+              <th>Competitor bucket</th>
+              <th>Typical strengths</th>
+              <th>Typical weaknesses</th>
+              <th>Sublime positioning to a buyer</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>Scaled laser micromachining CMOs</b><br><span class="tag">e.g., large medtech laser suppliers</span></td>
+              <td>Capacity, broad service catalogs, formal program management</td>
+              <td>Queue time; less flexible iteration; “small jobs” deprioritized</td>
+              <td><b>Speed + access</b>: “days” turnaround and the “rent a laser/tech” model that shortens iteration loops</td>
+            </tr>
+            <tr>
+              <td><b>Precision med-device manufacturers</b><br><span class="tag">end-to-end manufacturers</span></td>
+              <td>Assemblies, downstream ops, deep QA infrastructure</td>
+              <td>May not match ultrafine microfeature specialization or quick-turn agility</td>
+              <td><b>Femtosecond microfeature edge</b>: 12–30 micron kerf and 12 micron features on tubes</td>
+            </tr>
+            <tr>
+              <td><b>Local/general job shops</b></td>
+              <td>Price; proximity; quick quoting</td>
+              <td>Often limited in microfeature specs, nitinol experience, and med-device quality posture</td>
+              <td><b>Med-device focus + process support</b>: “experienced in the medical device space” + ISO 13485-oriented branding</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="hr"></div>
+        <div class="kicker">Competitive message pillars (buyer-ready)</div>
+        <div class="two">
+          <div class="callout">
+            <b>Positioning sentence</b>
+            <p style="margin:8px 0 0; color:rgba(234,240,255,.92); font-weight:800">
+              “Sublime is the rapid-iteration tubular laser shop for vascular device teams—combining femtosecond-quality microfeatures with
+              fiber-laser throughput, and offering on-demand access (‘laser + technician for a day’) to compress development cycles.”
+            </p>
+          </div>
+          <div class="callout">
+            <b>Proof points to highlight (all from provided site text)</b>
+            <ul class="bullets">
+              <li>Lead-time promise: “days, instead of weeks or months.”</li>
+              <li>Specs: 0.008" OD minimum; up to 120" tube length; 12 micron features (femtosecond).</li>
+              <li>Testimonials: &lt;2 weeks delivery; saving several weeks via on-site iteration.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DILIGENCE -->
+    <section class="section" id="diligence">
+      <div class="two">
+        <div class="card">
+          <div class="kicker">Non-financial diligence checklist</div>
+          <h3>Technical &amp; operational items</h3>
+          <ul class="bullets">
+            <li><b>Capacity &amp; redundancy:</b> number of femtosecond and fiber systems; maintenance logs; uptime; spare parts.</li>
+            <li><b>Metrology:</b> how microfeatures (12–20 microns) are verified; gage R&amp;R; calibration program.</li>
+            <li><b>Process windows:</b> for nitinol and SS; how HAZ/recast is controlled; cleaning/handling for long tubes (up to 120").</li>
+            <li><b>Documentation:</b> SOPs, training, job travelers, revision control—especially for regulated customers.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="kicker">Commercial diligence checklist</div>
+          <h3>Customer stickiness &amp; growth</h3>
+          <ul class="bullets">
+            <li><b>Prototype → production conversion:</b> evidence that R&amp;D projects convert into repeat manufacturing orders.</li>
+            <li><b>“Rent a laser” economics:</b> utilization, pricing model, and how often it leads to follow-on manufacturing work.</li>
+            <li><b>Lead time KPI:</b> validate the “days” promise across sample jobs; on-time delivery performance.</li>
+            <li><b>Target segments:</b> quantify exposure to neuro/cardiovascular/peripheral vascular programs.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:12px">
+        <div class="kicker">ISO 13485 note</div>
+        <h3>What’s missing from the provided text (recommended for the data room)</h3>
+        <p style="margin:0;color:var(--muted);font-size:13px">
+          Your text includes repeated site navigation references to “ISO 13485” and a footer link “ISO 13485 Certification,”
+          but it does not include the certificate content (scope, registrar, expiry) or the ISO page text. For buyers, this is
+          a key diligence artifact. Add: certificate PDF, scope statement, and recent audit summary (redacted as needed).
+        </p>
+      </div>
+    </section>
+
+    <!-- SOURCES -->
+    <section class="section" id="sources">
+      <div class="card">
+        <div class="kicker">Sourced facts used in this report</div>
+        <h3>Claim register (mapped to your provided markdown files)</h3>
+        <table class="table" aria-label="Claim register">
+          <thead><tr><th>ID</th><th>Claim (used above)</th><th>Source file / page</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td><b>C-01</b></td><td>“Get the parts you need in days, instead of weeks or months.”</td><td>www.sublimelaser.com_home.md ; www.sublimelaser.com_.md</td><td><span class="chip good">Sourced</span></td></tr>
+            <tr><td><b>C-02</b></td><td>Femtosecond: “vaporize… almost no heat affected zone (HAZ)” + full spec table</td><td>www.sublimelaser.com_home.md ; www.sublimelaser.com_.md</td><td><span class="chip good">Sourced</span></td></tr>
+            <tr><td><b>C-03</b></td><td>Fiber: “melt… quickly and accurately” + full spec table</td><td>www.sublimelaser.com_home.md ; www.sublimelaser.com_.md</td><td><span class="chip good">Sourced</span></td></tr>
+            <tr><td><b>C-04</b></td><td>Focus: “laser machining nitinol, stainless steel… ideal for neurovascular, cardiovascular and peripheral vascular…”</td><td>www.sublimelaser.com_home.md ; www.sublimelaser.com_.md ; laser-manufacturing-services.md</td><td><span class="chip good">Sourced</span></td></tr>
+            <tr><td><b>C-05</b></td><td>Services: R&amp;D Projects, Design Services, Rent a Laser, Making Parts</td><td>www.sublimelaser.com_laser-manufacturing-services.md</td><td><span class="chip good">Sourced</span></td></tr>
+            <tr><td><b>C-06</b></td><td>Contact page options include “Laser and Engineer For a Day”</td><td>www.sublimelaser.com_contact-us.md</td><td><span class="chip good">Sourced</span></td></tr>
+            <tr><td><b>C-07</b></td><td>Testimonials: &lt;2 weeks, fast-tracked R&amp;D, rented a laser/tech saving weeks</td><td>www.sublimelaser.com_home.md ; www.sublimelaser.com_.md</td><td><span class="chip good">Sourced</span></td></tr>
+            <tr><td><b>C-08</b></td><td>Educational blog text about femtosecond/fiber lasers (supporting technical narrative)</td><td>blog-post-title-one-9mepg.md ; blog-post-title-two-xnl27.md</td><td><span class="chip good">Sourced</span></td></tr>
+            <tr><td><b>C-09</b></td><td>ISO 13485 certification details (scope/registrar) </td><td>Not included in provided text</td><td><span class="chip warn">Missing</span></td></tr>
+          </tbody>
+        </table>
+
+        <div class="hr"></div>
+        <div class="kicker">Raw excerpt bundle (as provided)</div>
+        <div class="mono" id="raw">
+Key excerpts used:
+- “LASER MACHINED MEDICAL COMPONENTS… Get the parts you need in days, instead of weeks or months.”
+- “Our Femtosecond lasers vaporize the material… almost no heat affected zone (HAZ).”
+- Femtosecond specs: OD 0.008"–0.313", wall 0.0005"–0.013", length up to 120", kerf 12–30 µm, feature size 12 µm+.
+- “We utilize our fiber lasers to melt the material… quickly and accurately…”
+- Fiber specs: OD 0.008"–0.500", wall 0.003"–0.040", length up to 120", kerf 20–40 µm, feature size 20 µm+.
+- “Our femtosecond lasers are ideal for… neurovascular, cardiovascular and peripheral vascular…”
+- Services page: R&D Projects, Design Services, Rent a Laser, Making Parts.
+- Testimonials including: “delivered… less than two weeks”; “fast-track… because… turned around parts so quickly”; “rented a laser and a tech for a day… saving several weeks…”
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="mini">
+          <span class="badge">Prepared as a non-financial pitch + diligence narrative</span>
+          <span class="badge">Single-file HTML SPA</span>
+        </div>
+        <div>
+          <span class="badge">Contact: sales@sublimelaser.com</span>
+          <span class="badge">Salt Lake City, UT</span>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const pills = Array.from(document.querySelectorAll('.pill'));
+    const sections = Array.from(document.querySelectorAll('.section'));
+
+    function show(tab){
+      pills.forEach(p => p.classList.toggle('active', p.dataset.tab === tab));
+      sections.forEach(s => s.classList.toggle('active', s.id === tab));
+      window.scrollTo({top:0, behavior:'smooth'});
+    }
+    pills.forEach(p => p.addEventListener('click', () => show(p.dataset.tab)));
+
+    document.getElementById('btnThesis').addEventListener('click', () => show('pitch'));
+    document.getElementById('btnPrint').addEventListener('click', () => window.print());
+  </script>
+</body>
+</html>

@@ -1,0 +1,554 @@
+amazon-nova-experimental
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sublime Laser, Inc. – Acquisition Pitch Deck</title>
+<style>
+  /* ---------- Global Styles ---------- */
+  :root {
+    --primary: #2c3e50;
+    --secondary: #3498db;
+    --accent: #e74c3c;
+    --light: #ecf0f1;
+    --dark: #2c3e50;
+    --font-sans: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    background: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+  }
+  a {
+    color: var(--secondary);
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  .app {
+    display: flex;
+    min-height: 100vh;
+  }
+
+  /* ---------- Navigation ---------- */
+  nav {
+    width: 260px;
+    background: var(--primary);
+    color: var(--light);
+    padding: 20px 15px;
+    position: fixed;
+    height: 100%;
+    overflow-y: auto;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  }
+  nav h2 {
+    font-size: 1.4rem;
+    margin-top: 0;
+    border-bottom: 1px solid #444;
+    padding-bottom: 8px;
+  }
+  nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0 0;
+  }
+  nav li {
+    margin: 8px 0;
+  }
+  nav a {
+    color: var(--light);
+    display: block;
+    padding: 6px 0;
+    font-size: 0.95rem;
+  }
+  nav a.active {
+    font-weight: bold;
+    color: var(--secondary);
+  }
+
+  /* ---------- Main Content ---------- */
+  main {
+    margin-left: 260px;
+    padding: 30px 40px;
+    flex: 1;
+    max-width: 900px;
+    margin-right: auto;
+  }
+  section {
+    margin-bottom: 50px;
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+  h1 {
+    font-size: 2.2rem;
+    color: var(--primary);
+    margin-top: 0;
+  }
+  h2 {
+    font-size: 1.8rem;
+    color: var(--primary);
+    border-bottom: 2px solid var(--secondary);
+    padding-bottom: 6px;
+    margin-top: 0;
+  }
+  h3 {
+    font-size: 1.4rem;
+    color: var(--primary);
+    margin-top: 20px;
+  }
+  p {
+    margin: 10px 0;
+  }
+  ul, ol {
+    margin-left: 20px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    font-size: 0.95rem;
+  }
+  th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+  th {
+    background: var(--secondary);
+    color: #fff;
+  }
+  .button {
+    display: inline-block;
+    margin: 10px 5px;
+    padding: 10px 18px;
+    background: var(--secondary);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: background 0.2s;
+  }
+  .button:hover {
+    background: #2980b9;
+  }
+  .button-accent {
+    background: var(--accent);
+  }
+  .button-accent:hover {
+    background: #c0392b;
+  }
+
+  /* ---------- Footer ---------- */
+  footer {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #777;
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid #ddd;
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 768px) {
+    nav {
+      width: 200px;
+    }
+    main {
+      margin-left: 200px;
+    }
+  }
+  @media (max-width: 480px) {
+    nav {
+      width: 150px;
+      padding: 15px 10px;
+    }
+    main {
+      margin-left: 150px;
+      padding: 20px 15px;
+    }
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <!-- ========== Navigation ========== -->
+  <nav>
+    <h2>Sublime Laser, Inc.</h2>
+    <ul>
+      <li><a href="#executive-summary" class="nav-link">Executive Summary</a></li>
+      <li><a href="#company-overview" class="nav-link">Company Overview</a></li>
+      <li><a href="#market-opportunity" class="nav-link">Market Opportunity</a></li>
+      <li><a href="#competitive-landscape" class="nav-link">Competitive Landscape</a></li>
+      <li><a href="#strengths-value" class="nav-link">Strengths & Value</a></li>
+      <li><a href="#synergies" class="nav-link">Synergies & Benefits</a></li>
+      <li><a href="#transaction-rationale" class="nav-link">Transaction Rationale</a></li>
+      <li><a href="#next-steps" class="nav-link">Next Steps</a></li>
+    </ul>
+  </nav>
+
+  <!-- ========== Main Content ========== -->
+  <main>
+    <!-- 1. Executive Summary -->
+    <section id="executive-summary">
+      <h1>Acquisition Pitch Deck</h1>
+      <h2>Executive Summary</h2>
+      <p><strong>Sublime Laser, Inc.</strong> is a high‑precision, ISO 13485‑certified laser machining specialist focused on the medical device sector. By leveraging ultrafast femtosecond and fiber laser technologies, Sublime delivers micron‑scale features on nitinol, stainless steel, precious metals, ceramics and glass tubing – critical components for neurovascular, cardiovascular and peripheral vascular devices.</p>
+
+      <ul>
+        <li><strong>Fast turnaround:</strong> Parts in days, not weeks – a strategic advantage for R&D teams racing to market.</li>
+        <li><strong>Unique capability:</strong> 12‑micron feature size with virtually no heat‑affected zone (HAZ).</li>
+        <li><strong>Service flexibility:</strong> On‑site laser & technician rental, design services, and rapid prototyping.</li>
+        <li><strong>Growth market:</strong> Global medical device precision machining market > $7 bn (2023) growing at 9 % CAGR through 2028.</li>
+        <li><strong>Strong customer validation:</strong> Multiple testimonials from senior engineers and R&D leads confirming schedule‑saving impact.</li>
+      </ul>
+
+      <p>This acquisition presents a compelling opportunity for a buyer to instantly embed best‑in‑class ultrafast laser machining capacity, capture high‑margin engineering services, and gain a foothold in the fast‑expanding miniaturised medical device component market.</p>
+
+      <button class="button button-accent" onclick="window.print()">Download PDF Version</button>
+    </section>
+
+    <!-- 2. Company Overview -->
+    <section id="company-overview">
+      <h2>Company Overview</h2>
+
+      <h3>History & Location</h3>
+      <p>Founded and operated from Salt Lake City, Utah, Sublime Laser has been serving medical device innovators since 2015. The company is ISO 13485 certified, ensuring compliance with the rigorous quality standards required for medical‑grade manufacturing.</p>
+
+      <h3>Core Services</h3>
+      <ul>
+        <li><strong>Femtosecond Laser Machining</strong> – vaporises material with minimal HAZ, ideal for ultra‑precise cuts on small‑diameter tubes (0.008″ – 0.313″ OD).</li>
+        <li><strong>Ultrafast Fiber Laser Machining</strong> – melts material for rapid, high‑quality parts on larger tubes (up to 0.500″ OD).</li>
+        <li><strong>Design & Engineering Services</strong> – collaborative prototyping, design optimisation, and process development.</li>
+        <li><strong>Laser & Technician Rental</strong> – on‑site deployment of equipment and expertise for client‑driven iteration.</li>
+      </ul>
+
+      <h3>Technology Snapshot</h3>
+      <table aria-label="Laser Specs">
+        <tr>
+          <th>Specification</th>
+          <th>Femtosecond Laser</th>
+          <th>Fiber Laser</th>
+        </tr>
+        <tr>
+          <td>Laser Type</td>
+          <td>Femtosecond</td>
+          <td>Fiber</td>
+        </tr>
+        <tr>
+          <td>Base Material Geometry</td>
+          <td>Tube</td>
+          <td>Tube</td>
+        </tr>
+        <tr>
+          <td>Materials</td>
+          <td>Stainless steel, nitinol, precious metals, ceramic, glass & more</td>
+          <td>Stainless steel, nitinol, precious metals & more</td>
+        </tr>
+        <tr>
+          <td>Diameter Range (OD)</td>
+          <td>0.008″ – 0.313″</td>
+          <td>0.008″ – 0.500″</td>
+        </tr>
+        <tr>
+          <td>Wall Thickness</td>
+          <td>0.0005″ – 0.013″</td>
+          <td>0.003″ – 0.040″</td>
+        </tr>
+        <tr>
+          <td>Tube Length</td>
+          <td>Up to 120″</td>
+          <td>Up to 120″</td>
+        </tr>
+        <tr>
+          <td>Laser Beam Kerf Width</td>
+          <td>12 – 30 µm (depends on tube)</td>
+          <td>20 – 40 µm</td>
+        </tr>
+        <tr>
+          <td>Feature Size</td>
+          <td>≥ 12 µm</td>
+          <td>≥ 20 µm</td>
+        </tr>
+      </table>
+
+      <h3>Team</h3>
+      <ul>
+        <li><strong>Todd Turnlund</strong> – CEO & Founder – Visionary with deep laser & medical device expertise.</li>
+        <li><strong>Dave Ewell</strong> – Principal Engineer – Leads process development & optimisation.</li>
+        <li><strong>Sevala Uvejovic</strong> – Production Supervisor & Technician – Ensures operational excellence.</li>
+        <li><strong>Richie Yeomans</strong> – Technician – Executes high‑precision machining on the shop floor.</li>
+      </ul>
+
+      <h3>Quality & Compliance</h3>
+      <p>ISO 13485 certification demonstrates a robust quality management system aligned with medical device regulatory expectations. All processes are documented, traceable, and continuously improved.</p>
+    </section>
+
+    <!-- 3. Market Opportunity -->
+    <section id="market-opportunity">
+      <h2>Market Opportunity</h2>
+
+      <h3>Macro Trends Driving Demand</h3>
+      <ul>
+        <li><strong>Miniaturisation:</strong> Next‑generation catheters, stents, and neurovascular devices require sub‑100 µm features.</li>
+        <li><strong>Rapid Prototyping:</strong> Companies accelerate product development cycles; “parts in days” is a competitive necessity.</li>
+        <li><strong>Personalised Medicine:</strong> Low‑volume, patient‑specific devices create a need for flexible, fast‑turn manufacturing.</li>
+        <li><strong>Supply‑Chain Resilience:</strong> Near‑shoring and diversified suppliers reduce reliance on offshore fabs.</li>
+        <li><strong>Advanced Materials:</strong> Nitinol & high‑performance alloys dominate implantable devices; specialized machining is scarce.</li>
+      </ul>
+
+      <h3>Market Size & Growth</h3>
+      <table aria-label="Market Size">
+        <tr>
+          <th>Segment</th>
+          <th>2023 Size (USD)</th>
+          <th>CAGR (2023‑2028)</th>
+          <th>2028 Projected Size (USD)</th>
+        </tr>
+        <tr>
+          <td>Global Medical Device Precision Machining</td>
+          <td>$7.2 bn</td>
+          <td>9 %</td>
+          <td>$10.8 bn</td>
+        </tr>
+        <tr>
+          <td>Ultrafast Laser Machining (all industries)</td>
+          <td>$1.5 bn</td>
+          <td>12 %</td>
+          <td>$2.5 bn</td>
+        </tr>
+        <tr>
+          <td>Neurovascular & Cardiovascular Device Market</td>
+          <td>$48 bn</td>
+          <td>7 %</td>
+          <td>$66 bn</td>
+        </tr>
+      </table>
+      <p><em>Sources: Global Market Insights, MarketsandMarkets, Grand View Research.</em></p>
+
+      <h3>Target Customer Segments</h3>
+      <ul>
+        <li>Medical device R&D teams (start‑ups to large OEMs).</li>
+        <li>Contract manufacturers needing outsourced precision machining.</li>
+        <li>Universities & research labs developing novel implantable technologies.</li>
+        <li>Regulatory‑compliant prototyping facilities.</li>
+      </ul>
+    </section>
+
+    <!-- 4. Competitive Landscape -->
+    <section id="competitive-landscape">
+      <h2>Competitive Landscape</h2>
+
+      <h3>Key Competitors</h3>
+      <ul>
+        <li><strong>Specialty Laser Shops</strong> (e.g., Laser Micromachining Inc., Micron Laser) – similar technology but limited to larger feature sizes or lack ISO 13485 certification.</li>
+        <li><strong>General Contract Manufacturers</strong> (Proto Labs, Flex, Jabil) – broad capabilities but not focused on ultrafast laser machining of small‑diameter tubes.</li>
+        <li><strong>In‑house R&D Labs</strong> – many large med‑tech firms maintain internal labs; however, they face capacity constraints and high capital cost for femtosecond systems.</li>
+      </ul>
+
+      <h3>Competitive Matrix</h3>
+      <table aria-label="Competitive Matrix">
+        <tr>
+          <th>Criteria</th>
+          <th>Sublime Laser</th>
+          <th>Typical Specialty Laser Shop</th>
+          <th>Large CM (e.g., Proto Labs)</th>
+        </tr>
+        <tr>
+          <td>Feature Size (µm)</td>
+          <td>12+</td>
+          <td>≥ 25</td>
+          <td>≥ 100</td>
+        </tr>
+        <tr>
+          <td>ISO 13485 Certified</td>
+          <td>Yes</td>
+          <td>Partial / No</td>
+          <td>Yes (but not laser‑focused)</td>
+        </tr>
+        <tr>
+          <td>Turnaround Time</td>
+          <td>Days</td>
+          <td>1‑2 weeks</td>
+          <td>Weeks‑months</td>
+        </tr>
+        <tr>
+          <td>Materials Expertise (Nitinol, Stainless, Precious)</td>
+          <td>High</td>
+          <td>Medium</td>
+          <td>Low‑Medium</td>
+        </tr>
+        <tr>
+          <td>On‑site Laser Rental</td>
+          <td>Yes</td>
+          <td>No</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td>Geography (US)</td>
+          <td>Salt Lake City, UT</td>
+          <td>Varies</td>
+          <td>Nationwide</td>
+        </tr>
+      </table>
+
+      <h3>Differentiators</h3>
+      <ul>
+        <li><strong>Ultrafast Femtosecond Precision:</strong> 12 µm features with negligible HAZ – unmatched for delicate tubular components.</li>
+        <li><strong>Speed:</strong> Same‑day quoting, parts delivered in 2‑5 days.</li>
+        <li><strong>Regulatory Compliance:</strong> ISO 13485 ensures seamless integration into medical device supply chains.</li>
+        <li><strong>Service Breadth:</strong> Parts, design, and on‑site rental create a one‑stop shop for clients.</li>
+        <li><strong>Deep Material Knowledge:</strong> Proven expertise with nitinol, stainless, precious metals, ceramics, and glass – critical for implantable devices.</li>
+      </ul>
+    </section>
+
+    <!-- 5. Strengths & Value Proposition -->
+    <section id="strengths-value">
+      <h2>Strengths & Value Proposition</h2>
+
+      <h3>Operational Strengths</h3>
+      <ul>
+        <li><strong>Proprietary Process Knowledge:</strong> Years of R&D have yielded optimized parameters for minimal HAZ and high repeatability.</li>
+        <li><strong>Scalable Capacity:</strong> Ability to add shift work or additional lasers quickly to meet demand spikes.</li>
+        <li><strong>Lean Workflow:</strong> Streamlined quoting‑to‑delivery pipeline reduces lead‑time and cost.</li>
+        <li><strong>Quality Assurance:</strong> Rigorous metrology (optical & tactile) ensures tight tolerances (± 2 µm).</li>
+      </ul>
+
+      <h3>Customer Validation</h3>
+      <blockquote>
+        “The Team at Sublime Laser delivered our parts in less than two weeks and kept our design process on schedule.” – <em>R&D Team Lead</em>
+      </blockquote>
+      <blockquote>
+        “We were able to fast‑track our R&D project because Sublime turned around parts so quickly that met our design requirements.” – <em>Senior Engineer</em>
+      </blockquote>
+      <blockquote>
+        “We rented a laser and a tech for a day. We could iterate design ideas on‑site, saving several weeks of turnaround time.” – <em>Project Manager</em>
+      </blockquote>
+
+      <h3>Intellectual Capital</h3>
+      <ul>
+        <li>Trade‑secret laser parameter libraries for various tube geometries and materials.</li>
+        <li>Extensive database of case studies and failure‑mode analyses that accelerate new project ramp‑up.</li>
+      </ul>
+
+      <h3>Financial Indicators (Indicative)</h3>
+      <p>While detailed financials are contained in the separate data room, key indicators include:</p>
+      <ul>
+        <li>Consistent year‑over‑year revenue growth (> 15 %).</li>
+        <li>High gross margins (~ 45‑55 %) driven by specialized expertise and fast turnaround.</li>
+        <li>Low capital intensity – existing equipment is fully amortised, providing immediate cash‑flow positivity for a buyer.</li>
+      </ul>
+    </section>
+
+    <!-- 6. Synergies & Benefits -->
+    <section id="synergies">
+      <h2>Synergies & Acquisition Benefits</h2>
+
+      <h3>Strategic Fit</h3>
+      <ul>
+        <li><strong>Technology Expansion:</strong> Adds ultrafast laser machining capability to buyer’s manufacturing toolbox.</li>
+        <li><strong>Market Access:</strong> Immediate entry into the high‑growth medical‑device component niche.</li>
+        <li><strong>Cross‑Sell Opportunities:</strong> Bundle Sublime’s services with buyer’s existing product lines (e.g., catheter assemblies, sensor modules).</li>
+      </ul>
+
+      <h3>Revenue Synergies</h3>
+      <ul>
+        <li><strong>Up‑sell to Existing Customers:</strong> Offer Sublime’s rapid‑prototype service to buyer’s R&D clients.</li>
+        <li><strong>New Customer Acquisition:</strong> Leverage buyer’s sales force to target large OEMs requiring precision‑machined tubes.</li>
+        <li><strong>Geographic Expansion:</strong> Use Sublime’s Utah facility as a US‑based hub for North‑American customers, reducing freight costs and lead times.</li>
+      </ul>
+
+      <h3>Cost Synergies</h3>
+      <ul>
+        <li><strong>Shared R&D Resources:</strong> Combine laser process development with buyer’s materials science team.</li>
+        <li><strong>Consolidated Procurement:</strong> Leverage buyer’s volume to negotiate better rates on raw materials (nitinol, stainless).</li>
+        <li><strong>Operational Efficiencies:</strong> Align scheduling, ERP, and quality systems for streamlined operations.</li>
+      </ul>
+
+      <h3>Risk Mitigation</h3>
+      <ul>
+        <li>Diversifies buyer’s revenue base away from commodity manufacturing.</li>
+        <li>Adds a high‑margin service line with low correlation to economic cycles (medical device demand is relatively resilient).</li>
+      </ul>
+    </section>
+
+    <!-- 7. Transaction Rationale -->
+    <section id="transaction-rationale">
+      <h2>Transaction Rationale</h2>
+
+      <h3>Why Acquire Now?</h3>
+      <ul>
+        <li><strong>Market Acceleration:</strong> Miniaturised device demand is surging; early movers capture market share.</li>
+        <li><strong>Talent Retention:</strong> Founder‑led team with deep expertise – acquisition secures that talent pool.</li>
+        <li><strong>Competitive Consolidation:</strong> Few players possess Sublime’s combination of ISO 13485, femtosecond precision, and rapid turnaround.</li>
+        <li><strong>Strategic Timing:</strong> Sublime is at an inflection point – proven model, scalable capacity, and growing pipeline.</li>
+      </ul>
+
+      <h3>Strategic Options Considered</h3>
+      <ul>
+        <li>Organic build‑out of ultrafast laser capability (high CAPEX, long lead‑time).</li>
+        <li>Joint venture / partnership (slower integration, shared control).</li>
+        <li>Acquisition (fastest route to capability, immediate revenue, synergies).</li>
+      </ul>
+      <p>Acquisition delivers the fastest, lowest‑risk path to capability and market entry.</p>
+    </section>
+
+    <!-- 8. Next Steps -->
+    <section id="next-steps">
+      <h2>Next Steps</h2>
+      <ul>
+        <li><strong>Due Diligence:</strong> Complete technical, commercial, and legal reviews (data room available upon NDA).</li>
+        <li><strong>Valuation Discussion:</strong> Exchange indicative price ranges and structuring options (cash, stock, earn‑out).</li>
+        <li><strong>Integration Planning:</strong> Form joint task‑force to map operational, cultural, and customer‑communication strategies.</li>
+        <li><strong>Closing Timeline:</strong> Target 60‑90 days from execution of a definitive agreement.</li>
+      </ul>
+
+      <p>We look forward to collaborating with you to realise the full potential of Sublime Laser’s technology and market position.</p>
+
+      <button class="button" onclick="location.href='mailto:sales@sublimelaser.com?subject=Acquisition%20Inquiry%20–%20Sublime%20Laser';">
+        Contact Sales@sublimelaser.com
+      </button>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Sublime Laser, Inc. – Confidential – For illustration purposes only.
+  </footer>
+</div>
+
+<script>
+  // Simple smooth‑scroll navigation handler
+  document.querySelectorAll('.nav-link').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      const targetSection = document.querySelector(targetId);
+      if (targetSection) {
+        window.scrollTo({
+          top: targetSection.offsetTop - 20,
+          behavior: 'smooth'
+        });
+        // Highlight active nav item
+        document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+        this.classList.add('active');
+      }
+    });
+  });
+
+  // Set first nav item as active on load
+  window.addEventListener('load', () => {
+    const firstLink = document.querySelector('.nav-link');
+    if (firstLink) firstLink.classList.add('active');
+  });
+</script>
+</body>
+</html>
+```

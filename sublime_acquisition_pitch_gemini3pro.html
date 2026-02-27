@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acquisition Opportunity: Sublime Laser, Inc.</title>
+    <style>
+        :root {
+            --primary-color: #0f3460;
+            --secondary-color: #e94560;
+            --accent-color: #16213e;
+            --light-bg: #f4f7f6;
+            --text-color: #333;
+            --white: #ffffff;
+            --sidebar-width: 280px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Navigation */
+        nav {
+            width: var(--sidebar-width);
+            background-color: var(--accent-color);
+            color: var(--white);
+            position: fixed;
+            height: 100vh;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            z-index: 100;
+        }
+
+        nav h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+            color: var(--white);
+        }
+
+        nav h2 {
+            font-size: 0.9rem;
+            color: #a0a0a0;
+            margin-bottom: 3rem;
+            font-weight: 400;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav li {
+            margin-bottom: 1rem;
+        }
+
+        nav a {
+            color: #d1d5db;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            display: block;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid transparent;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--secondary-color);
+            padding-left: 10px;
+        }
+
+        nav .download-btn {
+            margin-top: auto;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: default; /* Visual only for this demo */
+            font-size: 0.9rem;
+        }
+
+        /* Main Content */
+        main {
+            margin-left: var(--sidebar-width);
+            flex: 1;
+            padding: 3rem 4rem;
+            max-width: 1200px;
+        }
+
+        section {
+            background: var(--white);
+            padding: 3rem;
+            margin-bottom: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            scroll-margin-top: 2rem;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1.section-title {
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+            display: inline-block;
+        }
+
+        h3 {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        ul.feature-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        ul.feature-list li {
+            background: #f9fafb;
+            padding: 1.5rem;
+            border-left: 4px solid var(--secondary-color);
+            border-radius: 4px;
+        }
+
+        ul.feature-list li strong {
+            display: block;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .highlight-box {
+            background-color: #eef2ff;
+            border: 1px solid #c7d2fe;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .highlight-box h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat-card {
+            background: var(--primary-color);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-card .number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+
+        .stat-card .label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 1rem;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .quote {
+            font-style: italic;
+            border-left: 4px solid var(--secondary-color);
+            padding-left: 1rem;
+            color: #555;
+            margin: 1.5rem 0;
+            background: #fff0f0;
+            padding: 1.5rem;
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: 4rem;
+            padding-bottom: 2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            body {
+                flex-direction: column;
+            }
+            nav {
+                width: 100%;
+                height: auto;
+                position: relative;
+                padding: 1rem;
+            }
+            nav ul {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+            nav li {
+                margin-bottom: 0;
+            }
+            main {
+                margin-left: 0;
+                padding: 2rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div>
+            <h1>Sublime Laser</h1>
+            <h2>Acquisition Prospectus</h2>
+        </div>
+        <ul>
+            <li><a href="#executive-summary" class="active">Executive Summary</a></li>
+            <li><a href="#business-overview">Business Overview</a></li>
+            <li><a href="#technology">Technology & IP</a></li>
+            <li><a href="#market-analysis">Market Analysis</a></li>
+            <li><a href="#competitive-landscape">Competitive Landscape</a></li>
+            <li><a href="#strategic-fit">Strategic Synergies</a></li>
+        </ul>
+        <div class="download-btn">
+            Confidential Presentation
+        </div>
+    </nav>
+
+    <main>
+        <!-- Executive Summary -->
+        <section id="executive-summary">
+            <h1 class="section-title">Executive Summary</h1>
+            <p><strong>Sublime Laser, Inc.</strong> represents a prime acquisition target in the high-precision medical manufacturing sector. Based in Salt Lake City, Utah, Sublime specializes in rapid-turnaround laser machining for the medical device industry, specifically targeting R&D teams in neurovascular, cardiovascular, and peripheral vascular spaces.</p>
+            <p>By leveraging advanced <strong>Femtosecond Laser technology</strong> (Cold Ablation), Sublime resolves the industry's critical bottleneck: the long lead times for high-precision prototypes. With ISO 13485 certification and a unique "Rent-a-Laser" service model, the company has positioned itself not just as a job shop, but as an extension of their clients' engineering teams.</p>
+            
+            <div class="highlight-box">
+                <h4>Investment Thesis</h4>
+                <p>Acquiring Sublime Laser provides immediate access to proprietary high-speed prototyping processes, deep expertise in Nitinol processing, and a validated customer base of medical device innovators who value speed and precision above all else.</p>
+            </div>
+        </section>
+
+        <!-- Business Overview -->
+        <section id="business-overview">
+            <h1 class="section-title">Business Overview</h1>
+            <p>Sublime Laser was founded to bridge the gap between concept and production in the medical device field. The company distinguishes itself through an obsession with speed and engineering collaboration.</p>
+
+            <h3>Core Capabilities</h3>
+            <ul class="feature-list">
+                <li>
+                    <strong>Laser Machining</strong>
+                    Custom machining for tubular components (Nitinol, Stainless Steel, Precious Metals) with micron-level precision.
+                </li>
+                <li>
+                    <strong>Rapid Prototyping</strong>
+                    Delivering parts in "days, instead of weeks or months," drastically reducing client R&D cycles.
+                </li>
+                <li>
+                    <strong>"Rent a Laser" Service</strong>
+                    A unique engagement model allowing client engineers to work on-site with Sublime technicians for real-time design iteration.
+                </li>
+                <li>
+                    <strong>ISO 13485 Certified</strong>
+                    Full compliance with quality management systems required for medical device manufacturing.
+                </li>
+            </ul>
+
+            <h3>Key Personnel</h3>
+            <p>The company is led by industry veterans with decades of specialized experience:</p>
+            <ul>
+                <li><strong>Todd Turnlund (CEO, Founder):</strong> Extensive background in laser manufacturing and business development.</li>
+                <li><strong>Dave Ewell (Principal Engineer):</strong> Deep technical expertise in laser optics and material interaction.</li>
+            </ul>
+        </section>
+
+        <!-- Technology & IP -->
+        <section id="technology">
+            <h1 class="section-title">Technology & Capabilities</h1>
+            <p>Sublime Laser operates at the cutting edge of laser physics, utilizing two distinct technologies to optimize for both speed and quality.</p>
+
+            <h3>1. Femtosecond Lasers (The Crown Jewel)</h3>
+            <p>This "Cold Ablation" technology is the primary differentiator for high-value medical components.</p>
+            <ul class="feature-list">
+                <li><strong>No Heat Affected Zone (HAZ):</strong> Pulses are so short (quadrillionths of a second) that material vaporizes before heat transfers.</li>
+                <li><strong>Material Integrity:</strong> Essential for Nitinol (shape memory alloy), ensuring the material properties are not altered during cutting.</li>
+                <li><strong>Precision:</strong> Capable of creating features as small as 12 microns.</li>
+                <li><strong>Post-Processing:</strong> Produces clean cuts without "recast" molten material, eliminating the need for extensive chemical finishing.</li>
+            </ul>
+
+            <h3>2. Fiber Lasers</h3>
+            <p>Utilized for applications requiring speed and melting processes, allowing for versatile handling of stainless steel and other metals.</p>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="number">12µm</span>
+                    <span class="label">Min Feature Size</span>
+                </div>
+                <div class="stat-card">
+                    <span class="number">120"</span>
+                    <span class="label">Max Tube Length</span>
+                </div>
+                <div class="stat-card">
+                    <span class="number">&lt; 2</span>
+                    <span class="label">Weeks Turnaround</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Market Analysis -->
+        <section id="market-analysis">
+            <h1 class="section-title">Market Analysis & Trends</h1>
+            <p>Sublime Laser is perfectly positioned to ride three major waves in the global MedTech market.</p>
+
+            <h3>Trend 1: Miniaturization of Medical Devices</h3>
+            <p>As surgeries become less invasive (MIS), the demand for catheters, stents, and neurovascular devices with microscopic features is exploding. Sublime’s ability to machine tubular components with <strong>0.008" diameters</strong> and <strong>12-micron kerf widths</strong> addresses this direct need.</p>
+
+            <h3>Trend 2: The Rise of Nitinol</h3>
+            <p>Nitinol is increasingly the material of choice for implants due to its super-elasticity and shape memory. However, it is notoriously difficult to machine without destroying its properties. Sublime’s specific expertise and Femtosecond (athermal) capabilities make them a critical partner for any OEM using Nitinol.</p>
+
+            <h3>Trend 3: Agility Over Volume</h3>
+            <p>Large Contract Manufacturing Organizations (CMOs) focus on high-volume production, often neglecting R&D teams that need 10 prototypes in 3 days. The market is shifting toward "Agile Manufacturing," where Sublime is a clear leader.</p>
+        </section>
+
+        <!-- Competitive Landscape -->
+        <section id="competitive-landscape">
+            <h1 class="section-title">Competitive Landscape</h1>
+            <p>The laser machining market is bifurcated between massive CMOs and smaller job shops. Sublime Laser occupies a strategic "Premium Agile" niche.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Competitor Type</th>
+                        <th>Examples</th>
+                        <th>Weakness</th>
+                        <th>Sublime Advantage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Large CMOs</strong></td>
+                        <td>Resonetics, Tegra, Integer</td>
+                        <td>Slow quoting, long lead times, rigid processes, high Minimum Order Quantities (MOQs).</td>
+                        <td><strong>Speed & Access:</strong> "Days not weeks." Direct engineer-to-engineer collaboration.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>General Job Shops</strong></td>
+                        <td>Local machine shops</td>
+                        <td>Lack of medical certification, outdated laser tech (high HAZ), lack of Nitinol expertise.</td>
+                        <td><strong>Specialization:</strong> ISO 13485 certified, Femtosecond tech, Nitinol experts.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Client Validation</h3>
+            <div class="quote">
+                "We were able to fast-track our R&D project because Sublime turned around parts so quickly that met our design requirements." — <strong>Senior Engineer (Client)</strong>
+            </div>
+            <div class="quote">
+                "We rented a laser and a tech for a day. We could iterate design ideas on-site, saving several weeks of turnaround time." — <strong>Project Manager (Client)</strong>
+            </div>
+        </section>
+
+        <!-- Strategic Fit -->
+        <section id="strategic-fit">
+            <h1 class="section-title">Strategic Synergies</h1>
+            <p>For a potential acquirer, Sublime Laser offers modular value that can be integrated into larger operations or kept as a standalone R&D accelerator.</p>
+
+            <h3>For Large Contract Manufacturers (CMOs)</h3>
+            <p>Acquiring Sublime solves the "Front-End Innovation" problem. Large CMOs often lose bids because they cannot prototype fast enough. Sublime acts as the "speed boat" to the CMO's "tanker," capturing clients at the R&D phase and retaining them through volume production.</p>
+
+            <h3>For Medical Device OEMs</h3>
+            <p>Vertical integration of Sublime brings critical component manufacturing in-house, securing the supply chain for neurovascular and cardiovascular product lines and protecting IP during the development phase.</p>
+
+            <div class="highlight-box">
+                <h4>Acquisition Highlights</h4>
+                <ul style="margin-left: 20px;">
+                    <li><strong>Turnkey R&D Solution:</strong> Immediate boost to engineering velocity.</li>
+                    <li><strong>No CAPEX Required:</strong> Machines, ISO processes, and talent are already in place.</li>
+                    <li><strong>Strategic Location:</strong> Located in Salt Lake City, a growing hub for manufacturing and tech, with easy logistics access.</li>
+                    <li><strong>Scalability:</strong> Proven processes ready to be scaled or replicated across other facilities.</li>
+                </ul>
+            </div>
+            
+            <p style="text-align: center; margin-top: 3rem; font-weight: bold;">
+                Sublime Laser is not just selling parts; they are selling <span style="color: var(--secondary-color);">time</span>. In the medical device race, time is the most valuable asset.
+            </p>
+        </section>
+
+        <div class="footer-note">
+            &copy; 2023 Analysis Generated for Sublime Laser, Inc. M&A Review. <br>
+            Based on publicly available data and technical specifications.
+        </div>
+    </main>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // Remove active class from all links
+                document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
+                // Add active class to clicked link
+                this.classList.add('active');
+
+                const targetId = this.getAttribute('href');
+                document.querySelector(targetId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Highlight active section on scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('nav a').forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href').includes(current)) {
+                    a.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
